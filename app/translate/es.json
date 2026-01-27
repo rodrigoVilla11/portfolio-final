@@ -1,0 +1,193 @@
+{
+  "hero": {
+    "badge": "PORTFOLIO",
+    "title": "Hola, soy Rodrigo",
+    "subtitle": "Desarrollador Fullstack especializado en aplicaciones web modernas",
+    "description": "Desarrollo aplicaciones web de punta a punta, desde la experiencia de usuario en el frontend hasta la arquitectura backend, con foco en performance, experiencia de usuario y código mantenible.",
+    "ctaPrimary": "Ver proyectos",
+    "ctaSecondary": "Contactar",
+    "highlightTitle": "Qué hago",
+    "highlight1": "Aplicaciones SaaS con paneles administrativos y dashboards.",
+    "highlight2": "Integraciones con APIs, bases de datos y servicios externos.",
+    "highlight3": "Sistemas a medida para negocios reales (logística, ventas, gastronomía).",
+    "currentMode": "Modo actual:",
+    "modeDark": "Oscuro",
+    "modeLight": "Claro"
+  },
+
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+
+  "about": {
+    "title": "Sobre mí",
+    "text": "Soy desarrollador fullstack con experiencia creando productos reales para empresas: sistemas de gestión, ERPs livianos, paneles administrativos y herramientas internas. Me gusta trabajar cerca del problema de negocio, entender el contexto y proponer soluciones simples pero potentes."
+  },
+
+  "projectDetail": {
+    "stack": "Stack tecnológico",
+    "highlights": "Puntos destacados",
+    "gallery": "Galería",
+    "backToProjects": "Volver a proyectos",
+    "links": "Enlaces",
+    "viewDemo": "Ver demo",
+    "viewRepo": "Ver repositorio",
+    "viewDocs": "Ver documentación",
+    "factsTitle": "Resumen del proyecto",
+    "facts": {
+      "role": "Rol",
+      "period": "Período",
+      "status": "Estado"
+    }
+  },
+
+  "contact": {
+    "title": "¿Trabajamos juntos?",
+    "text": "Si querés hablar sobre un proyecto, una colaboración o una solución a medida para tu negocio, escribime y vemos cómo puedo ayudarte.",
+    "cta": "Enviar email"
+  },
+
+  "projectsPage": {
+    "badge": "PROYECTOS",
+    "title": "Proyectos seleccionados",
+    "subtitle": "Una selección de proyectos reales donde diseñé, desarrollé y escalé soluciones completas.",
+    "viewDetail": "Ver detalle",
+    "ctaTitle": "¿Querés saber más?",
+    "ctaText": "Si te interesa cómo trabajo o querés colaborar, no dudes en contactarme.",
+    "ctaButton": "Contactame"
+  },
+
+  "projects": {
+    "categories": {
+      "b2b": "B2B / ERP",
+      "gastro": "Gastronomía"
+    },
+
+    "dma": {
+      "title": "Distribuidora DMA",
+      "short": "Un sistema ERP B2B completo para la gestión de ventas, pagos, clientes y operaciones financieras.",
+
+      "facts": {
+        "role": "Desarrollador Fullstack (Next.js + NestJS)",
+        "period": "2024 – Actualidad",
+        "status": "En producción"
+      },
+
+      "highlights": [
+        "Módulo de pagos avanzado con descuentos, recargos y gestión de cheques",
+        "Control de acceso por roles con soporte multi-sucursal",
+        "Dashboards y estadísticas financieras de alto rendimiento"
+      ],
+
+      "media": {
+        "coverAlt": "Vista principal del dashboard del ERP DMA",
+        "gallery": [
+          "Dashboard principal de DMA",
+          "Módulo avanzado de pagos",
+          "Reportes y estadísticas financieras"
+        ],
+        "contextAlt": "Contexto del negocio y requerimientos del sistema",
+        "architectureAlt": "Diagrama de arquitectura del sistema"
+      },
+
+      "sections": {
+        "context": {
+          "title": "Contexto del proyecto",
+          "callout": "El sistema fue diseñado para reemplazar procesos manuales y escalar junto al crecimiento del negocio.",
+          "p": [
+            "Distribuidora DMA necesitaba un ERP a medida para reemplazar procesos manuales y planillas.",
+            "El objetivo fue centralizar ventas, pagos, clientes y finanzas en una única plataforma escalable."
+          ]
+        },
+        "built": {
+          "title": "Qué desarrollé",
+          "b": [
+            "Panel administrativo completo con sistema de roles y permisos",
+            "Lógica avanzada de pagos con prorrateo de costos financieros y manejo de cheques",
+            "Arquitectura backend escalable utilizando NestJS y MongoDB"
+          ],
+          "note": "Este proyecto se utiliza activamente en producción y evoluciona constantemente según necesidades reales del negocio."
+        }
+      }
+    },
+
+    "nova": {
+      "title": "Nõva Sushi",
+      "short": "Una plataforma de gestión diseñada para optimizar operaciones, costos y procesos de una marca gastronómica en crecimiento.",
+
+      "facts": {
+        "role": "Desarrollador Fullstack",
+        "period": "2023 – Actualidad",
+        "status": "En uso activo"
+      },
+
+      "highlights": [
+        "Gestión de menú, costos e inventario",
+        "Optimización de procesos operativos",
+        "Diseñado con foco en escalabilidad y franquicias"
+      ],
+
+      "media": {
+        "coverAlt": "Vista general del sistema de gestión de Nõva Sushi",
+        "gallery": [
+          "Gestión de menú y productos",
+          "Control de costos y márgenes",
+          "Flujos operativos y procesos"
+        ],
+        "problemAlt": "Problemas operativos y de control de costos",
+        "solutionAlt": "Solución centralizada de gestión"
+      },
+
+      "sections": {
+        "problem": {
+          "title": "El problema",
+          "callout": "A medida que el negocio crecía, los procesos manuales se transformaron en un cuello de botella.",
+          "p": [
+            "Con el crecimiento de la marca, la gestión manual de costos, inventario y procesos se volvió ineficiente.",
+            "Era necesario un sistema que reflejara la realidad operativa y financiera del negocio."
+          ]
+        },
+        "solution": {
+          "title": "La solución",
+          "b": [
+            "Gestión centralizada de productos y costos",
+            "Flujos operativos claros para el uso diario",
+            "Base preparada para futuras funcionalidades de franquicias"
+          ]
+        }
+      }
+    }
+  },
+
+  "contactPage": {
+    "badge": "CONTACTO",
+    "title": "Hablemos sobre tu proyecto",
+    "subtitle": "Si tenés una idea, un producto existente o un negocio que necesita mejor software, podemos charlar sin compromiso.",
+    "intro": "Trabajo principalmente en aplicaciones web fullstack, paneles administrativos, herramientas internas y sistemas conectados directamente con el negocio. Contame qué estás buscando y vemos cómo puedo ayudarte.",
+    "emailCta": "Enviarme un email",
+    "responseHint": "Suelo responder dentro de las 24/48 horas, según la carga de trabajo.",
+    "formTitle": "Contame un poco más",
+    "formText": "No hace falta que tengas todo definido. Un contexto general, el tipo de proyecto y tus objetivos son más que suficientes para empezar.",
+    "formNameLabel": "Nombre",
+    "formNamePlaceholder": "Tu nombre",
+    "formEmailLabel": "Email",
+    "formEmailPlaceholder": "tu@email.com",
+    "formMessageLabel": "Mensaje",
+    "formMessagePlaceholder": "Describí brevemente tu proyecto, tiempos e ideas...",
+    "formSubmit": "Enviar mensaje",
+    "formNote": "Este formulario es solo una demo del portfolio. Si preferís, podés contactarme directamente por email o LinkedIn.",
+    "altContact": "¿Todavía no estás seguro?",
+    "altContactLink": "Mirá algunos proyectos primero",
+    "formSuccess": "Mensaje enviado. ¡Gracias! Te responderé a la brevedad.",
+    "formError": "Hubo un error al enviar tu mensaje. Por favor, intentá nuevamente en unos minutos.",
+    "formSubmitting": "Enviando..."
+  },
+
+  "footer": {
+    "tagline": "Portfolio construido a partir de proyectos reales y problemas reales.",
+    "projects": "Ver proyectos",
+    "contact": "Contacto"
+  }
+}
