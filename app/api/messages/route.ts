@@ -3,14 +3,11 @@ import { connectToDatabase } from "@/lib/mongodb";
 
 const ADMIN_TOKEN = process.env.CONTACT_ADMIN_TOKEN;
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
   try {
-    const { searchParams } = new URL(req.url);
-    const token = searchParams.get("token");
+    const auth = req.headers.get("Authorization");
+    const token = auth?.startsWith("Bearer ") ? auth.slice(7) : null;
 
-    console.log("Received token:", token);
-    console.log("ADMIN token:", ADMIN_TOKEN);
-    // VALIDACIÓN
     if (!token || token !== ADMIN_TOKEN) {
       return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
     }

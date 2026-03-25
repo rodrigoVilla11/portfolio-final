@@ -1,15 +1,17 @@
 {
   "hero": {
-    "badge": "PORTFOLIO",
-    "title": "Hola, soy Rodrigo",
-    "subtitle": "Desarrollador Fullstack especializado en aplicaciones web modernas",
-    "description": "Desarrollo aplicaciones web de punta a punta, desde la experiencia de usuario en el frontend hasta la arquitectura backend, con foco en performance, experiencia de usuario y código mantenible.",
+    "badge": "DESARROLLADOR FULLSTACK · ARGENTINA",
+    "title": "Construyo software que hace funcionar negocios.",
+    "subtitle": "Desarrollador Fullstack disponible para equipos de producto y consultoría — construyo ERPs, plataformas SaaS y herramientas internas.",
+    "description": "Tomo problemas operativos complejos y construyo software que los resuelve — completo, escalable y en uso activo. Ya sea sumándome a un equipo de producto o trabajando de forma independiente.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Contactar",
-    "highlightTitle": "Qué hago",
-    "highlight1": "Aplicaciones SaaS con paneles administrativos y dashboards.",
-    "highlight2": "Integraciones con APIs, bases de datos y servicios externos.",
-    "highlight3": "Sistemas a medida para negocios reales (logística, ventas, gastronomía).",
+    "cvDownload": "Descargar CV",
+    "available": "Disponible para roles full-time y consultoría",
+    "highlightTitle": "Qué construyo",
+    "highlight1": "ERPs en producción y sistemas B2B para negocios reales.",
+    "highlight2": "Plataformas SaaS con arquitectura multi-tenant y facturación.",
+    "highlight3": "Herramientas internas, paneles administrativos y dashboards operativos.",
     "currentMode": "Modo actual:",
     "modeDark": "Oscuro",
     "modeLight": "Claro"
@@ -23,7 +25,16 @@
 
   "about": {
     "title": "Sobre mí",
-    "text": "Soy desarrollador fullstack con experiencia creando productos reales para empresas: sistemas de gestión, ERPs livianos, paneles administrativos y herramientas internas. Me gusta trabajar cerca del problema de negocio, entender el contexto y proponer soluciones simples pero potentes."
+    "text": "Llevo más de 3 años construyendo software del que negocios reales dependen a diario — no demos, no MVPs que nunca se lanzan. ERPs, sistemas de gestión, dashboards y paneles administrativos. Trabajo cerca del problema de negocio: entender el porqué determina cómo construyo."
+  },
+
+  "lookingFor": {
+    "title": "Qué estoy buscando",
+    "text": "Estoy disponible para roles full-time y trabajos de consultoría. Trabajo mejor en sistemas con complejidad operativa real.",
+    "item1label": "Full-time",
+    "item1text": "Engineer de producto o desarrollador fullstack en un equipo que construya herramientas internas, SaaS o software de negocio complejo.",
+    "item2label": "Consultoría",
+    "item2text": "Trabajos independientes con un sistema real para diseñar y construir — preferentemente de 3+ meses."
   },
 
   "projectDetail": {
@@ -44,118 +55,172 @@
   },
 
   "contact": {
-    "title": "¿Trabajamos juntos?",
-    "text": "Si querés hablar sobre un proyecto, una colaboración o una solución a medida para tu negocio, escribime y vemos cómo puedo ayudarte.",
+    "title": "¿Construimos algo juntos?",
+    "text": "Ya sea que necesites un sistema construido desde cero o tengas uno existente para extender — escribime.",
     "cta": "Enviar email"
   },
 
   "projectsPage": {
     "badge": "PROYECTOS",
     "title": "Proyectos seleccionados",
-    "subtitle": "Una selección de proyectos reales donde diseñé, desarrollé y escalé soluciones completas.",
+    "subtitle": "Tres sistemas — un ERP, una plataforma SaaS y una herramienta de gestión gastronómica. Todos construidos de punta a punta, todos en uso activo.",
     "viewDetail": "Ver detalle",
-    "ctaTitle": "¿Querés saber más?",
+    "ctaTitle": "¿Querés ver cómo trabajo?",
     "ctaText": "Si te interesa cómo trabajo o querés colaborar, no dudes en contactarme.",
     "ctaButton": "Contactame"
   },
 
   "projects": {
+    "title": "Proyectos",
+    "tagline": "SISTEMAS EN PRODUCCIÓN",
     "categories": {
       "b2b": "B2B / ERP",
-      "gastro": "Gastronomía"
+      "gastro": "Gastronomía",
+      "saas": "SaaS / POS"
     },
 
     "dma": {
       "title": "Distribuidora DMA",
-      "short": "Un sistema ERP B2B completo para la gestión de ventas, pagos, clientes y operaciones financieras.",
+      "short": "Una plataforma B2B de producción para un distribuidor mayorista de autopartes en Argentina — ciclo comercial completo desde el catálogo y pedidos hasta pagos, cobranzas y CRM.",
 
       "facts": {
-        "role": "Desarrollador Fullstack (Next.js + NestJS)",
+        "role": "Desarrollador Fullstack (Next.js 15 + NestJS + MongoDB)",
         "period": "2024 – Actualidad",
         "status": "En producción"
       },
 
       "highlights": [
-        "Módulo de pagos avanzado con descuentos, recargos y gestión de cheques",
-        "Control de acceso por roles con soporte multi-sucursal",
-        "Dashboards y estadísticas financieras de alto rendimiento"
+        "Motor de imputación de pagos: liquidación secuencial de documentos (más antiguo primero), tasas de descuento por DCR, amortización de interés por cheques diferidos y generación de planes de refinanciación en cuotas",
+        "43 API slices de RTK Query para estado del servidor, React Context para estado de sesión y sistema de configuración multi-tenant para despliegue white-label por distribuidor",
+        "50+ módulos NestJS con RBAC por JWT (roles Admin/Vendedor/Cliente), sincronización con ERP vía multisoft_id, seguimiento GPS de visitas y exportación a PDF/Excel"
       ],
 
       "media": {
-        "coverAlt": "Vista principal del dashboard del ERP DMA",
+        "coverAlt": "Plataforma B2B de DMA — dashboard principal",
         "gallery": [
-          "Dashboard principal de DMA",
-          "Módulo avanzado de pagos",
-          "Reportes y estadísticas financieras"
+          "Dashboard con estadísticas de ventas y objetivos por vendedor",
+          "Motor de imputación de pagos — vista de liquidación de documentos",
+          "Reportes financieros y gestión de cobranzas"
         ],
-        "contextAlt": "Contexto del negocio y requerimientos del sistema",
-        "architectureAlt": "Diagrama de arquitectura del sistema"
+        "contextAlt": "Contexto del negocio de distribución mayorista argentina",
+        "architectureAlt": "Diagrama de arquitectura del sistema full-stack"
       },
 
       "sections": {
         "context": {
           "title": "Contexto del proyecto",
-          "callout": "El sistema fue diseñado para reemplazar procesos manuales y escalar junto al crecimiento del negocio.",
+          "callout": "La distribución mayorista argentina opera con flujos de crédito complejos — cheques diferidos, tasas de descuento según antigüedad del documento y planes de refinanciación — que ningún ERP genérico maneja bien en el punto de venta.",
           "p": [
-            "Distribuidora DMA necesitaba un ERP a medida para reemplazar procesos manuales y planillas.",
-            "El objetivo fue centralizar ventas, pagos, clientes y finanzas en una única plataforma escalable."
+            "La fuerza de ventas necesitaba una herramienta de campo — en mobile o desktop — para presupuestar, tomar pedidos, registrar pagos multi-método y consultar saldos en tiempo real, en paralelo al ERP existente (Multisoft).",
+            "La plataforma cubre el ciclo comercial completo: catálogo con matrices de compatibilidad vehicular, pedidos de venta, seguimiento de facturas abiertas, procesamiento de pagos con cálculo de interés por cheques diferidos, gestión de cobranzas y CRM para vendedores."
           ]
         },
         "built": {
           "title": "Qué desarrollé",
           "b": [
-            "Panel administrativo completo con sistema de roles y permisos",
-            "Lógica avanzada de pagos con prorrateo de costos financieros y manejo de cheques",
-            "Arquitectura backend escalable utilizando NestJS y MongoDB"
+            "Motor de imputación de pagos: liquidación secuencial de facturas abiertas (más antiguas primero), cálculo de tasa de descuento por DCR, amortización de interés por cheques diferidos (tasa anual → diaria → días diferidos) y PlanCalculator para refinanciaciones en cuotas",
+            "Arquitectura full-stack: frontend Next.js 15 con 43 API slices de RTK Query y React Context para estado de sesión, respaldado por una API REST NestJS de 50+ módulos sobre MongoDB Atlas con autenticación JWT y control de acceso por roles",
+            "Sistema de configuración multi-tenant para despliegue white-label por distribuidor mediante variables de entorno, theming por cliente y feature flags (Maps, Finance, CRM, Marketing) — sin cambios de código por nuevo cliente"
           ],
-          "note": "Este proyecto se utiliza activamente en producción y evoluciona constantemente según necesidades reales del negocio."
+          "note": "En uso activo en producción por la fuerza de ventas de un distribuidor mayorista real en Argentina. Incluye seguimiento GPS de visitas de clientes, exportación a Excel/PDF, i18n, dashboards con Recharts e interfaz mobile-first para vendedores de campo."
         }
       }
     },
 
     "nova": {
       "title": "Nõva Sushi",
-      "short": "Una plataforma de gestión diseñada para optimizar operaciones, costos y procesos de una marca gastronómica en crecimiento.",
+      "short": "Una plataforma de marketing y adquisición de franquicias para una marca argentina de sushi — un embudo de ventas digital completo para clientes y potenciales inversores.",
 
       "facts": {
-        "role": "Desarrollador Fullstack",
+        "role": "Desarrollador Frontend (Next.js 15 + Framer Motion)",
         "period": "2023 – Actualidad",
-        "status": "En uso activo"
+        "status": "En producción"
       },
 
       "highlights": [
-        "Gestión de menú, costos e inventario",
-        "Optimización de procesos operativos",
-        "Diseñado con foco en escalabilidad y franquicias"
+        "Embudo completo para inversores — modelado de ROI, KPIs operativos reales y captura de leads vía WhatsApp",
+        "Catálogo interactivo con más de 100 productos, búsqueda en tiempo real y modales con accesibilidad por teclado",
+        "Sistema de animaciones scroll-driven con Framer Motion (useScroll, useTransform, AnimatePresence)"
       ],
 
       "media": {
-        "coverAlt": "Vista general del sistema de gestión de Nõva Sushi",
+        "coverAlt": "Sitio de marketing de Nõva Sushi — homepage",
         "gallery": [
-          "Gestión de menú y productos",
-          "Control de costos y márgenes",
-          "Flujos operativos y procesos"
+          "Hero de la homepage y storytelling de marca",
+          "Catálogo interactivo con filtros por categoría",
+          "Vista general del embudo de adquisición de franquicias"
         ],
-        "problemAlt": "Problemas operativos y de control de costos",
-        "solutionAlt": "Solución centralizada de gestión"
+        "problemAlt": "Homepage y experiencia de marca",
+        "solutionAlt": "Embudo de inversores y captura de leads"
+      },
+
+      "sections": {
+        "problem": {
+          "title": "El proyecto",
+          "callout": "La mayoría de los sitios de restaurantes son páginas pasivas. Este fue construido como una herramienta de ventas activa con dos embudos de conversión paralelos.",
+          "p": [
+            "Nova Sushi necesitaba más que un menú y un formulario de contacto — una presencia digital que atrajera clientes y convirtiera emprendedores en franquiciados al mismo tiempo.",
+            "El resultado es un sitio Next.js 15 generado estáticamente con dos flujos: un recorrido para consumidores centrado en la historia de marca y el menú, y un embudo de adquisición de franquicias con KPIs operativos reales, formatos de inversión, modelado de ROI y un proceso de solicitud estructurado."
+          ]
+        },
+        "solution": {
+          "title": "Qué desarrollé",
+          "b": [
+            "Embudo de adquisición de franquicias completo en 10 secciones — diferenciadores, KPIs reales, 3 escenarios de ROI, proceso de incorporación y captura de leads vía WhatsApp",
+            "Catálogo interactivo con filtrado por categoría y búsqueda en tiempo real sobre 100+ productos, integrado con AWS S3 como CDN de imágenes",
+            "Sistema de animaciones scroll-driven con los hooks useScroll y useTransform de Framer Motion, con AnimatePresence para transiciones de modales"
+          ],
+          "note": "Deployado en Vercel con SEO de producción: structured data JSON-LD (esquemas Restaurant, Breadcrumb y FAQ), generación dinámica de sitemap/robots y cobertura completa de Open Graph."
+        }
+      }
+    },
+
+    "gourmetify": {
+      "title": "Gourmetify",
+      "short": "Una plataforma SaaS multi-tenant de nivel productivo que reemplaza el stack operativo completo de un restaurante — inventario, POS, pedidos, compras, RRHH y reportes financieros en una sola aplicación.",
+
+      "facts": {
+        "role": "Desarrollador Fullstack (Next.js 16 + Prisma + PostgreSQL)",
+        "period": "2024 – Actualidad",
+        "status": "En desarrollo"
+      },
+
+      "highlights": [
+        "POS offline-first con cola de mutaciones en IndexedDB, idempotencia por UUID en el servidor y sincronización automática con backoff exponencial",
+        "Integración dual con MercadoPago: facturación SaaS por suscripción (API Preapprovals) + pagos de clientes en el restaurante (API Preferences), ambos con idempotencia atómica de webhooks",
+        "Motor de costeo por receta con factores de desperdicio, esquema multi-tenant en 40+ modelos y feature flags por plan en 140+ rutas de API"
+      ],
+
+      "media": {
+        "coverAlt": "Plataforma SaaS Gourmetify — dashboard principal",
+        "gallery": [
+          "POS offline-first con indicador de estado de sincronización",
+          "Gestión de pedidos tipo Kanban con pantalla de cocina",
+          "Gestión de suscripción y planes",
+          "Dashboard de analíticas con resumen de P&L",
+          "Gestión de inventario y costeo de recetas"
+        ],
+        "problemAlt": "Caos operativo en restaurantes latinoamericanos",
+        "solutionAlt": "Arquitectura full-stack SaaS de Gourmetify"
       },
 
       "sections": {
         "problem": {
           "title": "El problema",
-          "callout": "A medida que el negocio crecía, los procesos manuales se transformaron en un cuello de botella.",
+          "callout": "El restaurante promedio en Latinoamérica funciona con grupos de WhatsApp, libretas y planillas — sin visibilidad real del costo de food, el flujo de caja ni la rentabilidad.",
           "p": [
-            "Con el crecimiento de la marca, la gestión manual de costos, inventario y procesos se volvió ineficiente.",
-            "Era necesario un sistema que reflejara la realidad operativa y financiera del negocio."
+            "Los dueños no conocen su costo de food real, no pueden rastrear el desperdicio de ingredientes, no tienen visibilidad del P&L diario y gestionan al personal con planillas de papel. Cada dolor operativo es un proceso manual.",
+            "Las soluciones existentes son o demasiado caras y complejas, o herramientas de un solo propósito que no se integran entre sí. Gourmetify reemplaza todo el stack con una única plataforma SaaS accesible, diseñada para la realidad del food service latinoamericano."
           ]
         },
-        "solution": {
-          "title": "La solución",
+        "built": {
+          "title": "Qué desarrollé",
           "b": [
-            "Gestión centralizada de productos y costos",
-            "Flujos operativos claros para el uso diario",
-            "Base preparada para futuras funcionalidades de franquicias"
-          ]
+            "Arquitectura multi-tenant en PostgreSQL con aislamiento a nivel de fila en 40+ modelos, RBAC de 5 roles y sistema centralizado de feature flags aplicado en 140+ handlers de rutas API",
+            "POS offline-first con IndexedDB para cola de mutaciones, deduplicación por UUID en el servidor para envío idempotente de ventas, y reintento automático con backoff exponencial — las ventas nunca se pierden ante cortes de internet",
+            "Integración dual con MercadoPago: API Preapprovals para facturación SaaS con flujo automatizado de período de gracia y degradación, API Preferences para pagos de clientes — ambos con idempotencia atómica de webhooks mediante tabla de eventos reclamados"
+          ],
+          "note": "La plataforma abarca 30+ módulos operativos: inventario con costeo por receta (BOM), gestión de pedidos tipo Kanban con pantalla de cocina, compras a proveedores, asistencia de empleados con fichador PIN y reportes financieros automáticos por email."
         }
       }
     }
@@ -163,9 +228,9 @@
 
   "contactPage": {
     "badge": "CONTACTO",
-    "title": "Hablemos sobre tu proyecto",
+    "title": "Construyamos algo juntos.",
     "subtitle": "Si tenés una idea, un producto existente o un negocio que necesita mejor software, podemos charlar sin compromiso.",
-    "intro": "Trabajo principalmente en aplicaciones web fullstack, paneles administrativos, herramientas internas y sistemas conectados directamente con el negocio. Contame qué estás buscando y vemos cómo puedo ayudarte.",
+    "intro": "Me especializo en sistemas con complejidad real — ERPs, SaaS multi-tenant, herramientas internas. Si eso es lo que estás construyendo, hablemos.",
     "emailCta": "Enviarme un email",
     "responseHint": "Suelo responder dentro de las 24/48 horas, según la carga de trabajo.",
     "formTitle": "Contame un poco más",
@@ -177,7 +242,8 @@
     "formMessageLabel": "Mensaje",
     "formMessagePlaceholder": "Describí brevemente tu proyecto, tiempos e ideas...",
     "formSubmit": "Enviar mensaje",
-    "formNote": "Este formulario es solo una demo del portfolio. Si preferís, podés contactarme directamente por email o LinkedIn.",
+    "adminNoteLabel": "Nota técnica",
+    "adminNote": "Los mensajes del formulario se almacenan en MongoDB y son accesibles desde un panel de administración interno — autenticado con Bearer token. Construido como herramienta interna.",
     "altContact": "¿Todavía no estás seguro?",
     "altContactLink": "Mirá algunos proyectos primero",
     "formSuccess": "Mensaje enviado. ¡Gracias! Te responderé a la brevedad.",

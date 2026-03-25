@@ -73,7 +73,7 @@ export default function ProjectsPage() {
                   className="
                     inline-flex items-center gap-2
                     text-sm font-medium
-                    text-slate-900 dark:text-slate-50
+                    text-indigo-600 dark:text-indigo-400
                     underline underline-offset-4
                     hover:opacity-80 transition-opacity
                   "
@@ -100,8 +100,9 @@ export default function ProjectsPage() {
             className="
               inline-flex items-center
               px-5 py-2.5 rounded-full
-              bg-slate-900 text-white
-              dark:bg-slate-100 dark:text-slate-900
+              bg-indigo-600 text-white
+              dark:bg-indigo-500
+              hover:bg-indigo-700 dark:hover:bg-indigo-600
               hover:scale-[1.03] active:scale-[0.98]
               transition-all text-sm
             "

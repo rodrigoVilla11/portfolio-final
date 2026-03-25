@@ -1,15 +1,17 @@
 {
   "hero": {
-    "badge": "PORTFOLIO",
-    "title": "Hi, I'm Rodrigo",
-    "subtitle": "Fullstack Developer specialized in modern web applications",
-    "description": "I build end-to-end web applications, from frontend UX to backend architecture, with a strong focus on performance, user experience and maintainable code.",
+    "badge": "FULLSTACK DEVELOPER · ARGENTINA",
+    "title": "I build software that runs businesses.",
+    "subtitle": "Fullstack developer open to product teams and consulting — I build ERPs, SaaS platforms, and internal tools.",
+    "description": "I take complex operational problems and ship software that solves them — end-to-end, scalable, and in active use. Whether joining a product team or working independently.",
     "ctaPrimary": "View projects",
     "ctaSecondary": "Get in touch",
-    "highlightTitle": "What I do",
-    "highlight1": "SaaS applications with admin panels and dashboards.",
-    "highlight2": "API integrations, databases and external services.",
-    "highlight3": "Custom systems for real businesses (logistics, sales, gastronomy).",
+    "cvDownload": "Download CV",
+    "available": "Open to full-time roles & consulting",
+    "highlightTitle": "What I build",
+    "highlight1": "Production ERPs and B2B systems for real businesses.",
+    "highlight2": "SaaS platforms with multi-tenant architecture and billing.",
+    "highlight3": "Internal tools, admin panels, and operational dashboards.",
     "currentMode": "Current mode:",
     "modeDark": "Dark",
     "modeLight": "Light"
@@ -23,7 +25,16 @@
 
   "about": {
     "title": "About me",
-    "text": "I'm a fullstack developer with experience building real products for businesses: management systems, lightweight ERPs, admin panels and internal tools. I like to work close to the business problem, understand the context and propose simple but powerful solutions."
+    "text": "I've spent the last 3+ years building software that real businesses depend on daily — not demos, not MVPs that never ship. ERPs, management systems, dashboards, and admin panels. I work close to the business problem: understanding the why drives how I build."
+  },
+
+  "lookingFor": {
+    "title": "What I'm looking for",
+    "text": "I'm open to full-time roles and consulting engagements. I work best on systems with real operational complexity.",
+    "item1label": "Full-time",
+    "item1text": "Product engineer or fullstack developer on a team building internal tools, SaaS, or complex business software.",
+    "item2label": "Consulting",
+    "item2text": "Independent engagements with a real system to design and build — preferably 3+ months."
   },
 
   "projectDetail": {
@@ -44,118 +55,172 @@
   },
 
   "contact": {
-    "title": "Shall we work together?",
-    "text": "If you want to talk about a project, a collaboration or a custom solution for your business, send me a message and let's see how I can help.",
+    "title": "Ready to build something together?",
+    "text": "Whether you need a system built from scratch or have an existing one to extend — get in touch.",
     "cta": "Send email"
   },
 
   "projectsPage": {
     "badge": "PROJECTS",
     "title": "Selected Projects",
-    "subtitle": "A selection of real-world projects where I designed, built, and scaled complete solutions.",
+    "subtitle": "Three systems — an ERP, a SaaS platform, and a gastronomy management tool. All built end-to-end, all in active use.",
     "viewDetail": "View details",
-    "ctaTitle": "Want to know more?",
+    "ctaTitle": "Want to see how I work?",
     "ctaText": "If you're interested in how I work or want to collaborate, feel free to reach out.",
     "ctaButton": "Contact me"
   },
 
   "projects": {
+    "title": "Projects",
+    "tagline": "PRODUCTION SYSTEMS",
     "categories": {
       "b2b": "B2B / ERP",
-      "gastro": "Gastronomy"
+      "gastro": "Gastronomy",
+      "saas": "SaaS / POS"
     },
 
     "dma": {
       "title": "Distribuidora DMA",
-      "short": "A full-featured B2B ERP system for managing sales, payments, customers, and financial operations.",
+      "short": "A production B2B platform for a wholesale automotive parts distributor in Argentina — full commercial lifecycle from catalog and orders through payment processing, collections, and CRM.",
 
       "facts": {
-        "role": "Fullstack developer (Next.js + NestJS)",
+        "role": "Fullstack Developer (Next.js 15 + NestJS + MongoDB)",
         "period": "2024 – Present",
         "status": "In production"
       },
 
       "highlights": [
-        "Advanced payment module with discounts, surcharges, and check management",
-        "Role-based access control with multi-branch support",
-        "High-performance dashboards and financial statistics"
+        "Payment allocation engine: sequential document settlement (oldest-first), DCR-based discount rates, check interest amortization, and multi-installment refinancing plan generation",
+        "43 RTK Query API slices for server state, React Context for session state, and a multi-tenant config system enabling white-label deployment per distributor",
+        "50+ NestJS modules with JWT RBAC (Admin/Seller/Customer roles), ERP sync via multisoft_id, GPS customer visit tracking, and PDF/Excel export"
       ],
 
       "media": {
-        "coverAlt": "DMA ERP main dashboard preview",
+        "coverAlt": "DMA B2B distribution platform — main dashboard",
         "gallery": [
-          "DMA main dashboard overview",
-          "Advanced payments module",
-          "Financial reports and statistics"
+          "Dashboard with sales statistics and seller targets",
+          "Payment allocation engine — document settlement view",
+          "Financial reports and collections management"
         ],
-        "contextAlt": "Business context and requirements overview",
-        "architectureAlt": "System architecture diagram"
+        "contextAlt": "Argentine wholesale distribution business context",
+        "architectureAlt": "Full-stack system architecture diagram"
       },
 
       "sections": {
         "context": {
           "title": "Project context",
-          "callout": "The system was designed to replace manual workflows and scale with the business growth.",
+          "callout": "Argentine wholesale distribution runs on complex credit workflows — post-dated checks, discount rates tied to document age, and refinancing plans — that no generic ERP handles cleanly at the point of sale.",
           "p": [
-            "Distribuidora DMA required a custom-built ERP to replace manual and spreadsheet-based workflows.",
-            "The goal was to centralize sales, payments, customers, and financial data into a single scalable platform."
+            "The distributor's sales force needed a field tool — on mobile or desktop — to quote, place orders, register multi-method payments, and track client balances in real time, operating alongside the existing ERP (Multisoft).",
+            "The platform covers the full commercial lifecycle: product catalog with vehicle compatibility matrices, sales orders, open invoice tracking, multi-method payment processing with check interest calculation, collection workflow, and a seller-facing CRM."
           ]
         },
         "built": {
           "title": "What I built",
           "b": [
-            "Complete admin dashboard with role and permission system",
-            "Advanced payment logic including financial cost proration and check handling",
-            "Scalable backend architecture using NestJS and MongoDB"
+            "Payment allocation engine: per-value sequential settlement of open invoices (oldest first), DCR-based discount rate computation, check interest amortization (annual rate → daily → deferred days), and PlanCalculator for multi-installment refinancing schedules",
+            "Full-stack architecture: Next.js 15 frontend with 43 RTK Query API slices and React Context for session state, backed by a 50+ module NestJS REST API on MongoDB Atlas with JWT authentication and role-based access control",
+            "Multi-tenant config system enabling white-label deployment per distributor via environment variables, per-client theming, and feature flags (Maps, Finance, CRM, Marketing) — no code changes required per new client"
           ],
-          "note": "This project is actively used in production and continues to evolve based on real business needs."
+          "note": "Actively used in production by the sales force of a real wholesale distributor in Argentina. Includes GPS customer visit tracking, Excel/PDF export, i18n, Recharts dashboards, and a mobile-first interface for field sellers."
         }
       }
     },
 
     "nova": {
       "title": "Nõva Sushi",
-      "short": "A management platform designed to optimize operations, costs, and processes for a growing sushi brand.",
+      "short": "A marketing and franchise acquisition platform for a real Argentine sushi brand — a full digital sales funnel for consumers and franchise investors.",
 
       "facts": {
-        "role": "Fullstack developer",
+        "role": "Frontend Developer (Next.js 15 + Framer Motion)",
         "period": "2023 – Present",
-        "status": "In active use"
+        "status": "In production"
       },
 
       "highlights": [
-        "Menu, cost, and inventory management",
-        "Operational process optimization",
-        "Designed with scalability and franchising in mind"
+        "Full franchise investor funnel — ROI modeling, real operational KPIs, and WhatsApp-powered lead capture",
+        "Interactive menu showcase with 100+ items, real-time search, and keyboard-accessible modals",
+        "Scroll-driven animation system using Framer Motion (useScroll, useTransform, AnimatePresence)"
       ],
 
       "media": {
-        "coverAlt": "Nõva Sushi management system preview",
+        "coverAlt": "Nõva Sushi marketing site homepage",
         "gallery": [
-          "Menu and products management screen",
-          "Cost control and margins view",
-          "Operations and workflow overview"
+          "Homepage hero and brand storytelling",
+          "Interactive menu showcase with category filters",
+          "Franchise acquisition funnel overview"
         ],
-        "problemAlt": "Operational and cost management issues",
-        "solutionAlt": "Centralized management solution overview"
+        "problemAlt": "Homepage and brand experience overview",
+        "solutionAlt": "Franchise investor funnel and lead capture"
+      },
+
+      "sections": {
+        "problem": {
+          "title": "The project",
+          "callout": "Most restaurant websites are passive pages. This one was built as an active digital sales tool with two parallel conversion funnels.",
+          "p": [
+            "Nova Sushi needed more than a menu and a contact form — a digital presence that could attract customers and convert entrepreneurs into franchise partners simultaneously.",
+            "The result is a statically-generated Next.js 15 site with two flows: a consumer journey centered on the brand story and menu, and a full franchise acquisition funnel featuring real operational KPIs, investment formats, ROI scenario modeling, and a structured lead capture process."
+          ]
+        },
+        "solution": {
+          "title": "What I built",
+          "b": [
+            "Full franchise acquisition funnel across 10 sections — differentiators, real KPIs, 3 ROI scenarios, onboarding process, and WhatsApp-powered lead capture",
+            "Interactive product catalog with real-time category filtering and text search over 100+ items, integrated with AWS S3 as image CDN",
+            "Scroll-driven animation system using Framer Motion's useScroll and useTransform hooks, with AnimatePresence for modal mount/unmount transitions"
+          ],
+          "note": "Deployed to Vercel with production SEO: JSON-LD structured data (Restaurant, Breadcrumb, and FAQ schemas), dynamic sitemap/robots generation, and full Open Graph coverage."
+        }
+      }
+    },
+
+    "gourmetify": {
+      "title": "Gourmetify",
+      "short": "A production-grade multi-tenant SaaS platform that replaces the entire operational stack of a restaurant — inventory, POS, orders, procurement, HR, and financial reporting in a single application.",
+
+      "facts": {
+        "role": "Fullstack Developer (Next.js 16 + Prisma + PostgreSQL)",
+        "period": "2024 – Present",
+        "status": "In development"
+      },
+
+      "highlights": [
+        "Offline-first POS with IndexedDB mutation queuing, UUID-based server idempotency, and automatic sync with exponential backoff",
+        "Dual MercadoPago integration: SaaS subscription billing (Preapprovals API) + in-restaurant customer payments (Preferences API), both with atomic webhook idempotency",
+        "Bill-of-materials costing engine with wastage factors, 40+ model multi-tenant schema, and 3-tier plan feature gating across 140+ API routes"
+      ],
+
+      "media": {
+        "coverAlt": "Gourmetify SaaS platform — main dashboard",
+        "gallery": [
+          "Offline-first POS with sync status indicator",
+          "Kanban order management with kitchen display",
+          "Subscription billing and plan management",
+          "Analytics dashboard with P&L overview",
+          "Inventory and recipe costing management"
+        ],
+        "problemAlt": "Restaurant operational chaos in Latin America",
+        "solutionAlt": "Gourmetify full-stack SaaS architecture"
       },
 
       "sections": {
         "problem": {
           "title": "The problem",
-          "callout": "As the business scaled, manual processes became a bottleneck.",
+          "callout": "The average restaurant in Latin America runs on WhatsApp groups, notebooks, and spreadsheets — with no real visibility into food cost, cash flow, or profitability.",
           "p": [
-            "As the brand grew, managing costs, inventory, and processes manually became inefficient.",
-            "There was a need for a system that aligned operational reality with financial control."
+            "Restaurant owners don't know their real food cost, can't track ingredient waste, have no daily P&L visibility, and manage staff with paper attendance sheets. Every operational pain is a manual process.",
+            "Existing solutions are either enterprise-grade and unaffordable, or single-purpose tools that don't integrate. Gourmetify replaces the entire stack with one affordable SaaS platform built for the realities of Latin American food service."
           ]
         },
-        "solution": {
-          "title": "The solution",
+        "built": {
+          "title": "What I built",
           "b": [
-            "Centralized management of menu items and costs",
-            "Clear operational workflows for daily use",
-            "Foundations for future franchise management features"
-          ]
+            "Multi-tenant PostgreSQL architecture with explicit row isolation across 40+ models, 5-role RBAC, and a centralized feature-flag system enforced across 140+ API route handlers",
+            "Offline-first POS using IndexedDB for mutation queuing, server-side UUID deduplication for idempotent sale submission, and automatic retry with exponential backoff — sales are never lost during outages",
+            "Dual MercadoPago integration: Preapprovals API for SaaS subscription billing with automated grace period and downgrade flows, Preferences API for in-restaurant customer payments — both with atomic webhook idempotency via a claimed-event table"
+          ],
+          "note": "The platform spans 30+ operational modules: inventory with BOM recipe costing, Kanban order management with kitchen display, supplier procurement, employee attendance with PIN time clock, and automated financial reporting via email."
         }
       }
     }
@@ -163,9 +228,9 @@
 
   "contactPage": {
     "badge": "CONTACT",
-    "title": "Let's talk about your project",
+    "title": "Let's build something together.",
     "subtitle": "If you have an idea, an existing product or a business that needs better software, we can talk with no pressure.",
-    "intro": "I mainly work on fullstack web applications, admin panels, internal tools and systems that connect directly with the business. Tell me what you're looking for and we’ll see how I can help.",
+    "intro": "I focus on systems with real complexity — ERPs, multi-tenant SaaS, internal tools. If that sounds like what you're building, let's talk.",
     "emailCta": "Send me an email",
     "responseHint": "I usually reply within 24/48 hours, depending on workload.",
     "formTitle": "Tell me a bit more",
@@ -177,7 +242,8 @@
     "formMessageLabel": "Message",
     "formMessagePlaceholder": "Briefly describe your project, timelines and ideas...",
     "formSubmit": "Send message",
-    "formNote": "This form is just a demo in the portfolio. If you prefer, you can reach out directly by email or LinkedIn.",
+    "adminNoteLabel": "Technical note",
+    "adminNote": "Contact submissions are stored in MongoDB and accessible through a secured admin inbox — authenticated via Bearer token. Built as an internal tool.",
     "altContact": "Not sure yet?",
     "altContactLink": "Check some projects first",
     "formSuccess": "Message sent. Thanks! I will get back to you as soon as possible.",

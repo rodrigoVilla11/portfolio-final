@@ -2,5 +2,5 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { useI18n } from "@/app/providers/I18nProvider";
 import type { Project } from "../data/projects";
 
@@ -24,12 +25,15 @@ function Pill({
 function Card({
   children,
   className = "",
+  onClick,
 }: {
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }) {
   return (
     <div
+      onClick={onClick}
       className={[
         "rounded-3xl border border-slate-200 dark:border-slate-800",
         "bg-white/80 dark:bg-slate-900/70 backdrop-blur",
@@ -121,18 +125,63 @@ function SubtleLink({
   );
 }
 
+function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handler);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-white/70 hover:text-white text-3xl leading-none transition-colors"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+      <div
+        className="relative max-w-6xl w-full max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={1600}
+          height={900}
+          className="w-full h-auto object-contain"
+          priority
+        />
+      </div>
+    </div>
+  );
+}
+
 function ImgFrame({
   src,
   alt,
   priority,
+  onClick,
 }: {
   src: string;
   alt: string;
   priority?: boolean;
+  onClick?: () => void;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-3xl">
-      <div className="relative aspect-16/10">
+    <div
+      className={`relative overflow-hidden rounded-3xl ${onClick ? "cursor-zoom-in" : ""}`}
+      onClick={onClick}
+    >
+      <div className="relative aspect-video">
         <Image
           src={src}
           alt={alt}
@@ -148,11 +197,15 @@ function ImgFrame({
 
 export default function ProjectDetail({ project }: { project: Project }) {
   const { t } = useI18n();
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const hasLinks = Boolean(project.links?.demo || project.links?.repo || project.links?.docs);
 
   return (
     <main className="min-h-screen">
+      {lightbox && (
+        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
       <div className="max-w-5xl mx-auto px-4 pb-16 pt-10 space-y-10">
         {/* TOP NAV */}
         <div className="flex items-center justify-between">
@@ -232,6 +285,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 src={project.cover.src}
                 alt={t(project.cover.altKey)}
                 priority
+                onClick={() => setLightbox({ src: project.cover!.src, alt: t(project.cover!.altKey) })}
               />
             </Card>
           ) : (
@@ -315,9 +369,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {project.gallery.map((img) => (
-                <Card key={img.src} className="hover:-translate-y-px">
+                <Card key={img.src} className="hover:-translate-y-px cursor-zoom-in" onClick={() => setLightbox({ src: img.src, alt: t(img.altKey) })}>
                   <div className="relative overflow-hidden rounded-3xl">
-                    <div className="relative aspect-16/10">
+                    <div className="relative aspect-video">
                       <Image
                         src={img.src}
                         alt={t(img.altKey)}
@@ -396,9 +450,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
                 {/* SECTION IMAGE */}
                 {sec.image?.src ? (
-                  <Card className="hover:-translate-y-px">
+                  <Card className="hover:-translate-y-px cursor-zoom-in" onClick={() => setLightbox({ src: sec.image!.src, alt: t(sec.image!.altKey) })}>
                     <div className="relative overflow-hidden rounded-3xl">
-                      <div className="relative aspect-16/10">
+                      <div className="relative aspect-video">
                         <Image
                           src={sec.image.src}
                           alt={t(sec.image.altKey)}

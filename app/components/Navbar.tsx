@@ -63,7 +63,7 @@ export default function Navbar() {
                     transition-colors
                     ${
                       isActive(link.href)
-                        ? "text-slate-900 dark:text-slate-50 underline underline-offset-4"
+                        ? "text-indigo-600 dark:text-indigo-400 underline underline-offset-4"
                         : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50"
                     }
                   `}
@@ -79,7 +79,7 @@ export default function Navbar() {
                 onClick={() => setLang("es")}
                 className={`px-2 py-1 rounded transition-all ${
                   lang === "es"
-                    ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
+                    ? "bg-indigo-600 text-white dark:bg-indigo-500"
                     : "border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100/70 dark:hover:bg-slate-800/70"
                 }`}
               >
@@ -89,7 +89,7 @@ export default function Navbar() {
                 onClick={() => setLang("en")}
                 className={`px-2 py-1 rounded transition-all ${
                   lang === "en"
-                    ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
+                    ? "bg-indigo-600 text-white dark:bg-indigo-500"
                     : "border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100/70 dark:hover:bg-slate-800/70"
                 }`}
               >
@@ -170,7 +170,7 @@ export default function Navbar() {
                   className={`
                     ${
                       isActive(link.href)
-                        ? "text-slate-900 dark:text-slate-50 underline underline-offset-4"
+                        ? "text-indigo-600 dark:text-indigo-400 underline underline-offset-4"
                         : "text-slate-600 dark:text-slate-300"
                     }
                   `}

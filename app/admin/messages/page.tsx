@@ -23,7 +23,12 @@ export default function MessagesPage() {
     setError(null);
 
     try {
-      const res = await fetch(`/api/messages?token=${encodeURIComponent(token)}`);
+      const res = await fetch(`/api/messages`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await res.json();
 
       if (!res.ok || !data.ok) {

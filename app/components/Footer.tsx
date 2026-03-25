@@ -28,12 +28,6 @@ export default function Footer() {
         {/* Derecha */}
         <div className="flex flex-wrap gap-3 sm:justify-end">
           <Link
-            href="/admin/messages"
-            className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
-          >
-            {`ADMIN`}
-          </Link>
-          <Link
             href="/projects"
             className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
           >
@@ -46,12 +40,20 @@ export default function Footer() {
             {t("footer.contact")}
           </Link>
           <a
-            href="https://github.com/"
+            href="https://github.com/rodrigoVilla11"
             target="_blank"
             rel="noreferrer"
             className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
           >
             GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/rodrigonicolasvillarreal/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+          >
+            LinkedIn
           </a>
         </div>
       </div>
