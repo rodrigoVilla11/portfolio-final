@@ -3,12 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useI18n } from "./providers/I18nProvider";
-import { useTheme } from "./providers/ThemeProvider";
 import { projects } from "./data/projects";
 
 export default function HomePage() {
   const { t } = useI18n();
-  const { resolvedTheme } = useTheme();
 
   return (
     <main className="min-h-screen">
@@ -168,22 +166,6 @@ export default function HomePage() {
                 <li>· {t("hero.highlight2")}</li>
                 <li>· {t("hero.highlight3")}</li>
               </ul>
-
-              <p
-                className="
-                  text-[11px]
-                  text-slate-500 dark:text-slate-400
-                  pt-2
-                  border-t border-dashed border-slate-200 dark:border-slate-800
-                "
-              >
-                {t("hero.currentMode")}{" "}
-                <span className="font-medium">
-                  {resolvedTheme === "dark"
-                    ? t("hero.modeDark")
-                    : t("hero.modeLight")}
-                </span>
-              </p>
             </div>
           </aside>
         </section>
@@ -282,7 +264,7 @@ export default function HomePage() {
 
           <div className="flex flex-wrap gap-3 text-sm">
             <a
-              href="mailto:info@villarraelrodrigo.com"
+              href="mailto:villarrealrodrigo.n@gmail.com"
               className="
                 inline-flex items-center
                 px-5 py-2.5 rounded-full

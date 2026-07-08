@@ -288,15 +288,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 onClick={() => setLightbox({ src: project.cover!.src, alt: t(project.cover!.altKey) })}
               />
             </Card>
-          ) : (
-            <Card>
-              <div className="p-6">
-                <p className="text-sm text-slate-600 dark:text-slate-300">
-                  Tip: agregá <code className="text-xs">project.cover</code> para mostrar una imagen principal.
-                </p>
-              </div>
-            </Card>
-          )}
+          ) : null}
         </section>
 
         {/* FACTS + STACK + HIGHLIGHTS */}

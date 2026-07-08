@@ -1,10 +1,11 @@
 "use client";
 
-import React, {
+import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -12,9 +13,7 @@ import es from "../translate/es.json";
 import en from "../translate/en.json";
 
 type Lang = "es" | "en";
-
-// 👇 ahora admite strings u objetos anidados
-type Messages = { [key: string]: any };
+type Messages = Record<string, unknown>;
 type AllMessages = Record<Lang, Messages>;
 
 const I18N_STORAGE_KEY = "portfolio-lang";
@@ -24,61 +23,78 @@ const messages: AllMessages = {
   en: en as Messages,
 };
 
+// --- External store: the persisted language preference ---
+// useSyncExternalStore keeps React in sync with localStorage without
+// setState-in-effect and stays hydration-safe (server snapshot = "es").
+const listeners = new Set<() => void>();
+function emit() {
+  listeners.forEach((l) => l());
+}
+function subscribe(cb: () => void) {
+  listeners.add(cb);
+  window.addEventListener("storage", cb);
+  return () => {
+    listeners.delete(cb);
+    window.removeEventListener("storage", cb);
+  };
+}
+function readLang(): Lang {
+  try {
+    const v = window.localStorage.getItem(I18N_STORAGE_KEY);
+    return v === "en" || v === "es" ? v : "es";
+  } catch {
+    return "es";
+  }
+}
+function getServerSnapshot(): Lang {
+  return "es";
+}
+
 type I18nContextValue = {
   lang: Lang;
   setLang: (lang: Lang) => void;
   t: (key: string) => string;
 };
 
-const I18nContext = createContext<I18nContextValue | undefined>(
-  undefined,
-);
+const I18nContext = createContext<I18nContextValue | undefined>(undefined);
 
-type I18nProviderProps = {
-  children: ReactNode;
-};
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const lang = useSyncExternalStore(subscribe, readLang, getServerSnapshot);
 
-export function I18nProvider({ children }: I18nProviderProps) {
-  const [lang, setLangState] = useState<Lang>("es");
-
+  // Keep <html lang> in sync for accessibility / SEO.
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(
-        I18N_STORAGE_KEY,
-      ) as Lang | null;
-      if (stored === "es" || stored === "en") {
-        setLangState(stored);
-      }
-    } catch {
-      // ignore
-    }
-  }, []);
+    document.documentElement.lang = lang;
+  }, [lang]);
 
-  const setLang = (l: Lang) => {
-    setLangState(l);
+  const setLang = useCallback((l: Lang) => {
     try {
       window.localStorage.setItem(I18N_STORAGE_KEY, l);
     } catch {
       // ignore
     }
-  };
+    emit();
+  }, []);
 
-  const t = (key: string): string => {
-    const byLang = messages[lang];
-    const parts = key.split(".");
+  const t = useCallback(
+    (key: string): string => {
+      let value: unknown = messages[lang];
 
-    let value: any = byLang;
-
-    for (const p of parts) {
-      if (value && typeof value === "object" && p in value) {
-        value = value[p];
-      } else {
-        return key; // fallback si no existe
+      for (const p of key.split(".")) {
+        if (
+          value &&
+          typeof value === "object" &&
+          p in (value as Record<string, unknown>)
+        ) {
+          value = (value as Record<string, unknown>)[p];
+        } else {
+          return key; // fallback si no existe
+        }
       }
-    }
 
-    return typeof value === "string" ? value : key;
-  };
+      return typeof value === "string" ? value : key;
+    },
+    [lang],
+  );
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t }}>

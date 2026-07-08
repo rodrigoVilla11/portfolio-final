@@ -15,7 +15,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const pathname = usePathname();
   const { t, lang, setLang } = useI18n();
-  const { theme, resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const { isMobileMenuOpen, toggleMobileMenu } = useUI();
 
   const cycleTheme = () => {
@@ -77,6 +77,7 @@ export default function Navbar() {
             <div className="flex items-center gap-1 text-xs">
               <button
                 onClick={() => setLang("es")}
+                aria-pressed={lang === "es"}
                 className={`px-2 py-1 rounded transition-all ${
                   lang === "es"
                     ? "bg-indigo-600 text-white dark:bg-indigo-500"
@@ -87,6 +88,7 @@ export default function Navbar() {
               </button>
               <button
                 onClick={() => setLang("en")}
+                aria-pressed={lang === "en"}
                 className={`px-2 py-1 rounded transition-all ${
                   lang === "en"
                     ? "bg-indigo-600 text-white dark:bg-indigo-500"
@@ -106,7 +108,7 @@ export default function Navbar() {
                 hover:bg-slate-100/70 dark:hover:bg-slate-800/70
                 transition-all
               "
-              aria-label="Cambiar tema"
+              aria-label={t("nav.themeToggle")}
             >
               {theme === "system"
                 ? `🖥`
@@ -124,7 +126,7 @@ export default function Navbar() {
                 hover:bg-slate-100/70 dark:hover:bg-slate-800/70
                 transition-colors
               "
-              aria-label="Abrir menú"
+              aria-label={t("nav.openMenu")}
             >
               ☰
             </button>
@@ -151,10 +153,10 @@ export default function Navbar() {
             "
           >
             <div className="flex items-center justify-between mb-6">
-              <p className="font-semibold">Menú</p>
+              <p className="font-semibold">{t("nav.menu")}</p>
               <button
                 onClick={toggleMobileMenu}
-                aria-label="Cerrar menú"
+                aria-label={t("nav.closeMenu")}
                 className="text-lg"
               >
                 ✕

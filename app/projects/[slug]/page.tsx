@@ -18,7 +18,7 @@ const PROJECT_META: Record<string, { title: string; description: string }> = {
   gourmetify: {
     title: "Gourmetify — Full-Stack Restaurant SaaS",
     description:
-      "A production-grade multi-tenant SaaS platform for restaurant management — offline-first POS with IndexedDB sync, dual MercadoPago integration for SaaS billing and customer payments, 40+ database models with explicit row isolation, 3-tier plan feature gating, and 30+ operational modules. Built with Next.js 16, TypeScript, Prisma, and PostgreSQL.",
+      "A production-grade multi-tenant SaaS platform for restaurant management — offline-first POS with IndexedDB sync, dual payment-provider integration (Stripe + MercadoPago) for SaaS billing and customer payments, 40+ database models with explicit row isolation, 3-tier plan feature gating, and 30+ operational modules. Built with Next.js 16, TypeScript, Prisma, and PostgreSQL.",
   },
 };
 

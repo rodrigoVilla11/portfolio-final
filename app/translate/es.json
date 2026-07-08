@@ -1,17 +1,17 @@
 {
   "hero": {
-    "badge": "DESARROLLADOR FULLSTACK · ARGENTINA",
-    "title": "Construyo software que hace funcionar negocios.",
-    "subtitle": "Desarrollador Fullstack disponible para equipos de producto y consultoría — construyo ERPs, plataformas SaaS y herramientas internas.",
-    "description": "Tomo problemas operativos complejos y construyo software que los resuelve — completo, escalable y en uso activo. Ya sea sumándome a un equipo de producto o trabajando de forma independiente.",
+    "badge": "DESARROLLADOR FULLSTACK · VALENCIA, ESPAÑA",
+    "title": "Construyo software que sostiene la operación de un negocio.",
+    "subtitle": "Desarrollador Fullstack (TypeScript · Next.js · NestJS · PostgreSQL/MongoDB), basado en Valencia. Construyo ERPs y plataformas SaaS en producción — con clientes reales usándolas a diario.",
+    "description": "Me meto en el problema operativo de verdad y lo dejo funcionando en producción, no en una demo. Sirve igual si me sumo a tu equipo o si lo llevo de punta a punta yo.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Contactar",
     "cvDownload": "Descargar CV",
-    "available": "Disponible para roles full-time y consultoría",
+    "available": "Disponible en Valencia para full-time (presencial/híbrido/remoto) — incorporación inmediata",
     "highlightTitle": "Qué construyo",
-    "highlight1": "ERPs en producción y sistemas B2B para negocios reales.",
-    "highlight2": "Plataformas SaaS con arquitectura multi-tenant y facturación.",
-    "highlight3": "Herramientas internas, paneles administrativos y dashboards operativos.",
+    "highlight1": "ERPs y sistemas B2B en producción — catálogo, pedidos y cobranzas.",
+    "highlight2": "SaaS multi-tenant con facturación y pagos (Stripe, MercadoPago).",
+    "highlight3": "POS, paneles internos y dashboards para operar el día a día.",
     "currentMode": "Modo actual:",
     "modeDark": "Oscuro",
     "modeLight": "Claro"
@@ -20,27 +20,32 @@
   "nav": {
     "home": "Inicio",
     "projects": "Proyectos",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "menu": "Menú",
+    "themeToggle": "Cambiar tema",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
 
   "about": {
     "title": "Sobre mí",
-    "text": "Llevo más de 3 años construyendo software del que negocios reales dependen a diario — no demos, no MVPs que nunca se lanzan. ERPs, sistemas de gestión, dashboards y paneles administrativos. Trabajo cerca del problema de negocio: entender el porqué determina cómo construyo."
+    "text": "Programo desde 2023 y casi siempre sobre lo mismo: sistemas que un negocio usa para operar todos los días. Construí el motor de imputación de pagos de una distribuidora —con cheques diferidos, descuentos y refinanciaciones—, un POS que sigue vendiendo aunque se corte internet y arquitecturas multi-tenant que sirven a varios clientes con una sola base de código. Antes de escribir una línea me tomo el tiempo de entender cómo funciona el negocio; para mí ahí está la mitad del trabajo."
   },
 
   "lookingFor": {
     "title": "Qué estoy buscando",
-    "text": "Estoy disponible para roles full-time y trabajos de consultoría. Trabajo mejor en sistemas con complejidad operativa real.",
+    "text": "Busco full-time (o consultoría de varios meses). Donde mejor rindo es en sistemas con lógica de negocio densa: los que tienen reglas raras, estados y plata de por medio.",
     "item1label": "Full-time",
-    "item1text": "Engineer de producto o desarrollador fullstack en un equipo que construya herramientas internas, SaaS o software de negocio complejo.",
+    "item1text": "Product engineer o fullstack en un equipo que construya SaaS, herramientas internas o software de negocio que la gente usa para trabajar.",
     "item2label": "Consultoría",
-    "item2text": "Trabajos independientes con un sistema real para diseñar y construir — preferentemente de 3+ meses."
+    "item2text": "Un sistema real para diseñar y construir de punta a punta. Mejor si es de 3 meses para arriba."
   },
 
   "projectDetail": {
     "stack": "Stack tecnológico",
     "highlights": "Puntos destacados",
     "gallery": "Galería",
+    "galleryHint": "Capturas reales del sistema en funcionamiento.",
     "backToProjects": "Volver a proyectos",
     "links": "Enlaces",
     "viewDemo": "Ver demo",
@@ -56,17 +61,17 @@
 
   "contact": {
     "title": "¿Construimos algo juntos?",
-    "text": "Ya sea que necesites un sistema construido desde cero o tengas uno existente para extender — escribime.",
+    "text": "Tengas algo para construir desde cero o un sistema que ya anda y hay que hacer crecer, escribime y lo vemos.",
     "cta": "Enviar email"
   },
 
   "projectsPage": {
     "badge": "PROYECTOS",
     "title": "Proyectos seleccionados",
-    "subtitle": "Tres sistemas — un ERP, una plataforma SaaS y una herramienta de gestión gastronómica. Todos construidos de punta a punta, todos en uso activo.",
+    "subtitle": "Tres sistemas que construí de punta a punta y que hoy están en uso: un ERP para una distribuidora, un SaaS de gestión gastronómica y una landing de conversión.",
     "viewDetail": "Ver detalle",
     "ctaTitle": "¿Querés ver cómo trabajo?",
-    "ctaText": "Si te interesa cómo trabajo o querés colaborar, no dudes en contactarme.",
+    "ctaText": "Si te interesó cómo encaro las cosas, escribime y charlamos.",
     "ctaButton": "Contactame"
   },
 
@@ -122,23 +127,23 @@
             "Arquitectura full-stack: frontend Next.js 15 con 43 API slices de RTK Query y React Context para estado de sesión, respaldado por una API REST NestJS de 50+ módulos sobre MongoDB Atlas con autenticación JWT y control de acceso por roles",
             "Sistema de configuración multi-tenant para despliegue white-label por distribuidor mediante variables de entorno, theming por cliente y feature flags (Maps, Finance, CRM, Marketing) — sin cambios de código por nuevo cliente"
           ],
-          "note": "En uso activo en producción por la fuerza de ventas de un distribuidor mayorista real en Argentina. Incluye seguimiento GPS de visitas de clientes, exportación a Excel/PDF, i18n, dashboards con Recharts e interfaz mobile-first para vendedores de campo."
+          "note": "En producción, usado a diario por la fuerza de ventas de un distribuidor mayorista real: +520 clientes y un catálogo de +11.000 productos por distribuidora. Incluye seguimiento GPS de visitas de clientes, exportación a Excel/PDF, i18n, dashboards con Recharts e interfaz mobile-first para vendedores de campo."
         }
       }
     },
 
     "nova": {
       "title": "Nõva Sushi",
-      "short": "Una plataforma de marketing y adquisición de franquicias para una marca argentina de sushi — un embudo de ventas digital completo para clientes y potenciales inversores.",
+      "short": "Landing de marketing y adquisición de franquicias para una marca argentina de sushi — un embudo de ventas digital para clientes y potenciales inversores.",
 
       "facts": {
-        "role": "Desarrollador Frontend (Next.js 15 + Framer Motion)",
-        "period": "2023 – Actualidad",
+        "role": "Desarrollador Web Freelance (Next.js 15 + Framer Motion)",
+        "period": "2025",
         "status": "En producción"
       },
 
       "highlights": [
-        "Embudo completo para inversores — modelado de ROI, KPIs operativos reales y captura de leads vía WhatsApp",
+        "Landing de conversión con embudo de franquicias (modelado de ROI, KPIs reales y captura de leads vía WhatsApp) — +32% de pedidos y 30% más rápida tras optimización de rendimiento",
         "Catálogo interactivo con más de 100 productos, búsqueda en tiempo real y modales con accesibilidad por teclado",
         "Sistema de animaciones scroll-driven con Framer Motion (useScroll, useTransform, AnimatePresence)"
       ],
@@ -181,13 +186,13 @@
 
       "facts": {
         "role": "Desarrollador Fullstack (Next.js 16 + Prisma + PostgreSQL)",
-        "period": "2024 – Actualidad",
-        "status": "En desarrollo"
+        "period": "2025 – Actualidad",
+        "status": "En producción"
       },
 
       "highlights": [
         "POS offline-first con cola de mutaciones en IndexedDB, idempotencia por UUID en el servidor y sincronización automática con backoff exponencial",
-        "Integración dual con MercadoPago: facturación SaaS por suscripción (API Preapprovals) + pagos de clientes en el restaurante (API Preferences), ambos con idempotencia atómica de webhooks",
+        "Integración de pagos con doble proveedor (Stripe + MercadoPago): facturación SaaS por suscripción (B2B) y pagos de clientes en el restaurante (B2C), ambos con idempotencia atómica de webhooks",
         "Motor de costeo por receta con factores de desperdicio, esquema multi-tenant en 40+ modelos y feature flags por plan en 140+ rutas de API"
       ],
 
@@ -218,9 +223,9 @@
           "b": [
             "Arquitectura multi-tenant en PostgreSQL con aislamiento a nivel de fila en 40+ modelos, RBAC de 5 roles y sistema centralizado de feature flags aplicado en 140+ handlers de rutas API",
             "POS offline-first con IndexedDB para cola de mutaciones, deduplicación por UUID en el servidor para envío idempotente de ventas, y reintento automático con backoff exponencial — las ventas nunca se pierden ante cortes de internet",
-            "Integración dual con MercadoPago: API Preapprovals para facturación SaaS con flujo automatizado de período de gracia y degradación, API Preferences para pagos de clientes — ambos con idempotencia atómica de webhooks mediante tabla de eventos reclamados"
+            "Integración de pagos con doble proveedor: Stripe para la facturación SaaS por suscripción (con flujo automatizado de período de gracia y degradación) y MercadoPago para pagos de clientes en el local — ambos con idempotencia atómica de webhooks mediante tabla de eventos reclamados"
           ],
-          "note": "La plataforma abarca 30+ módulos operativos: inventario con costeo por receta (BOM), gestión de pedidos tipo Kanban con pantalla de cocina, compras a proveedores, asistencia de empleados con fichador PIN y reportes financieros automáticos por email."
+          "note": "En producción con 5 locales activos, procesando +1.000 tickets/mes por local. La plataforma abarca 30+ módulos operativos: inventario con costeo por receta (BOM), gestión de pedidos tipo Kanban con pantalla de cocina, compras a proveedores, asistencia de empleados con fichador PIN y reportes financieros automáticos por email."
         }
       }
     }
@@ -229,12 +234,12 @@
   "contactPage": {
     "badge": "CONTACTO",
     "title": "Construyamos algo juntos.",
-    "subtitle": "Si tenés una idea, un producto existente o un negocio que necesita mejor software, podemos charlar sin compromiso.",
-    "intro": "Me especializo en sistemas con complejidad real — ERPs, SaaS multi-tenant, herramientas internas. Si eso es lo que estás construyendo, hablemos.",
+    "subtitle": "Una idea dando vueltas, un producto que ya existe o un negocio al que le falta mejor software: escribime y lo hablamos.",
+    "intro": "Lo mío son los sistemas con complejidad de verdad: ERPs, SaaS multi-tenant, herramientas internas. Si es lo que estás construyendo, hablemos.",
     "emailCta": "Enviarme un email",
     "responseHint": "Suelo responder dentro de las 24/48 horas, según la carga de trabajo.",
     "formTitle": "Contame un poco más",
-    "formText": "No hace falta que tengas todo definido. Un contexto general, el tipo de proyecto y tus objetivos son más que suficientes para empezar.",
+    "formText": "No hace falta que tengas todo cerrado. Con que me cuentes de qué va y qué querés lograr, alcanza para arrancar.",
     "formNameLabel": "Nombre",
     "formNamePlaceholder": "Tu nombre",
     "formEmailLabel": "Email",
@@ -252,7 +257,7 @@
   },
 
   "footer": {
-    "tagline": "Portfolio construido a partir de proyectos reales y problemas reales.",
+    "tagline": "Portfolio hecho de proyectos que salieron a producción.",
     "projects": "Ver proyectos",
     "contact": "Contacto"
   }

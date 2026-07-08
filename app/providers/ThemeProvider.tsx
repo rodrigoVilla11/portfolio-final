@@ -1,125 +1,109 @@
 "use client";
 
-import React, {
+import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
 type Theme = "light" | "dark" | "system";
 type ResolvedTheme = "light" | "dark";
 
-type ThemeContextValue = {
-  theme: Theme;                 // preferencia guardada: light | dark | system
-  resolvedTheme: ResolvedTheme; // lo que realmente está aplicado
-  setTheme: (theme: Theme) => void;
-  mounted: boolean;             // para que el UI sepa si ya sincronizamos
-};
-
-const ThemeContext = createContext<ThemeContextValue | undefined>(
-  undefined,
-);
-
 const THEME_STORAGE_KEY = "portfolio-theme";
 
-type ThemeProviderProps = {
-  children: ReactNode;
+// --- External store: the persisted theme preference ---
+// A blocking script in <head> (see layout.tsx) sets the `.dark` class before
+// paint to avoid FOUC; this store keeps React state in sync afterwards.
+const listeners = new Set<() => void>();
+function emit() {
+  listeners.forEach((l) => l());
+}
+
+function readTheme(): Theme {
+  try {
+    const v = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return v === "light" || v === "dark" || v === "system" ? v : "system";
+  } catch {
+    return "system";
+  }
+}
+
+function systemPrefersDark(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+}
+
+function resolve(theme: Theme): ResolvedTheme {
+  if (theme === "dark") return "dark";
+  if (theme === "light") return "light";
+  return systemPrefersDark() ? "dark" : "light";
+}
+
+function subscribePref(cb: () => void) {
+  listeners.add(cb);
+  window.addEventListener("storage", cb);
+  return () => {
+    listeners.delete(cb);
+    window.removeEventListener("storage", cb);
+  };
+}
+
+function subscribeResolved(cb: () => void) {
+  listeners.add(cb);
+  window.addEventListener("storage", cb);
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  media.addEventListener("change", cb);
+  return () => {
+    listeners.delete(cb);
+    window.removeEventListener("storage", cb);
+    media.removeEventListener("change", cb);
+  };
+}
+
+type ThemeContextValue = {
+  theme: Theme; // preferencia guardada: light | dark | system
+  resolvedTheme: ResolvedTheme; // lo que realmente está aplicado
+  setTheme: (theme: Theme) => void;
 };
 
-export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setThemeState] = useState<Theme>("system");
-  const [resolvedTheme, setResolvedTheme] =
-    useState<ResolvedTheme>("light");
-  const [mounted, setMounted] = useState(false);
+const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
-  // Leer tema guardado al inicio
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const theme = useSyncExternalStore(
+    subscribePref,
+    readTheme,
+    () => "system" as Theme,
+  );
+  const resolvedTheme = useSyncExternalStore(
+    subscribeResolved,
+    () => resolve(readTheme()),
+    () => "light" as ResolvedTheme,
+  );
+
+  // Apply the class to <html> whenever the resolved theme changes.
+  // DOM side effect only — no setState, so no cascading renders.
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(
-        THEME_STORAGE_KEY,
-      ) as Theme | null;
-      if (
-        stored === "light" ||
-        stored === "dark" ||
-        stored === "system"
-      ) {
-        setThemeState(stored);
-      }
-    } catch {
-      // ignore
-    } finally {
-      setMounted(true);
-    }
-  }, []);
-
-  const getSystemPrefersDark = () => {
-    if (typeof window === "undefined") return false;
-    return window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .matches;
-  };
-
-  // Escuchar cambios del sistema cuando el tema es "system"
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const media = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    );
-    if (!media) return;
-
-    const handler = () => {
-      if (theme === "system") {
-        const prefersDark = media.matches;
-        setResolvedTheme(prefersDark ? "dark" : "light");
-        const root = document.documentElement;
-        if (prefersDark) {
-          root.classList.add("dark");
-        } else {
-          root.classList.remove("dark");
-        }
-      }
-    };
-
-    media.addEventListener("change", handler);
-    return () => media.removeEventListener("change", handler);
-  }, [theme]);
-
-  // Aplicar clase `dark` cuando cambie theme
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-
     const root = document.documentElement;
-    const prefersDark = getSystemPrefersDark();
+    if (resolvedTheme === "dark") root.classList.add("dark");
+    else root.classList.remove("dark");
+  }, [resolvedTheme]);
 
-    const shouldUseDark =
-      theme === "dark" || (theme === "system" && prefersDark);
-
-    setResolvedTheme(shouldUseDark ? "dark" : "light");
-
-    if (shouldUseDark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [theme]);
-
-  const setTheme = (t: Theme) => {
-    setThemeState(t);
+  const setTheme = useCallback((t: Theme) => {
     try {
       window.localStorage.setItem(THEME_STORAGE_KEY, t);
     } catch {
       // ignore
     }
-  };
+    emit();
+  }, []);
 
-  // 🔴 IMPORTANTE: SIEMPRE devolvemos el Provider, aunque mounted sea false
   return (
-    <ThemeContext.Provider
-      value={{ theme, resolvedTheme, setTheme, mounted }}
-    >
+    <ThemeContext.Provider value={{ theme, resolvedTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

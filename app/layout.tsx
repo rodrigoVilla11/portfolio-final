@@ -11,7 +11,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const BASE_URL = "https://rodrigovillarreal.dev";
+const BASE_URL = "https://villarrealrodrigo.com";
 
 export const metadata: Metadata = {
   title: "Rodrigo Villarreal | Fullstack Developer",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
     siteName: "Rodrigo Villarreal",
     type: "website",
-    locale: "en_US",
+    locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
@@ -45,8 +45,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={inter.variable}>
+    <html lang="es" className={inter.variable} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var k=localStorage.getItem('portfolio-theme');var d=k==='dark'||((k===null||k==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);var r=document.documentElement;if(d)r.classList.add('dark');else r.classList.remove('dark');}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

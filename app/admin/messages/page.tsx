@@ -36,7 +36,7 @@ export default function MessagesPage() {
       }
 
       setMessages(data.messages);
-    } catch (err) {
+    } catch {
       setError("Token incorrecto o error en el servidor");
     } finally {
       setLoading(false);

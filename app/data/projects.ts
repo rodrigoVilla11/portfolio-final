@@ -66,6 +66,7 @@ export const projects: Project[] = [
     ],
 
     links: {
+      demo: "https://www.disdma.com.ar/",
       repo: "https://github.com/rodrigoVilla11/dma",
     },
 
@@ -157,7 +158,9 @@ export const projects: Project[] = [
       },
     ],
 
-    links: {},
+    links: {
+      demo: "https://www.gourmetify.pro",
+    },
 
     facts: [
       {
@@ -175,7 +178,7 @@ export const projects: Project[] = [
     ],
 
     tags: ["SaaS", "Offline-First", "MercadoPago", "Multi-tenant"],
-    stack: ["Next.js 16", "TypeScript", "Prisma", "PostgreSQL", "MercadoPago"],
+    stack: ["Next.js 16", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "MercadoPago"],
 
     highlightsKeys: [
       "projects.gourmetify.highlights.0",
@@ -239,7 +242,9 @@ export const projects: Project[] = [
       },
     ],
 
-    links: {},
+    links: {
+      demo: "https://nova-sushi.com/",
+    },
 
     facts: [
       {
