@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://rodrigovillarreal.dev/sitemap.xml
+Sitemap: https://villarrealrodrigo.com/sitemap.xml

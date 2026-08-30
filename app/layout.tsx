@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description:
     "Fullstack developer specializing in ERPs, admin panels, and custom business systems. Building production-grade software for real businesses.",
   metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     title: "Rodrigo Villarreal | Fullstack Developer",
     description:

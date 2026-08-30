@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { projects } from "@/app/data/projects";
 import ProjectPageClient from "./_client";
 
@@ -22,17 +22,21 @@ const PROJECT_META: Record<string, { title: string; description: string }> = {
   },
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<Params>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: Promise<Params> },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const { slug } = await params;
   const meta = PROJECT_META[slug];
 
   if (!meta) {
     return { title: "Project not found | Rodrigo Villarreal" };
   }
+
+  // Definir `openGraph` acá reemplaza por completo al del layout raíz, así que
+  // reusamos su imagen (app/opengraph-image.tsx) para que las páginas de
+  // proyecto también tengan og:image / twitter:image.
+  const parentImages = (await parent).openGraph?.images ?? [];
 
   return {
     title: `${meta.title} | Rodrigo Villarreal`,
@@ -41,6 +45,7 @@ export async function generateMetadata({
       title: `${meta.title} | Rodrigo Villarreal`,
       description: meta.description,
       type: "article",
+      images: parentImages,
     },
   };
 }

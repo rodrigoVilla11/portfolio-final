@@ -67,7 +67,6 @@ export const projects: Project[] = [
 
     links: {
       demo: "https://www.disdma.com.ar/",
-      repo: "https://github.com/rodrigoVilla11/dma",
     },
 
     facts: [
