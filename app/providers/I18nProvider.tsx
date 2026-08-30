@@ -50,10 +50,29 @@ function getServerSnapshot(): Lang {
   return "es";
 }
 
+// Resuelve "a.b.c" dentro del árbol de mensajes; undefined si no existe.
+function resolveKey(root: unknown, key: string): unknown {
+  let value: unknown = root;
+  for (const p of key.split(".")) {
+    if (
+      value &&
+      typeof value === "object" &&
+      p in (value as Record<string, unknown>)
+    ) {
+      value = (value as Record<string, unknown>)[p];
+    } else {
+      return undefined;
+    }
+  }
+  return value;
+}
+
 type I18nContextValue = {
   lang: Lang;
   setLang: (lang: Lang) => void;
   t: (key: string) => string;
+  /** Para valores que son arrays de strings (p. ej. bullets). [] si no existe. */
+  tList: (key: string) => string[];
 };
 
 const I18nContext = createContext<I18nContextValue | undefined>(undefined);
@@ -77,27 +96,24 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   const t = useCallback(
     (key: string): string => {
-      let value: unknown = messages[lang];
+      const value = resolveKey(messages[lang], key);
+      return typeof value === "string" ? value : key; // fallback: la clave
+    },
+    [lang],
+  );
 
-      for (const p of key.split(".")) {
-        if (
-          value &&
-          typeof value === "object" &&
-          p in (value as Record<string, unknown>)
-        ) {
-          value = (value as Record<string, unknown>)[p];
-        } else {
-          return key; // fallback si no existe
-        }
-      }
-
-      return typeof value === "string" ? value : key;
+  const tList = useCallback(
+    (key: string): string[] => {
+      const value = resolveKey(messages[lang], key);
+      return Array.isArray(value)
+        ? value.filter((v): v is string => typeof v === "string")
+        : [];
     },
     [lang],
   );
 
   return (
-    <I18nContext.Provider value={{ lang, setLang, t }}>
+    <I18nContext.Provider value={{ lang, setLang, t, tList }}>
       {children}
     </I18nContext.Provider>
   );

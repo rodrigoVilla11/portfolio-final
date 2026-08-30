@@ -56,7 +56,7 @@ function toFieldErrors(error: z.ZodError): Partial<Record<Field, string>> {
 }
 
 export async function POST(req: Request) {
-  const rl = rateLimit(`contact:${getClientIp(req)}`, RATE_LIMIT);
+  const rl = rateLimit(`contact:${getClientIp(req.headers)}`, RATE_LIMIT);
   if (!rl.ok) {
     return NextResponse.json(
       { ok: false, error: "rate_limited", retryAfter: rl.retryAfterSec },

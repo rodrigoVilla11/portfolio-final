@@ -1,7 +1,8 @@
 "use server";
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import {
   ADMIN_COOKIE,
   ADMIN_COOKIE_PATH,
@@ -10,7 +11,20 @@ import {
   sessionValue,
 } from "@/lib/admin-auth";
 
+// 5 intentos / 15 min por IP. Misma respuesta genérica que un token incorrecto,
+// para no revelar si el bloqueo fue por límite o por credencial. Ver la
+// limitación del contador en memoria en lib/rate-limit.ts.
+const LOGIN_RATE_LIMIT = { limit: 5, windowMs: 15 * 60 * 1000 };
+
 export async function loginAction(formData: FormData) {
+  const rl = rateLimit(
+    `admin-login:${getClientIp(await headers())}`,
+    LOGIN_RATE_LIMIT,
+  );
+  if (!rl.ok) {
+    redirect("/admin/login?error=1");
+  }
+
   const token = formData.get("token");
   const value = sessionValue();
 

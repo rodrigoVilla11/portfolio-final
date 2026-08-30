@@ -51,11 +51,11 @@ export function rateLimit(key: string, opts: RateLimitOptions): RateLimitResult 
 // En Vercel `x-forwarded-for` lo setea la plataforma (el primer valor es el
 // cliente). Fuera de Vercel puede venir falsificado; es el mejor dato
 // disponible sin infraestructura adicional.
-export function getClientIp(req: Request): string {
-  const xff = req.headers.get("x-forwarded-for");
+export function getClientIp(headers: Headers): string {
+  const xff = headers.get("x-forwarded-for");
   if (xff) {
     const first = xff.split(",")[0]?.trim();
     if (first) return first;
   }
-  return req.headers.get("x-real-ip")?.trim() || "unknown";
+  return headers.get("x-real-ip")?.trim() || "unknown";
 }

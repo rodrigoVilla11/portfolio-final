@@ -1,8 +1,9 @@
 # Portfolio — Rodrigo Villarreal
 
 Portfolio personal de un desarrollador Fullstack (Valencia, España). Presenta
-tres sistemas en producción — un ERP B2B, una plataforma SaaS gastronómica y una
-landing de conversión — con foco en software operativo de negocio real.
+dos sistemas en producción — un ERP B2B y una plataforma SaaS gastronómica —,
+experiencia y formación, y repos públicos, con foco en software operativo de
+negocio real.
 
 **Live:** https://villarrealrodrigo.com
 
@@ -40,16 +41,19 @@ CONTACT_ADMIN_TOKEN=...   # token para entrar al inbox (/admin/login)
 
 ```
 app/
-  page.tsx              # home (hero, about, proyectos, contacto)
+  page.tsx              # home (hero, about, qué busco, proyectos, experiencia, contacto)
   projects/             # listado y detalle por slug
   contact/              # formulario -> /api/contact
   admin/login/          # login del inbox (server action -> cookie de sesión)
   admin/messages/       # inbox; sin sesión válida responde 404
   api/contact/          # POST: Zod + honeypot + rate limit -> MongoDB
-  components/           # Navbar, Footer, ProjectDetail
+  components/           # Navbar, Footer, ProjectDetail, Experience, OpenSource
   providers/            # Theme, i18n, UI (context)
-  data/projects.ts      # fuente de datos de proyectos
+  data/projects.ts      # proyectos (listed: false = solo por URL directa)
+  data/experience.ts    # ids y links de experiencia/formación (textos en translate/)
+  data/openSource.ts    # repos públicos del bloque "Código abierto"
   translate/            # es.json / en.json
+public/cv_es.pdf, cv_en.pdf # CV descargable según el idioma activo
 lib/mongodb.ts          # conexión cacheada a MongoDB
 lib/admin-auth.ts       # token/cookie de admin (comparación en tiempo constante)
 lib/rate-limit.ts       # rate limit en memoria (ver limitación en el archivo)

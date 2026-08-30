@@ -22,6 +22,9 @@ export type Project = {
 
   facts?: Array<{ labelKey: string; valueKey: string }>;
 
+  /** false = accesible por URL directa pero fuera de los listados (home y /projects). */
+  listed?: boolean;
+
   tags: string[];
   stack: string[];
   highlightsKeys: string[];
@@ -116,7 +119,7 @@ export const projects: Project[] = [
         noteKey: "projects.dma.sections.built.note",
         image: {
           src: "https://res.cloudinary.com/db7kbwl5n/image/upload/v1774468635/image_7_whdd7k.png",
-          altKey: "projects.dma.media.architectureAlt",
+          altKey: "projects.dma.media.loginAlt",
         },
       },
     ],
@@ -206,10 +209,7 @@ export const projects: Project[] = [
           "projects.gourmetify.sections.built.b.2",
         ],
         noteKey: "projects.gourmetify.sections.built.note",
-        image: {
-          src: "https://res.cloudinary.com/db7kbwl5n/image/upload/v1774471721/image_12_ld7jhe.png",
-          altKey: "projects.gourmetify.media.solutionAlt",
-        },
+        // Sin imagen: esta captura (dashboard de analíticas) ya está en la galería.
       },
     ],
   },
@@ -217,6 +217,8 @@ export const projects: Project[] = [
   /* ======================= NOVA ======================= */
   {
     slug: "nova-sushi",
+    // Landing: fuera de los listados, accesible solo por URL directa.
+    listed: false,
     categoryKey: "projects.categories.gastro",
     titleKey: "projects.nova.title",
     shortKey: "projects.nova.short",

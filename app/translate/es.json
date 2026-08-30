@@ -3,11 +3,11 @@
     "badge": "DESARROLLADOR FULLSTACK · VALENCIA, ESPAÑA",
     "title": "Construyo software que sostiene la operación de un negocio.",
     "subtitle": "Desarrollador Fullstack (TypeScript · Next.js · NestJS · PostgreSQL/MongoDB), basado en Valencia. Construyo ERPs y plataformas SaaS en producción — con clientes reales usándolas a diario.",
-    "description": "Me meto en el problema operativo de verdad y lo dejo funcionando en producción, no en una demo. Sirve igual si me sumo a tu equipo o si lo llevo de punta a punta yo.",
+    "description": "Me meto en el problema operativo de verdad y lo dejo funcionando en producción, no en una demo.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Contactar",
     "cvDownload": "Descargar CV",
-    "available": "Disponible en Valencia para full-time (presencial/híbrido/remoto) — incorporación inmediata",
+    "available": "Con base en Valencia · Disponible full-time para trabajo remoto en toda Europa",
     "highlightTitle": "Qué construyo",
     "highlight1": "ERPs y sistemas B2B en producción — catálogo, pedidos y cobranzas.",
     "highlight2": "SaaS multi-tenant con facturación y pagos (Stripe, MercadoPago).",
@@ -34,11 +34,11 @@
 
   "lookingFor": {
     "title": "Qué estoy buscando",
-    "text": "Busco full-time (o consultoría de varios meses). Donde mejor rindo es en sistemas con lógica de negocio densa: los que tienen reglas raras, estados y plata de por medio.",
+    "text": "Busco un puesto full-time. Donde mejor rindo es en sistemas con lógica de negocio densa: los que tienen reglas raras, estados y plata de por medio.",
     "item1label": "Full-time",
     "item1text": "Product engineer o fullstack en un equipo que construya SaaS, herramientas internas o software de negocio que la gente usa para trabajar.",
-    "item2label": "Consultoría",
-    "item2text": "Un sistema real para diseñar y construir de punta a punta. Mejor si es de 3 meses para arriba."
+    "item2label": "Remoto · Europa",
+    "item2text": "Con base en Valencia, España. Trabajo remoto para equipos en cualquier país de Europa."
   },
 
   "projectDetail": {
@@ -61,14 +61,14 @@
 
   "contact": {
     "title": "¿Construimos algo juntos?",
-    "text": "Tengas algo para construir desde cero o un sistema que ya anda y hay que hacer crecer, escribime y lo vemos.",
+    "text": "Si tu equipo construye SaaS, herramientas internas o software de negocio y busca un fullstack, escribime y lo hablamos.",
     "cta": "Enviar email"
   },
 
   "projectsPage": {
     "badge": "PROYECTOS",
     "title": "Proyectos seleccionados",
-    "subtitle": "Tres sistemas que construí de punta a punta y que hoy están en uso: un ERP para una distribuidora, un SaaS de gestión gastronómica y una landing de conversión.",
+    "subtitle": "Dos sistemas que construí de punta a punta y que hoy están en uso: un ERP para una distribuidora y un SaaS de gestión gastronómica.",
     "viewDetail": "Ver detalle",
     "ctaTitle": "¿Querés ver cómo trabajo?",
     "ctaText": "Si te interesó cómo encaro las cosas, escribime y charlamos.",
@@ -108,7 +108,7 @@
           "Reportes financieros y gestión de cobranzas"
         ],
         "contextAlt": "Contexto del negocio de distribución mayorista argentina",
-        "architectureAlt": "Diagrama de arquitectura del sistema full-stack"
+        "loginAlt": "Pantalla de inicio de sesión de la plataforma"
       },
 
       "sections": {
@@ -134,10 +134,10 @@
 
     "nova": {
       "title": "Nõva Sushi",
-      "short": "Landing de marketing y adquisición de franquicias para una marca argentina de sushi — un embudo de ventas digital para clientes y potenciales inversores.",
+      "short": "Landing de marketing y captación de franquicias de Nõva Sushi, negocio propio — un embudo de ventas digital para clientes y potenciales inversores.",
 
       "facts": {
-        "role": "Desarrollador Web Freelance (Next.js 15 + Framer Motion)",
+        "role": "Proyecto propio (Next.js 15 + Framer Motion)",
         "period": "2025",
         "status": "En producción"
       },
@@ -185,7 +185,7 @@
       "short": "Una plataforma SaaS multi-tenant de nivel productivo que reemplaza el stack operativo completo de un restaurante — inventario, POS, pedidos, compras, RRHH y reportes financieros en una sola aplicación.",
 
       "facts": {
-        "role": "Desarrollador Fullstack (Next.js 16 + Prisma + PostgreSQL)",
+        "role": "Founder y Lead Engineer (Next.js 16 + Prisma + PostgreSQL)",
         "period": "2025 – Actualidad",
         "status": "En producción"
       },
@@ -205,8 +205,7 @@
           "Dashboard de analíticas con resumen de P&L",
           "Gestión de inventario y costeo de recetas"
         ],
-        "problemAlt": "Caos operativo en restaurantes latinoamericanos",
-        "solutionAlt": "Arquitectura full-stack SaaS de Gourmetify"
+        "problemAlt": "Caos operativo en restaurantes latinoamericanos"
       },
 
       "sections": {
@@ -234,18 +233,18 @@
   "contactPage": {
     "badge": "CONTACTO",
     "title": "Construyamos algo juntos.",
-    "subtitle": "Una idea dando vueltas, un producto que ya existe o un negocio al que le falta mejor software: escribime y lo hablamos.",
+    "subtitle": "Si buscás un fullstack para tu equipo o querés charlar sobre alguno de mis proyectos, escribime y lo hablamos.",
     "intro": "Lo mío son los sistemas con complejidad de verdad: ERPs, SaaS multi-tenant, herramientas internas. Si es lo que estás construyendo, hablemos.",
     "emailCta": "Enviarme un email",
     "responseHint": "Suelo responder dentro de las 24/48 horas, según la carga de trabajo.",
     "formTitle": "Contame un poco más",
-    "formText": "No hace falta que tengas todo cerrado. Con que me cuentes de qué va y qué querés lograr, alcanza para arrancar.",
+    "formText": "No hace falta un mensaje largo. Contame del puesto o del equipo y te respondo.",
     "formNameLabel": "Nombre",
     "formNamePlaceholder": "Tu nombre",
     "formEmailLabel": "Email",
     "formEmailPlaceholder": "tu@email.com",
     "formMessageLabel": "Mensaje",
-    "formMessagePlaceholder": "Describí brevemente tu proyecto, tiempos e ideas...",
+    "formMessagePlaceholder": "Contame sobre el puesto, el equipo o lo que quieras charlar...",
     "formSubmit": "Enviar mensaje",
     "altContact": "¿Todavía no estás seguro?",
     "altContactLink": "Mirá algunos proyectos primero",
@@ -264,6 +263,93 @@
       "message_invalid": "Ingresá un mensaje válido."
     },
     "formSubmitting": "Enviando..."
+  },
+
+  "openSource": {
+    "title": "Código abierto",
+    "subtitle": "Repos públicos en GitHub",
+    "viewRepo": "Ver en GitHub",
+    "mise": "Costeo de recetas, seguimiento de precios de supermercado y planificación semanal de comidas para un hogar que compra en más de una tienda.",
+    "novaSushi": "Sitio de marketing y embudo de captación de franquicias de Nõva Sushi, marca de sushi con dos locales en Córdoba, Argentina."
+  },
+
+  "experience": {
+    "title": "Experiencia y formación",
+    "workTitle": "Experiencia",
+    "educationTitle": "Formación",
+    "languagesTitle": "Idiomas",
+    "items": {
+      "gourmetify": {
+        "org": "Gourmetify",
+        "role": "Founder y Lead Engineer",
+        "period": "2025 – Actualidad",
+        "summary": "Plataforma SaaS B2B de punto de venta (POS) y gestión para el sector gastronómico.",
+        "b": [
+          "POS offline-first con IndexedDB para persistencia local y sincronización en segundo plano al recuperar la conexión.",
+          "Arquitectura full-stack con Next.js 16, TypeScript y PostgreSQL, con aislamiento de datos multi-tenant.",
+          "Pasarelas de pago duales (MercadoPago y Stripe) para suscripciones SaaS B2B y cobros B2C, con webhooks resilientes que gestionan estados de pago, períodos de gracia y facturación automática.",
+          "Infraestructura desplegada desde cero en un VPS: Nginx como reverse proxy, contenedores Docker, SSL con Let's Encrypt, dominios y DNS.",
+          "En producción con 5 locales activos, procesando +1.000 tickets mensuales por local."
+        ]
+      },
+      "dma": {
+        "org": "DMA (Distribuidora Mayorista Autopiezas) · En Directo",
+        "role": "Desarrollador de Software Full-Stack",
+        "period": "2024 – Actualidad",
+        "summary": "Plataforma SaaS B2B de distribución mayorista de autopartes, desplegada en marca blanca para dos clientes corporativos: DMA y En Directo.",
+        "b": [
+          "Catálogo, pedidos y flujos complejos de facturación para +520 clientes por distribuidora y un catálogo de +11.000 productos (Next.js 15, NestJS, MongoDB).",
+          "Motor de imputación de pagos que modela convenciones financieras argentinas: liquidación secuencial de documentos, amortización de intereses de cheques y planes de refinanciación.",
+          "Arquitectura multi-tenant con feature flags y configuración por entorno para despliegues white-label.",
+          "Caché de estado de servidor en 43 slices de RTK Query para una sincronización resiliente y en tiempo real de los vendedores en campo.",
+          "Infraestructura desplegada desde cero en un VPS: Nginx, PM2, SSL con Let's Encrypt (Certbot), dominios y DNS."
+        ]
+      },
+      "nova": {
+        "org": "Nõva Sushi",
+        "role": "Proyecto propio",
+        "period": "2025",
+        "summary": "Landing de marketing y embudo de captación de franquicias de Nõva Sushi, negocio propio.",
+        "b": [
+          "Ciclo completo del proyecto: relevamiento de requerimientos, diseño, desarrollo, despliegue y optimización de rendimiento.",
+          "+30% de mejora en velocidad de carga y +32% de aumento en pedidos."
+        ]
+      },
+      "calm": {
+        "org": "Calm es Simple",
+        "role": "Desarrollador Front End (pasantía)",
+        "period": "Dic 2023 – Feb 2024",
+        "summary": "",
+        "b": [
+          "Refactor de la arquitectura del frontend aplicando Atomic Design: ~40% más reutilización de componentes y mejor mantenibilidad.",
+          "Mejoras de UI y modularización de componentes para optimizar la experiencia de usuario y reducir deuda técnica."
+        ]
+      }
+    },
+    "education": {
+      "uned": {
+        "org": "UNED",
+        "title": "Grado en Ingeniería Informática",
+        "period": "Inicio octubre 2026",
+        "detail": ""
+      },
+      "henryBootcamp": {
+        "org": "Henry",
+        "title": "Bootcamp Full Stack Web Developer",
+        "period": "2023",
+        "detail": "+700 h · JavaScript, React, Redux, Node.js, SQL, HTML/CSS"
+      },
+      "henryBackend": {
+        "org": "Henry",
+        "title": "Upskilling Backend: Arquitectura de Microservicios",
+        "period": "2023",
+        "detail": "Microservicios, Docker, MongoDB"
+      }
+    },
+    "languages": {
+      "es": "Español — nativo",
+      "en": "Inglés — C2 (EF SET 76/100, 2023)"
+    }
   },
 
   "footer": {

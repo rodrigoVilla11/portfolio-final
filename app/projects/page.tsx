@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useI18n } from "../providers/I18nProvider";
 import { projects } from "../data/projects";
+import { OpenSource } from "../components/OpenSource";
 
 export default function ProjectsPage() {
   const { t } = useI18n();
@@ -27,7 +28,9 @@ export default function ProjectsPage() {
 
         {/* PROJECT LIST */}
         <section className="grid gap-5 sm:grid-cols-2">
-          {projects.map((p, idx) => (
+          {projects
+            .filter((p) => p.listed !== false)
+            .map((p, idx) => (
             <article
               key={p.slug}
               className={`
@@ -83,6 +86,11 @@ export default function ProjectsPage() {
               </div>
             </article>
           ))}
+        </section>
+
+        {/* OPEN SOURCE */}
+        <section>
+          <OpenSource />
         </section>
 
         {/* CTA */}

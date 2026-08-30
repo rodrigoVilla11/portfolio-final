@@ -4,9 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useI18n } from "./providers/I18nProvider";
 import { projects } from "./data/projects";
+import { Experience } from "./components/Experience";
+import { OpenSource } from "./components/OpenSource";
 
 export default function HomePage() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+
+  // El CV descargable sigue al idioma activo del sitio.
+  const cvHref = lang === "en" ? "/cv_en.pdf" : "/cv_es.pdf";
+  const cvFileName =
+    lang === "en" ? "Rodrigo-Villarreal-CV-EN.pdf" : "Rodrigo-Villarreal-CV-ES.pdf";
 
   return (
     <main className="min-h-screen">
@@ -99,8 +106,8 @@ export default function HomePage() {
               </Link>
 
               <a
-                href="/cv.pdf"
-                download
+                href={cvHref}
+                download={cvFileName}
                 className="
                   inline-flex items-center
                   px-5 py-2.5 rounded-full
@@ -219,8 +226,10 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p) => (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {projects
+              .filter((p) => p.listed !== false)
+              .map((p) => (
               <article
                 key={p.slug}
                 className="
@@ -249,9 +258,14 @@ export default function HomePage() {
                   {t("projectsPage.viewDetail")} →
                 </Link>
               </article>
-            ))}
+              ))}
           </div>
+
+          <OpenSource />
         </section>
+
+        {/* EXPERIENCE & EDUCATION */}
+        <Experience />
 
         {/* CONTACT */}
         <section id="contact" className="space-y-4">
