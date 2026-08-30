@@ -336,7 +336,7 @@ export default function ContactClient() {
 
               <div aria-live="polite">
                 {success && (
-                  <p className="text-xs text-emerald-600 dark:text-emerald-400">
+                  <p className="text-xs text-emerald-700 dark:text-emerald-400">
                     {success}
                   </p>
                 )}

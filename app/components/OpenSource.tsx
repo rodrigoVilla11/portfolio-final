@@ -3,15 +3,21 @@
 import { useI18n } from "@/app/providers/I18nProvider";
 import { openSource } from "@/app/data/openSource";
 
-export function OpenSource() {
+export function OpenSource({
+  headingLevel = "h3",
+}: {
+  /** h3 dentro de la sección Proyectos de la home; h2 en /projects. */
+  headingLevel?: "h2" | "h3";
+}) {
   const { t } = useI18n();
+  const Heading = headingLevel;
 
   return (
     <div className="space-y-3">
       <div className="flex items-baseline justify-between gap-4">
-        <h3 className="text-lg font-semibold tracking-tight">
+        <Heading className="text-lg font-semibold tracking-tight">
           {t("openSource.title")}
-        </h3>
+        </Heading>
         <span className="text-[11px] uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
           {t("openSource.subtitle")}
         </span>

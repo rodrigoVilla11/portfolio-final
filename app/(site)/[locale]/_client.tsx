@@ -255,7 +255,8 @@ export default function HomeClient() {
                   href={localeHref(`/projects/${p.slug}`)}
                   className="inline-block text-xs text-indigo-600 dark:text-indigo-400 underline underline-offset-4 hover:opacity-80 transition-opacity"
                 >
-                  {t("projectsPage.viewDetail")} →
+                  {t("projectsPage.viewDetail")}
+                  <span className="sr-only">: {t(p.titleKey)}</span> →
                 </Link>
               </article>
               ))}

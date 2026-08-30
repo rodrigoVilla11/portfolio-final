@@ -55,7 +55,7 @@ export default async function AdminLoginPage({
         </button>
 
         {error ? (
-          <p role="alert" className="text-sm text-red-500">
+          <p role="alert" className="text-sm text-red-600">
             Token incorrecto.
           </p>
         ) : null}

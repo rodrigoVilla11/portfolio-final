@@ -81,7 +81,9 @@ export default function ProjectsClient() {
                     hover:opacity-80 transition-opacity
                   "
                 >
-                  {t("projectsPage.viewDetail")} <span aria-hidden>→</span>
+                  {t("projectsPage.viewDetail")}
+                  <span className="sr-only">: {t(p.titleKey)}</span>{" "}
+                  <span aria-hidden>→</span>
                 </Link>
               </div>
             </article>
@@ -90,14 +92,14 @@ export default function ProjectsClient() {
 
         {/* OPEN SOURCE */}
         <section>
-          <OpenSource />
+          <OpenSource headingLevel="h2" />
         </section>
 
         {/* CTA */}
         <section className="space-y-4">
-          <h3 className="text-lg font-semibold">
+          <h2 className="text-lg font-semibold">
             {t("projectsPage.ctaTitle")}
-          </h3>
+          </h2>
 
           <p className="text-sm text-slate-600 dark:text-slate-300">
             {t("projectsPage.ctaText")}

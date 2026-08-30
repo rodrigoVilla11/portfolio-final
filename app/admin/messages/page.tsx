@@ -60,7 +60,7 @@ export default async function MessagesPage() {
       </div>
 
       {dbError ? (
-        <p role="alert" className="text-sm text-red-500">
+        <p role="alert" className="text-sm text-red-600">
           No se pudieron leer los mensajes (error de base de datos).
         </p>
       ) : messages.length === 0 ? (
