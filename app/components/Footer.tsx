@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useI18n } from "@/app/providers/I18nProvider";
 
 export default function Footer() {
-  const { t } = useI18n();
+  const { t, localeHref } = useI18n();
   const year = new Date().getFullYear();
 
   return (
@@ -28,13 +28,13 @@ export default function Footer() {
         {/* Derecha */}
         <div className="flex flex-wrap gap-3 sm:justify-end">
           <Link
-            href="/projects"
+            href={localeHref("/projects")}
             className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
           >
             {t("footer.projects")}
           </Link>
           <Link
-            href="/contact"
+            href={localeHref("/contact")}
             className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
           >
             {t("footer.contact")}

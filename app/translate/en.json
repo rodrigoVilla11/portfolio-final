@@ -37,8 +37,8 @@
     "text": "I'm after a full-time role. Where I do my best work is systems with dense business logic — the ones with odd rules, states, and money on the line.",
     "item1label": "Full-time",
     "item1text": "Product engineer or fullstack on a team building SaaS, internal tools, or business software people actually work with.",
-    "item2label": "Remote · Europe",
-    "item2text": "Based in Valencia, Spain. Working remotely with teams anywhere in Europe."
+    "item2label": "Stack & deployment",
+    "item2text": "TypeScript end to end (Next.js, NestJS, PostgreSQL/MongoDB), payments with Stripe and MercadoPago, and self-managed VPS deployments (Nginx, Docker, PM2, SSL)."
   },
 
   "projectDetail": {

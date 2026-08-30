@@ -8,7 +8,7 @@ import { Experience } from "@/app/components/Experience";
 import { OpenSource } from "@/app/components/OpenSource";
 
 export default function HomeClient() {
-  const { t, lang } = useI18n();
+  const { t, lang, localeHref } = useI18n();
 
   // El CV descargable sigue al idioma activo del sitio.
   const cvHref = lang === "en" ? "/cv_en.pdf" : "/cv_es.pdf";
@@ -252,7 +252,7 @@ export default function HomeClient() {
                   {p.stack.slice(0, 3).join(" · ")}
                 </p>
                 <Link
-                  href={`/projects/${p.slug}`}
+                  href={localeHref(`/projects/${p.slug}`)}
                   className="inline-block text-xs text-indigo-600 dark:text-indigo-400 underline underline-offset-4 hover:opacity-80 transition-opacity"
                 >
                   {t("projectsPage.viewDetail")} →

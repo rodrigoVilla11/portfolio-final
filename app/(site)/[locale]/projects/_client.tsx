@@ -6,7 +6,7 @@ import { projects } from "@/app/data/projects";
 import { OpenSource } from "@/app/components/OpenSource";
 
 export default function ProjectsClient() {
-  const { t } = useI18n();
+  const { t, localeHref } = useI18n();
 
   return (
     <main className="min-h-screen">
@@ -72,7 +72,7 @@ export default function ProjectsClient() {
               {/* LINK */}
               <div className="pt-3">
                 <Link
-                  href={`/projects/${p.slug}`}
+                  href={localeHref(`/projects/${p.slug}`)}
                   className="
                     inline-flex items-center gap-2
                     text-sm font-medium
@@ -104,7 +104,7 @@ export default function ProjectsClient() {
           </p>
 
           <Link
-            href="/#contact"
+            href={localeHref("/#contact")}
             className="
               inline-flex items-center
               px-5 py-2.5 rounded-full

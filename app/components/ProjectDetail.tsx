@@ -196,7 +196,7 @@ function ImgFrame({
 }
 
 export default function ProjectDetail({ project }: { project: Project }) {
-  const { t } = useI18n();
+  const { t, localeHref } = useI18n();
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const hasLinks = Boolean(project.links?.demo || project.links?.repo || project.links?.docs);
@@ -210,7 +210,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {/* TOP NAV */}
         <div className="flex items-center justify-between">
           <Link
-            href="/projects"
+            href={localeHref("/projects")}
             className="
               text-sm inline-flex items-center gap-2
               text-slate-600 dark:text-slate-300

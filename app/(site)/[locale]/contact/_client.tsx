@@ -23,7 +23,7 @@ const INPUT_CLASS = `
 `;
 
 export default function ContactClient() {
-  const { t } = useI18n();
+  const { t, localeHref } = useI18n();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -351,7 +351,7 @@ export default function ContactClient() {
             <p className="text-xs text-slate-500 dark:text-slate-400">
               {t("contactPage.altContact")}{" "}
               <Link
-                href="/projects"
+                href={localeHref("/projects")}
                 className="underline underline-offset-4 hover:text-slate-800 dark:hover:text-slate-200"
               >
                 {t("contactPage.altContactLink")}

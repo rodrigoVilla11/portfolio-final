@@ -37,8 +37,8 @@
     "text": "Busco un puesto full-time. Donde mejor rindo es en sistemas con lógica de negocio densa: los que tienen reglas raras, estados y plata de por medio.",
     "item1label": "Full-time",
     "item1text": "Product engineer o fullstack en un equipo que construya SaaS, herramientas internas o software de negocio que la gente usa para trabajar.",
-    "item2label": "Remoto · Europa",
-    "item2text": "Con base en Valencia, España. Trabajo remoto para equipos en cualquier país de Europa."
+    "item2label": "Stack y despliegue",
+    "item2text": "TypeScript de punta a punta (Next.js, NestJS, PostgreSQL/MongoDB), pagos con Stripe y MercadoPago, y despliegue propio en VPS (Nginx, Docker, PM2, SSL)."
   },
 
   "projectDetail": {
