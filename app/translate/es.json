@@ -352,6 +352,42 @@
     }
   },
 
+  "meta": {
+    "site": {
+      "title": "Rodrigo Villarreal | Desarrollador Fullstack",
+      "description": "Desarrollador fullstack especializado en ERPs, paneles de administración y sistemas de negocio a medida. Software de producción para negocios reales.",
+      "jobTitle": "Desarrollador Fullstack"
+    },
+    "og": {
+      "subtitle": "Desarrollador Fullstack · Valencia, España",
+      "tagline": "ERPs y SaaS multi-tenant en producción"
+    },
+    "pages": {
+      "projects": {
+        "title": "Proyectos",
+        "description": "Dos sistemas que construí de punta a punta y que hoy están en uso: un ERP para una distribuidora y un SaaS de gestión gastronómica."
+      },
+      "contact": {
+        "title": "Contacto",
+        "description": "Si buscás un fullstack para tu equipo o querés charlar sobre alguno de mis proyectos, escribime y lo hablamos."
+      }
+    },
+    "projects": {
+      "dma": {
+        "title": "Distribuidora DMA — Plataforma B2B de distribución",
+        "description": "Plataforma B2B en producción para un distribuidor mayorista de autopartes en Argentina — motor de imputación de pagos con liquidación secuencial de documentos, descuentos por DCR y amortización de interés por cheques diferidos, 50+ módulos NestJS, 43 slices de RTK Query, arquitectura multi-tenant y seguimiento GPS de la fuerza de ventas. Construida con Next.js 15, NestJS, MongoDB y RTK Query."
+      },
+      "gourmetify": {
+        "title": "Gourmetify — SaaS de gestión para restaurantes",
+        "description": "Plataforma SaaS multi-tenant en producción para la gestión de restaurantes — POS offline-first con sincronización vía IndexedDB, pagos con Stripe y MercadoPago (facturación SaaS y cobros a clientes), 40+ modelos con aislamiento por fila, feature flags por plan y 30+ módulos operativos. Construida con Next.js 16, TypeScript, Prisma y PostgreSQL."
+      },
+      "nova-sushi": {
+        "title": "Nõva Sushi — Sitio de marketing y franquicias",
+        "description": "Sitio de marketing y captación de franquicias de Nõva Sushi, negocio propio — catálogo interactivo con más de 100 productos, embudo de inversores con modelado de ROI, animaciones scroll-driven con Framer Motion y contacto por WhatsApp. Construido con Next.js 15, React 19 y Framer Motion."
+      }
+    }
+  },
+
   "notFound": {
     "title": "Página no encontrada",
     "back": "Volver a proyectos"

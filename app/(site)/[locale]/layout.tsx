@@ -5,7 +5,8 @@ import "@/app/globals.css";
 import { Providers } from "@/app/providers/Providers";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import { LOCALES, isLocale } from "@/lib/i18n";
+import { LOCALES, getMessage, isLocale } from "@/lib/i18n";
+import { BASE_URL, SITE_NAME, siteMetadata } from "@/lib/i18n-metadata";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,48 +14,45 @@ const inter = Inter({
   display: "swap",
 });
 
-const BASE_URL = "https://villarrealrodrigo.com";
+type Params = { locale: string };
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: "Rodrigo Villarreal | Fullstack Developer",
-  description:
-    "Fullstack developer specializing in ERPs, admin panels, and custom business systems. Building production-grade software for real businesses.",
-  metadataBase: new URL(BASE_URL),
-  openGraph: {
-    title: "Rodrigo Villarreal | Fullstack Developer",
-    description:
-      "Fullstack developer specializing in ERPs, admin panels, and custom business systems. Building production-grade software for real businesses.",
-    url: BASE_URL,
-    siteName: "Rodrigo Villarreal",
-    type: "website",
-    locale: "es_ES",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Rodrigo Villarreal | Fullstack Developer",
-    description:
-      "Fullstack developer specializing in ERPs, admin panels, and custom business systems.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return siteMetadata(locale);
+}
 
 export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<Params>;
 }) {
   const { locale } = await params;
   // Con los rewrites de next.config.ts nunca llega otro valor; guarda defensiva.
   if (!isLocale(locale)) notFound();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SITE_NAME,
+    url: BASE_URL,
+    jobTitle: getMessage(locale, "meta.site.jobTitle"),
+    description: getMessage(locale, "meta.site.description"),
+    sameAs: [
+      "https://www.linkedin.com/in/rodrigonicolasvillarreal/",
+      "https://github.com/rodrigoVilla11",
+    ],
+  };
 
   return (
     <html lang={locale} className={inter.variable} suppressHydrationWarning>
@@ -66,21 +64,7 @@ export default async function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Rodrigo Villarreal",
-              url: BASE_URL,
-              jobTitle: "Fullstack Developer",
-              description:
-                "Fullstack developer specializing in ERPs, admin panels, and custom business systems.",
-              sameAs: [
-                "https://www.linkedin.com/in/rodrigonicolasvillarreal/",
-                "https://github.com/rodrigoVilla11",
-              ],
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-slate-50 text-slate-900 dark:bg-[#020617] dark:text-slate-50 antialiased">
