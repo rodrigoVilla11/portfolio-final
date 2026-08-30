@@ -23,6 +23,10 @@
     "contact": "Contacto",
     "menu": "Menú",
     "themeToggle": "Cambiar tema",
+    "themeLight": "claro",
+    "themeDark": "oscuro",
+    "themeSystem": "sistema",
+    "language": "Idioma",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú"
   },
@@ -52,6 +56,10 @@
     "viewRepo": "Ver repositorio",
     "viewDocs": "Ver documentación",
     "factsTitle": "Resumen del proyecto",
+    "screenshotCount": "{count} capturas",
+    "zoom": "Ampliar imagen",
+    "lightbox": "Imagen ampliada",
+    "close": "Cerrar",
     "facts": {
       "role": "Rol",
       "period": "Período",
@@ -386,6 +394,10 @@
         "description": "Sitio de marketing y captación de franquicias de Nõva Sushi, negocio propio — catálogo interactivo con más de 100 productos, embudo de inversores con modelado de ROI, animaciones scroll-driven con Framer Motion y contacto por WhatsApp. Construido con Next.js 15, React 19 y Framer Motion."
       }
     }
+  },
+
+  "a11y": {
+    "skipToContent": "Saltar al contenido principal"
   },
 
   "notFound": {

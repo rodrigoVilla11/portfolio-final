@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useI18n } from "@/app/providers/I18nProvider";
 import type { Project } from "../data/projects";
+
+type LightboxImage = { src: string; alt: string };
 
 function Pill({
   children,
@@ -25,15 +27,12 @@ function Pill({
 function Card({
   children,
   className = "",
-  onClick,
 }: {
   children: React.ReactNode;
   className?: string;
-  onClick?: () => void;
 }) {
   return (
     <div
-      onClick={onClick}
       className={[
         "rounded-3xl border border-slate-200 dark:border-slate-800",
         "bg-white/80 dark:bg-slate-900/70 backdrop-blur",
@@ -125,87 +124,146 @@ function SubtleLink({
   );
 }
 
-function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+/**
+ * Visor de imagen sobre <dialog> nativo con showModal(): el navegador aporta
+ * el foco atrapado, el cierre con Escape, la semántica modal y devuelve el
+ * foco al elemento que lo abrió al cerrar. Siempre se cierra vía
+ * dialog.close() para que se dispare `close` y esa restauración ocurra.
+ */
+function Lightbox({
+  image,
+  onClose,
+}: {
+  image: LightboxImage;
+  onClose: () => void;
+}) {
+  const { t } = useI18n();
+  const ref = useRef<HTMLDialogElement>(null);
+
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", handler);
+    const dialog = ref.current;
+    if (!dialog) return;
+    if (!dialog.open) dialog.showModal();
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener("keydown", handler);
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
-  }, [onClose]);
+  }, []);
+
+  const close = () => ref.current?.close();
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
-      onClick={onClose}
+    <dialog
+      ref={ref}
+      aria-modal="true"
+      aria-label={t("projectDetail.lightbox")}
+      onClose={onClose}
+      className="
+        fixed inset-0 z-50 m-0 h-full w-full max-h-none max-w-none
+        border-0 bg-transparent p-0 text-white
+        backdrop:bg-black/85 backdrop:backdrop-blur-sm
+      "
     >
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 text-white/70 hover:text-white text-3xl leading-none transition-colors"
-        aria-label="Cerrar"
-      >
-        ×
-      </button>
       <div
-        className="relative max-w-6xl w-full max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
+        className="flex h-full w-full items-center justify-center p-4"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) close();
+        }}
       >
-        <Image
-          src={src}
-          alt={alt}
-          width={1600}
-          height={900}
-          className="w-full h-auto object-contain"
-          priority
-        />
+        <button
+          type="button"
+          onClick={close}
+          aria-label={t("projectDetail.close")}
+          autoFocus
+          className="
+            absolute top-4 right-4 rounded-full px-2
+            text-3xl leading-none text-white/80
+            hover:text-white transition-colors
+            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
+          "
+        >
+          ×
+        </button>
+        <figure className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl shadow-2xl">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={1600}
+            height={900}
+            className="w-full h-auto object-contain"
+            priority
+          />
+          <figcaption className="sr-only">{image.alt}</figcaption>
+        </figure>
       </div>
-    </div>
+    </dialog>
   );
 }
 
-function ImgFrame({
-  src,
-  alt,
+/** Imagen ampliable: un <button> real, operable por teclado y con foco visible. */
+function ZoomImage({
+  image,
   priority,
-  onClick,
+  gradient,
+  onOpen,
 }: {
-  src: string;
-  alt: string;
+  image: LightboxImage;
   priority?: boolean;
-  onClick?: () => void;
+  gradient: string;
+  onOpen: (image: LightboxImage, opener: HTMLElement) => void;
 }) {
+  const { t } = useI18n();
+
   return (
-    <div
-      className={`relative overflow-hidden rounded-3xl ${onClick ? "cursor-zoom-in" : ""}`}
-      onClick={onClick}
+    <button
+      type="button"
+      aria-haspopup="dialog"
+      aria-label={`${t("projectDetail.zoom")}: ${image.alt}`}
+      onClick={(e) => onOpen(image, e.currentTarget)}
+      className="
+        group relative block w-full cursor-zoom-in overflow-hidden rounded-3xl text-left
+        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:focus-visible:outline-indigo-400
+      "
     >
       <div className="relative aspect-video">
         <Image
-          src={src}
-          alt={alt}
+          src={image.src}
+          alt={image.alt}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           priority={priority}
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/35 via-black/0 to-black/0" />
-    </div>
+      <div className={`pointer-events-none absolute inset-0 bg-linear-to-t ${gradient} via-black/0 to-black/0`} />
+    </button>
   );
 }
 
 export default function ProjectDetail({ project }: { project: Project }) {
   const { t, localeHref } = useI18n();
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [lightbox, setLightbox] = useState<LightboxImage | null>(null);
+  // Elemento que abrió el visor: se le devuelve el foco al cerrar (además de
+  // la restauración nativa del <dialog>, por si el visor ya se desmontó).
+  const openerRef = useRef<HTMLElement | null>(null);
+
+  const openLightbox = useCallback((image: LightboxImage, opener: HTMLElement) => {
+    openerRef.current = opener;
+    setLightbox(image);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightbox(null);
+    const opener = openerRef.current;
+    requestAnimationFrame(() => opener?.focus());
+  }, []);
 
   const hasLinks = Boolean(project.links?.demo || project.links?.repo || project.links?.docs);
+  const galleryCount = project.gallery?.length ?? 0;
 
   return (
-    <main className="min-h-screen">
-      {lightbox && (
-        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
-      )}
+    <main id="main" tabIndex={-1} className="min-h-screen outline-none">
+      {lightbox && <Lightbox image={lightbox} onClose={closeLightbox} />}
       <div className="max-w-5xl mx-auto px-4 pb-16 pt-10 space-y-10">
         {/* TOP NAV */}
         <div className="flex items-center justify-between">
@@ -281,11 +339,11 @@ export default function ProjectDetail({ project }: { project: Project }) {
           {/* COVER */}
           {project.cover?.src ? (
             <Card className="hover:-translate-y-px">
-              <ImgFrame
-                src={project.cover.src}
-                alt={t(project.cover.altKey)}
+              <ZoomImage
+                image={{ src: project.cover.src, alt: t(project.cover.altKey) }}
                 priority
-                onClick={() => setLightbox({ src: project.cover!.src, alt: t(project.cover!.altKey) })}
+                gradient="from-black/35"
+                onOpen={openLightbox}
               />
             </Card>
           ) : null}
@@ -337,7 +395,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
                 {project.highlightsKeys.map((k) => (
                   <li key={k} className="flex gap-2">
-                    <span className="mt-0.5 text-slate-400">•</span>
+                    <span aria-hidden className="mt-0.5 text-slate-400">•</span>
                     <span>{t(k)}</span>
                   </li>
                 ))}
@@ -355,27 +413,23 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 subtitle={t("projectDetail.galleryHint") ?? undefined}
               />
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                {project.gallery.length} screenshots
+                {t("projectDetail.screenshotCount").replace("{count}", String(galleryCount))}
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {project.gallery.map((img) => (
-                <Card key={img.src} className="hover:-translate-y-px cursor-zoom-in" onClick={() => setLightbox({ src: img.src, alt: t(img.altKey) })}>
-                  <div className="relative overflow-hidden rounded-3xl">
-                    <div className="relative aspect-video">
-                      <Image
-                        src={img.src}
-                        alt={t(img.altKey)}
-                        fill
-                        className="object-cover transition-transform duration-500 hover:scale-[1.03]"
-                      />
-                    </div>
-                    <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/25 via-black/0 to-black/0" />
-                  </div>
-                </Card>
+                <li key={img.src}>
+                  <Card className="hover:-translate-y-px">
+                    <ZoomImage
+                      image={{ src: img.src, alt: t(img.altKey) }}
+                      gradient="from-black/25"
+                      onOpen={openLightbox}
+                    />
+                  </Card>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
         ) : null}
 
@@ -395,9 +449,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
             >
               <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] items-start">
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold tracking-tight">
+                  <h2 className="text-xl font-semibold tracking-tight">
                     {t(sec.titleKey)}
-                  </h3>
+                  </h2>
 
                   {sec.calloutKey ? (
                     <div
@@ -426,7 +480,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
                       {sec.bulletsKeys.map((k) => (
                         <li key={k} className="flex gap-2">
-                          <span className="mt-0.5 text-slate-400">—</span>
+                          <span aria-hidden className="mt-0.5 text-slate-400">—</span>
                           <span>{t(k)}</span>
                         </li>
                       ))}
@@ -442,18 +496,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
                 {/* SECTION IMAGE */}
                 {sec.image?.src ? (
-                  <Card className="hover:-translate-y-px cursor-zoom-in" onClick={() => setLightbox({ src: sec.image!.src, alt: t(sec.image!.altKey) })}>
-                    <div className="relative overflow-hidden rounded-3xl">
-                      <div className="relative aspect-video">
-                        <Image
-                          src={sec.image.src}
-                          alt={t(sec.image.altKey)}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/25 via-black/0 to-black/0" />
-                    </div>
+                  <Card className="hover:-translate-y-px">
+                    <ZoomImage
+                      image={{ src: sec.image.src, alt: t(sec.image.altKey) }}
+                      gradient="from-black/25"
+                      onOpen={openLightbox}
+                    />
                   </Card>
                 ) : null}
               </div>

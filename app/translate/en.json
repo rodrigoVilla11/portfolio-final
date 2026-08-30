@@ -23,6 +23,10 @@
     "contact": "Contact",
     "menu": "Menu",
     "themeToggle": "Toggle theme",
+    "themeLight": "light",
+    "themeDark": "dark",
+    "themeSystem": "system",
+    "language": "Language",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -52,6 +56,10 @@
     "viewRepo": "View repository",
     "viewDocs": "View documentation",
     "factsTitle": "Project summary",
+    "screenshotCount": "{count} screenshots",
+    "zoom": "Enlarge image",
+    "lightbox": "Enlarged image",
+    "close": "Close",
     "facts": {
       "role": "Role",
       "period": "Period",
@@ -386,6 +394,10 @@
         "description": "A marketing and franchise acquisition website for Nõva Sushi, my own business — interactive menu with 100+ items, full franchise investor funnel with ROI modeling, scroll-driven Framer Motion animations, and WhatsApp-first contact architecture. Built with Next.js 15, React 19, and Framer Motion."
       }
     }
+  },
+
+  "a11y": {
+    "skipToContent": "Skip to main content"
   },
 
   "notFound": {
