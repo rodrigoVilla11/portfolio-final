@@ -1,8 +1,8 @@
 {
   "hero": {
-    "badge": "DESARROLLADOR FULLSTACK · VALENCIA, ESPAÑA",
+    "badge": "DESARROLLADOR FULL-STACK · VALENCIA, ESPAÑA",
     "title": "Construyo software que sostiene la operación de un negocio.",
-    "subtitle": "Desarrollador Fullstack (TypeScript · Next.js · NestJS · PostgreSQL/MongoDB), basado en Valencia. Construyo ERPs y plataformas SaaS en producción — con clientes reales usándolas a diario.",
+    "subtitle": "Desarrollador Full-Stack (TypeScript · Next.js · NestJS · PostgreSQL/MongoDB), basado en Valencia. Construyo ERPs y plataformas SaaS en producción — con clientes reales usándolas a diario.",
     "description": "Me meto en el problema operativo de verdad y lo dejo funcionando en producción, no en una demo.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Contactar",
@@ -37,7 +37,7 @@
     "title": "Qué estoy buscando",
     "text": "Busco un puesto full-time. Donde mejor rindo es en sistemas con lógica de negocio densa: los que tienen reglas raras, estados y plata de por medio.",
     "item1label": "Full-time",
-    "item1text": "Product engineer o fullstack en un equipo que construya SaaS, herramientas internas o software de negocio que la gente usa para trabajar.",
+    "item1text": "Product engineer o full-stack en un equipo que construya SaaS, herramientas internas o software de negocio que la gente usa para trabajar.",
     "item2label": "Stack y despliegue",
     "item2text": "TypeScript de punta a punta (Next.js, NestJS, PostgreSQL/MongoDB), pagos con Stripe y MercadoPago, y despliegue propio en VPS (Nginx, Docker, PM2, SSL)."
   },
@@ -66,7 +66,7 @@
 
   "contact": {
     "title": "¿Construimos algo juntos?",
-    "text": "Si tu equipo construye SaaS, herramientas internas o software de negocio y busca un fullstack, escribime y lo hablamos.",
+    "text": "Si tu equipo construye SaaS, herramientas internas o software de negocio y busca un full-stack, escribime y lo hablamos.",
     "cta": "Enviar email"
   },
 
@@ -238,7 +238,7 @@
   "contactPage": {
     "badge": "CONTACTO",
     "title": "Construyamos algo juntos.",
-    "subtitle": "Si buscás un fullstack para tu equipo o querés charlar sobre alguno de mis proyectos, escribime y lo hablamos.",
+    "subtitle": "Si buscás un full-stack para tu equipo o querés charlar sobre alguno de mis proyectos, escribime y lo hablamos.",
     "intro": "Lo mío son los sistemas con complejidad de verdad: ERPs, SaaS multi-tenant, herramientas internas. Si es lo que estás construyendo, hablemos.",
     "emailCta": "Enviarme un email",
     "responseHint": "Suelo responder dentro de las 24/48 horas, según la carga de trabajo.",
@@ -312,7 +312,7 @@
       },
       "nova": {
         "org": "Nõva Sushi",
-        "role": "Proyecto propio",
+        "role": "Propietario y desarrollador",
         "period": "2025",
         "summary": "Landing de marketing y embudo de captación de franquicias de Nõva Sushi, negocio propio.",
         "b": [
@@ -359,12 +359,12 @@
 
   "meta": {
     "site": {
-      "title": "Rodrigo Villarreal | Desarrollador Fullstack",
-      "description": "Desarrollador Fullstack que construye ERPs y SaaS multi-tenant en producción. TypeScript, Next.js, NestJS, PostgreSQL.",
-      "jobTitle": "Desarrollador Fullstack"
+      "title": "Rodrigo Villarreal | Desarrollador Full-Stack",
+      "description": "Desarrollador Full-Stack que construye ERPs y SaaS multi-tenant en producción. TypeScript, Next.js, NestJS, PostgreSQL.",
+      "jobTitle": "Desarrollador Full-Stack"
     },
     "og": {
-      "subtitle": "Desarrollador Fullstack · Valencia, España",
+      "subtitle": "Desarrollador Full-Stack · Valencia, España",
       "tagline": "ERPs y SaaS multi-tenant en producción"
     },
     "pages": {
@@ -374,7 +374,7 @@
       },
       "contact": {
         "title": "Contacto",
-        "description": "Si buscás un fullstack para tu equipo o querés charlar sobre alguno de mis proyectos, escribime y lo hablamos."
+        "description": "Si buscás un full-stack para tu equipo o querés charlar sobre alguno de mis proyectos, escribime y lo hablamos."
       }
     },
     "projects": {
