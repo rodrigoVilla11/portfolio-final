@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/check-locale-links.mjs",
     "start": "next start",
     "lint": "eslint",
     "icons": "node scripts/generate-icons.mjs"

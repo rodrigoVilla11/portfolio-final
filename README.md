@@ -5,26 +5,29 @@ dos sistemas en producción — un ERP B2B y una plataforma SaaS gastronómica �
 experiencia y formación, y repos públicos, con foco en software operativo de
 negocio real.
 
-**Live:** https://villarrealrodrigo.com
+**Live:** https://villarrealrodrigo.com (inglés) · https://villarrealrodrigo.com/es (español)
 
 ## Stack
 
 - **Next.js 16** (App Router) · **React 19** · **TypeScript**
 - **Tailwind CSS 4**
-- i18n propio (ES/EN) y theming (light/dark/system) vía `useSyncExternalStore`
+- i18n propio con rutas por idioma (ver abajo) y theming (light/dark/system)
+  vía `useSyncExternalStore`
 - Formulario de contacto con **API Route + MongoDB** (validación con Zod,
   honeypot y rate limit por IP) e inbox de administración en `/admin/messages`
   protegido por sesión en cookie httpOnly (login en `/admin/login`)
 - Imágenes optimizadas con `next/image` (Cloudinary) · SEO: metadata, Open
-  Graph, JSON-LD (`Person`) y `sitemap.xml` dinámico
+  Graph e imagen OG por idioma, canonical + hreflang, JSON-LD (`Person`) y
+  `sitemap.xml` con ambas versiones
 
 ## Desarrollo
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # build de producción
+npm run build    # build de producción (+ postbuild: scripts/check-locale-links.mjs)
 npm run lint     # ESLint
+npm run icons    # regenera favicon / icon.png / apple-icon.png
 ```
 
 ## Variables de entorno
@@ -37,26 +40,51 @@ MONGODB_DB=...
 CONTACT_ADMIN_TOKEN=...   # token para entrar al inbox (/admin/login)
 ```
 
+## Idiomas y URLs
+
+El idioma lo define la URL: **inglés sin prefijo** (`/`, `/projects/dma`) y
+**español bajo `/es`** (`/es`, `/es/projects/dma`). Ambas ramas viven en
+`app/(site)/[locale]/` y se prerenderizan; `next.config.ts` reescribe las URLs
+sin prefijo a `/en/...` internamente y redirige (308) `/en/...` público a la
+raíz. Cada página emite `<html lang>`, canonical, `hreflang` (`en`, `es`,
+`x-default` → inglés), metadata/OG por idioma; el switch del navbar enlaza a
+la misma ruta en el otro idioma.
+
+Para agregar una página: crear `page.tsx` (servidor, con `generateMetadata`
+vía `pageMetadata()`) + `_client.tsx` bajo `[locale]`, usar `localeHref()` en
+todo `href` interno, sumar sus textos en `translate/*.json` (incluido `meta.*`),
+añadirla a `PAGES` en `app/sitemap.ts` y un redirect de `/en/<ruta>` en
+`next.config.ts`. `npm run build` falla si queda un enlace interno sin el
+prefijo correcto o falta canonical/hreflang/`og:locale`.
+
 ## Estructura
 
 ```
 app/
-  page.tsx              # home (hero, about, qué busco, proyectos, experiencia, contacto)
-  projects/             # listado y detalle por slug
-  contact/              # formulario -> /api/contact
-  admin/login/          # login del inbox (server action -> cookie de sesión)
-  admin/messages/       # inbox; sin sesión válida responde 404
-  api/contact/          # POST: Zod + honeypot + rate limit -> MongoDB
-  components/           # Navbar, Footer, ProjectDetail, Experience, OpenSource
-  providers/            # Theme, i18n, UI (context)
-  data/projects.ts      # proyectos (listed: false = solo por URL directa)
-  data/experience.ts    # ids y links de experiencia/formación (textos en translate/)
-  data/openSource.ts    # repos públicos del bloque "Código abierto"
-  translate/            # es.json / en.json
+  (site)/[locale]/         # sitio público; locale = en | es
+    layout.tsx             # root layout: html lang, metadata por idioma, JSON-LD
+    page.tsx + _client.tsx # home (hero, about, qué busco, proyectos, experiencia, contacto)
+    projects/              # listado y detalle por slug
+    contact/               # formulario -> /api/contact
+    [...rest]/             # catch-all -> notFound() (404 por idioma)
+    opengraph-image.tsx    # imagen OG por idioma
+  admin/                   # root layout propio: login (server action -> cookie) e inbox
+  api/contact/             # POST: Zod + honeypot + rate limit -> MongoDB
+  components/              # Navbar, Footer, ProjectDetail, Experience, OpenSource
+  providers/               # Theme, i18n (idioma de la URL), UI
+  data/projects.ts         # proyectos (listed: false = solo por URL directa)
+  data/experience.ts       # ids y links de experiencia/formación (textos en translate/)
+  data/openSource.ts       # repos públicos del bloque "Código abierto"
+  translate/               # es.json / en.json (incluye meta.* para metadata)
+  sitemap.ts               # 6 páginas × 2 idiomas, con alternates
 public/cv_es.pdf, cv_en.pdf # CV descargable según el idioma activo
-lib/mongodb.ts          # conexión cacheada a MongoDB
-lib/admin-auth.ts       # token/cookie de admin (comparación en tiempo constante)
-lib/rate-limit.ts       # rate limit en memoria (ver limitación en el archivo)
+lib/i18n.ts                # locales, localePath/stripLocale, mensajes en servidor
+lib/i18n-metadata.ts       # canonical + hreflang, OG/Twitter por idioma
+lib/mongodb.ts             # conexión cacheada a MongoDB
+lib/admin-auth.ts          # token/cookie de admin (comparación en tiempo constante)
+lib/rate-limit.ts          # rate limit en memoria (ver limitación en el archivo)
+scripts/check-locale-links.mjs # postbuild: enlaces, lang, canonical, hreflang, og:locale
+next.config.ts             # rewrites "/" -> "/en" y redirects 308 de /en/* a la raíz
 ```
 
 ## Limitación conocida: rate limit
