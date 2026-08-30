@@ -68,6 +68,18 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-slate-50 text-slate-900 dark:bg-[#020617] dark:text-slate-50 antialiased">
+        {/* Skip link: primer elemento enfocable; visible solo con foco. */}
+        <a
+          href="#main"
+          className="
+            sr-only focus:not-sr-only
+            focus:fixed focus:top-3 focus:left-3 focus:z-100
+            focus:rounded-full focus:bg-indigo-600 focus:px-4 focus:py-2
+            focus:text-sm focus:font-medium focus:text-white
+          "
+        >
+          {getMessage(locale, "a11y.skipToContent")}
+        </a>
         <Providers lang={locale}>
           <Navbar />
           {children}

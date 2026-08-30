@@ -16,7 +16,7 @@ export default function HomeClient() {
     lang === "en" ? "Rodrigo-Villarreal-CV-EN.pdf" : "Rodrigo-Villarreal-CV-ES.pdf";
 
   return (
-    <main className="min-h-screen">
+    <main id="main" tabIndex={-1} className="min-h-screen outline-none">
       <div
         className="
           max-w-5xl mx-auto px-4
@@ -38,7 +38,7 @@ export default function HomeClient() {
           <div className="space-y-6">
             {/* AVAILABILITY BADGE */}
             <div className="flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span aria-hidden className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-xs text-slate-500 dark:text-slate-400">
                 {t("hero.available")}
               </span>

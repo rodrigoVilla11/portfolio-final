@@ -1,6 +1,44 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-body {
-  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+@layer base {
+  body {
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Foco visible y consistente para todo interactivo (enlaces, botones,
+     controles). Las utilidades (p. ej. outline-none + ring en inputs) siguen
+     teniendo prioridad por estar en la capa de utilidades. */
+  :focus-visible {
+    outline: 2px solid #4f46e5;
+    outline-offset: 2px;
+  }
+  .dark :focus-visible {
+    outline-color: #818cf8;
+  }
+}
+
+/* Usada por animate-[fadein_.6s_ease-out] en hero y cabeceras. Antes no
+   estaba definida, así que esas clases no animaban nada. */
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Sin animaciones ni transiciones para quien lo pide al sistema. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

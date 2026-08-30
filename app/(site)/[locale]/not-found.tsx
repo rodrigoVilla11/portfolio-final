@@ -8,7 +8,7 @@ export default function NotFound() {
   const { t, localeHref } = useI18n();
 
   return (
-    <main className="max-w-5xl mx-auto px-4 py-16 space-y-3">
+    <main id="main" tabIndex={-1} className="max-w-5xl mx-auto px-4 py-16 space-y-3 outline-none">
       <h1 className="text-2xl font-semibold tracking-tight">
         {t("notFound.title")}
       </h1>

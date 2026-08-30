@@ -99,7 +99,7 @@ export default function ContactClient() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main id="main" tabIndex={-1} className="min-h-screen outline-none">
       <div className="max-w-5xl mx-auto px-4 pb-16 pt-10 space-y-16 md:space-y-20">
         {/* HEADER */}
         <section className="space-y-4 animate-[fadein_.6s_ease-out]">

@@ -2,6 +2,7 @@
 
 import React, {
   createContext,
+  useCallback,
   useContext,
   useState,
   type ReactNode,
@@ -23,10 +24,12 @@ type UIProviderProps = {
 export function UIProvider({ children }: UIProviderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const openMobileMenu = () => setIsMobileMenuOpen(true);
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
-  const toggleMobileMenu = () =>
-    setIsMobileMenuOpen((open) => !open);
+  const openMobileMenu = useCallback(() => setIsMobileMenuOpen(true), []);
+  const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
+  const toggleMobileMenu = useCallback(
+    () => setIsMobileMenuOpen((open) => !open),
+    [],
+  );
 
   return (
     <UIContext.Provider
