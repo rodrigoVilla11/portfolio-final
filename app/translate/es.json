@@ -11,10 +11,7 @@
     "highlightTitle": "Qué construyo",
     "highlight1": "ERPs y sistemas B2B en producción — catálogo, pedidos y cobranzas.",
     "highlight2": "SaaS multi-tenant con facturación y pagos (Stripe, MercadoPago).",
-    "highlight3": "POS, paneles internos y dashboards para operar el día a día.",
-    "currentMode": "Modo actual:",
-    "modeDark": "Oscuro",
-    "modeLight": "Claro"
+    "highlight3": "POS, paneles internos y dashboards para operar el día a día."
   },
 
   "nav": {
@@ -97,7 +94,7 @@
       "short": "Una plataforma B2B de producción para un distribuidor mayorista de autopartes en Argentina — ciclo comercial completo desde el catálogo y pedidos hasta pagos, cobranzas y CRM.",
 
       "facts": {
-        "role": "Desarrollador Fullstack (Next.js 15 + NestJS + MongoDB)",
+        "role": "Desarrollador de Software Full-Stack (Next.js 15 + NestJS + MongoDB)",
         "period": "2024 – Actualidad",
         "status": "En producción"
       },
@@ -145,7 +142,7 @@
       "short": "Landing de marketing y captación de franquicias de Nõva Sushi, negocio propio — un embudo de ventas digital para clientes y potenciales inversores.",
 
       "facts": {
-        "role": "Proyecto propio (Next.js 15 + Framer Motion)",
+        "role": "Propietario y desarrollador (Next.js 15 + Framer Motion)",
         "period": "2025",
         "status": "En producción"
       },
@@ -363,7 +360,7 @@
   "meta": {
     "site": {
       "title": "Rodrigo Villarreal | Desarrollador Fullstack",
-      "description": "Desarrollador fullstack especializado en ERPs, paneles de administración y sistemas de negocio a medida. Software de producción para negocios reales.",
+      "description": "Desarrollador Fullstack que construye ERPs y SaaS multi-tenant en producción. TypeScript, Next.js, NestJS, PostgreSQL.",
       "jobTitle": "Desarrollador Fullstack"
     },
     "og": {

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { getMessage, isLocale, type Locale } from "@/lib/i18n";
 
 // Imagen OG por idioma: /en/opengraph-image y /es/opengraph-image.
-export const alt = "Rodrigo Villarreal — Fullstack Developer";
+export const alt = "Rodrigo Villarreal — Full-Stack Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

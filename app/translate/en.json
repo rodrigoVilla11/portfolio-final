@@ -1,9 +1,9 @@
 {
   "hero": {
-    "badge": "FULLSTACK DEVELOPER · VALENCIA, SPAIN",
+    "badge": "FULL-STACK DEVELOPER · VALENCIA, SPAIN",
     "title": "I build software that keeps a business running.",
-    "subtitle": "Fullstack developer (TypeScript · Next.js · NestJS · PostgreSQL/MongoDB), based in Valencia, Spain. I build production ERPs and SaaS platforms — with real clients using them daily.",
-    "description": "I dig into the real operational problem and leave it running in production, not in a demo.",
+    "subtitle": "Full-Stack developer (TypeScript · Next.js · NestJS · PostgreSQL/MongoDB), based in Valencia, Spain. I build production ERPs and SaaS platforms — with real clients using them daily.",
+    "description": "I go deep into the operational problem and ship something that runs in production, not a demo.",
     "ctaPrimary": "View projects",
     "ctaSecondary": "Get in touch",
     "cvDownload": "Download CV",
@@ -11,10 +11,7 @@
     "highlightTitle": "What I build",
     "highlight1": "ERPs and B2B systems in production — catalog, orders, collections.",
     "highlight2": "Multi-tenant SaaS with billing and payments (Stripe, MercadoPago).",
-    "highlight3": "POS, internal panels, and dashboards to run day-to-day ops.",
-    "currentMode": "Current mode:",
-    "modeDark": "Dark",
-    "modeLight": "Light"
+    "highlight3": "POS, internal panels, and dashboards to run day-to-day ops."
   },
 
   "nav": {
@@ -33,14 +30,14 @@
 
   "about": {
     "title": "About me",
-    "text": "I've been coding since 2023, almost always on the same kind of thing: systems a business runs on every day. I built the payment-allocation engine for a wholesale distributor —post-dated checks, discounts, refinancing plans—, a POS that keeps selling even when the internet drops, and multi-tenant setups that serve several clients from a single codebase. Before I write a line, I take the time to understand how the business works; for me that's half the job."
+    "text": "I work on the same kind of thing almost every time: systems a business runs on every day. I built the payment-allocation engine for a wholesale distributor —post-dated checks, discounts, refinancing plans—, a POS that keeps selling when the internet drops, and multi-tenant setups serving several clients from a single codebase. Before I write a line, I take the time to understand how the business works; for me that's half the job."
   },
 
   "lookingFor": {
     "title": "What I'm looking for",
-    "text": "I'm after a full-time role. Where I do my best work is systems with dense business logic — the ones with odd rules, states, and money on the line.",
+    "text": "I'm looking for a full-time role. I do my best work in systems with dense business logic — the ones with odd rules, states, and money on the line.",
     "item1label": "Full-time",
-    "item1text": "Product engineer or fullstack on a team building SaaS, internal tools, or business software people actually work with.",
+    "item1text": "Product engineer or full-stack on a team building SaaS, internal tools, or business software people actually work with.",
     "item2label": "Stack & deployment",
     "item2text": "TypeScript end to end (Next.js, NestJS, PostgreSQL/MongoDB), payments with Stripe and MercadoPago, and self-managed VPS deployments (Nginx, Docker, PM2, SSL)."
   },
@@ -69,7 +66,7 @@
 
   "contact": {
     "title": "Ready to build something together?",
-    "text": "If your team builds SaaS, internal tools, or business software and is looking for a fullstack engineer, drop me a line.",
+    "text": "If your team builds SaaS, internal tools, or business software and is looking for a full-stack engineer, drop me a line.",
     "cta": "Send email"
   },
 
@@ -79,7 +76,7 @@
     "subtitle": "Two systems I built end to end and that are in use today: an ERP for a distributor and a restaurant-management SaaS.",
     "viewDetail": "View details",
     "ctaTitle": "Want to see how I work?",
-    "ctaText": "If how I approach things clicks with you, drop me a line.",
+    "ctaText": "If the way I work fits what you need, get in touch.",
     "ctaButton": "Contact me"
   },
 
@@ -97,7 +94,7 @@
       "short": "A production B2B platform for a wholesale automotive parts distributor in Argentina — full commercial lifecycle from catalog and orders through payment processing, collections, and CRM.",
 
       "facts": {
-        "role": "Fullstack Developer (Next.js 15 + NestJS + MongoDB)",
+        "role": "Full-Stack Software Developer (Next.js 15 + NestJS + MongoDB)",
         "period": "2024 – Present",
         "status": "In production"
       },
@@ -145,7 +142,7 @@
       "short": "A marketing and franchise-acquisition landing for Nõva Sushi, my own business — a digital sales funnel for consumers and franchise investors.",
 
       "facts": {
-        "role": "Own business (Next.js 15 + Framer Motion)",
+        "role": "Owner & Developer (Next.js 15 + Framer Motion)",
         "period": "2025",
         "status": "In production"
       },
@@ -241,8 +238,8 @@
   "contactPage": {
     "badge": "CONTACT",
     "title": "Let's build something together.",
-    "subtitle": "Looking for a fullstack engineer for your team, or want to talk about one of my projects? Write to me and we'll talk it through.",
-    "intro": "My thing is systems with real complexity: ERPs, multi-tenant SaaS, internal tools. If that's what you're building, let's talk.",
+    "subtitle": "Looking for a full-stack engineer for your team, or want to talk about one of my projects? Write to me and we'll talk it through.",
+    "intro": "I work best on systems with real complexity: ERPs, multi-tenant SaaS, internal tools. If that's what you're building, let's talk.",
     "emailCta": "Send me an email",
     "responseHint": "I usually reply within 24/48 hours, depending on workload.",
     "formTitle": "Tell me a bit more",
@@ -254,7 +251,7 @@
     "formMessageLabel": "Message",
     "formMessagePlaceholder": "Tell me about the role, the team, or whatever you'd like to discuss...",
     "formSubmit": "Send message",
-    "altContact": "Not sure yet?",
+    "altContact": "Want to see the work first?",
     "altContactLink": "Check some projects first",
     "formSuccess": "Message sent. Thanks! I will get back to you as soon as possible.",
     "formError": "There was an error sending your message. Please try again in a few minutes.",
@@ -362,12 +359,12 @@
 
   "meta": {
     "site": {
-      "title": "Rodrigo Villarreal | Fullstack Developer",
-      "description": "Fullstack developer specializing in ERPs, admin panels, and custom business systems. Building production-grade software for real businesses.",
-      "jobTitle": "Fullstack Developer"
+      "title": "Rodrigo Villarreal | Full-Stack Developer",
+      "description": "Full-Stack developer building production ERPs and multi-tenant SaaS. TypeScript, Next.js, NestJS, PostgreSQL.",
+      "jobTitle": "Full-Stack Developer"
     },
     "og": {
-      "subtitle": "Fullstack Developer · Valencia, Spain",
+      "subtitle": "Full-Stack Developer · Valencia, Spain",
       "tagline": "ERPs and multi-tenant SaaS in production"
     },
     "pages": {
@@ -377,7 +374,7 @@
       },
       "contact": {
         "title": "Contact",
-        "description": "Looking for a fullstack engineer for your team, or want to talk about one of my projects? Write to me and we'll talk it through."
+        "description": "Looking for a full-stack engineer for your team, or want to talk about one of my projects? Write to me and we'll talk it through."
       }
     },
     "projects": {
