@@ -4,22 +4,50 @@ import { useState, FormEvent } from "react";
 import { useI18n } from "../providers/I18nProvider";
 import Link from "next/link";
 
+type Field = "name" | "email" | "message";
+type FieldErrors = Partial<Record<Field, string>>;
+
+type ApiResponse =
+  | { ok: true }
+  | { ok: false; error: string; errors?: Partial<Record<Field, string>> };
+
+const INPUT_CLASS = `
+  w-full px-3 py-2 rounded-xl
+  border border-slate-300 dark:border-slate-700
+  bg-white dark:bg-slate-900
+  text-sm
+  outline-none
+  focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500
+  transition-shadow
+  aria-[invalid=true]:border-red-500 dark:aria-[invalid=true]:border-red-500
+`;
+
 export default function ContactPage() {
   const { t } = useI18n();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  // Honeypot: campo oculto por CSS que un humano nunca completa.
+  const [website, setWebsite] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+
+  function clearFieldError(field: Field) {
+    if (fieldErrors[field]) {
+      setFieldErrors((prev) => ({ ...prev, [field]: undefined }));
+    }
+  }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setIsSubmitting(true);
     setSuccess(null);
     setError(null);
+    setFieldErrors({});
 
     try {
       const res = await fetch("/api/contact", {
@@ -27,19 +55,41 @@ export default function ContactPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, website }),
       });
 
-      const data = await res.json();
-
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Error al enviar");
+      let data: ApiResponse | null = null;
+      try {
+        data = (await res.json()) as ApiResponse;
+      } catch {
+        data = null;
       }
 
-      setSuccess(t("contactPage.formSuccess"));
-      setName("");
-      setEmail("");
-      setMessage("");
+      if (res.ok && data?.ok) {
+        setSuccess(t("contactPage.formSuccess"));
+        setName("");
+        setEmail("");
+        setMessage("");
+        return;
+      }
+
+      if (res.status === 400 && data && !data.ok && data.errors) {
+        const next: FieldErrors = {};
+        for (const field of ["name", "email", "message"] as const) {
+          const code = data.errors[field];
+          if (code) next[field] = t(`contactPage.formErrors.${code}`);
+        }
+        setFieldErrors(next);
+        setError(t("contactPage.formFixFields"));
+        return;
+      }
+
+      if (res.status === 429) {
+        setError(t("contactPage.formRateLimited"));
+        return;
+      }
+
+      setError(t("contactPage.formError"));
     } catch (err) {
       console.error(err);
       setError(t("contactPage.formError"));
@@ -153,7 +203,7 @@ export default function ContactPage() {
               {t("contactPage.formText")}
             </p>
 
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="relative space-y-4" onSubmit={handleSubmit} noValidate>
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="name"
@@ -166,19 +216,24 @@ export default function ContactPage() {
                   name="name"
                   type="text"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="
-                    w-full px-3 py-2 rounded-xl
-                    border border-slate-300 dark:border-slate-700
-                    bg-white dark:bg-slate-900
-                    text-sm
-                    outline-none
-                    focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500
-                    transition-shadow
-                  "
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    clearFieldError("name");
+                  }}
+                  className={INPUT_CLASS}
                   placeholder={t("contactPage.formNamePlaceholder")}
                   required
+                  minLength={2}
+                  maxLength={80}
+                  autoComplete="name"
+                  aria-invalid={fieldErrors.name ? true : undefined}
+                  aria-describedby={fieldErrors.name ? "name-error" : undefined}
                 />
+                {fieldErrors.name ? (
+                  <p id="name-error" role="alert" className="text-xs text-red-600 dark:text-red-400">
+                    {fieldErrors.name}
+                  </p>
+                ) : null}
               </div>
 
               <div className="space-y-1 text-sm">
@@ -193,19 +248,23 @@ export default function ContactPage() {
                   name="email"
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="
-                    w-full px-3 py-2 rounded-xl
-                    border border-slate-300 dark:border-slate-700
-                    bg-white dark:bg-slate-900
-                    text-sm
-                    outline-none
-                    focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500
-                    transition-shadow
-                  "
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    clearFieldError("email");
+                  }}
+                  className={INPUT_CLASS}
                   placeholder={t("contactPage.formEmailPlaceholder")}
                   required
+                  maxLength={254}
+                  autoComplete="email"
+                  aria-invalid={fieldErrors.email ? true : undefined}
+                  aria-describedby={fieldErrors.email ? "email-error" : undefined}
                 />
+                {fieldErrors.email ? (
+                  <p id="email-error" role="alert" className="text-xs text-red-600 dark:text-red-400">
+                    {fieldErrors.email}
+                  </p>
+                ) : null}
               </div>
 
               <div className="space-y-1 text-sm">
@@ -220,19 +279,40 @@ export default function ContactPage() {
                   name="message"
                   rows={4}
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="
-                    w-full px-3 py-2 rounded-xl
-                    border border-slate-300 dark:border-slate-700
-                    bg-white dark:bg-slate-900
-                    text-sm
-                    outline-none
-                    focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500
-                    transition-shadow
-                    resize-none
-                  "
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    clearFieldError("message");
+                  }}
+                  className={`${INPUT_CLASS} resize-none`}
                   placeholder={t("contactPage.formMessagePlaceholder")}
                   required
+                  minLength={20}
+                  maxLength={5000}
+                  aria-invalid={fieldErrors.message ? true : undefined}
+                  aria-describedby={fieldErrors.message ? "message-error" : undefined}
+                />
+                {fieldErrors.message ? (
+                  <p id="message-error" role="alert" className="text-xs text-red-600 dark:text-red-400">
+                    {fieldErrors.message}
+                  </p>
+                ) : null}
+              </div>
+
+              {/* HONEYPOT: fuera de pantalla por CSS (no display:none ni type=hidden),
+                  invisible para lectores de pantalla y fuera del orden de tabulación. */}
+              <div
+                aria-hidden="true"
+                className="absolute left-[-9999px] top-0 h-px w-px overflow-hidden"
+              >
+                <label htmlFor="website">Website</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
                 />
               </div>
 
@@ -254,27 +334,19 @@ export default function ContactPage() {
                   : t("contactPage.formSubmit")}
               </button>
 
-              {success && (
-                <p className="text-xs text-emerald-600 dark:text-emerald-400">
-                  {success}
-                </p>
-              )}
-              {error && (
-                <p className="text-xs text-red-600 dark:text-red-400">
-                  {error}
-                </p>
-              )}
-
-
+              <div aria-live="polite">
+                {success && (
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400">
+                    {success}
+                  </p>
+                )}
+                {error && (
+                  <p className="text-xs text-red-600 dark:text-red-400">
+                    {error}
+                  </p>
+                )}
+              </div>
             </form>
-
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 pt-3 border-t border-dashed border-slate-200 dark:border-slate-800">
-              <span className="font-semibold text-indigo-500 dark:text-indigo-400">
-                {t("contactPage.adminNoteLabel")}
-              </span>
-              {" — "}
-              {t("contactPage.adminNote")}
-            </p>
 
             <p className="text-xs text-slate-500 dark:text-slate-400">
               {t("contactPage.altContact")}{" "}

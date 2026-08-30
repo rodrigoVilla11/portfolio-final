@@ -247,12 +247,22 @@
     "formMessageLabel": "Mensaje",
     "formMessagePlaceholder": "Describí brevemente tu proyecto, tiempos e ideas...",
     "formSubmit": "Enviar mensaje",
-    "adminNoteLabel": "Nota técnica",
-    "adminNote": "Los mensajes del formulario se almacenan en MongoDB y son accesibles desde un panel de administración interno — autenticado con Bearer token. Construido como herramienta interna.",
     "altContact": "¿Todavía no estás seguro?",
     "altContactLink": "Mirá algunos proyectos primero",
     "formSuccess": "Mensaje enviado. ¡Gracias! Te responderé a la brevedad.",
     "formError": "Hubo un error al enviar tu mensaje. Por favor, intentá nuevamente en unos minutos.",
+    "formFixFields": "Revisá los campos marcados.",
+    "formRateLimited": "Enviaste varios mensajes seguidos. Esperá unos minutos y volvé a intentar.",
+    "formErrors": {
+      "name_min": "El nombre debe tener al menos 2 caracteres.",
+      "name_max": "El nombre no puede superar los 80 caracteres.",
+      "name_invalid": "Ingresá un nombre válido.",
+      "email_invalid": "Ingresá un email válido.",
+      "email_max": "El email no puede superar los 254 caracteres.",
+      "message_min": "El mensaje debe tener al menos 20 caracteres.",
+      "message_max": "El mensaje no puede superar los 5000 caracteres.",
+      "message_invalid": "Ingresá un mensaje válido."
+    },
     "formSubmitting": "Enviando..."
   },
 

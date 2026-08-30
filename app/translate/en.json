@@ -247,12 +247,22 @@
     "formMessageLabel": "Message",
     "formMessagePlaceholder": "Briefly describe your project, timelines and ideas...",
     "formSubmit": "Send message",
-    "adminNoteLabel": "Technical note",
-    "adminNote": "Contact submissions are stored in MongoDB and accessible through a secured admin inbox — authenticated via Bearer token. Built as an internal tool.",
     "altContact": "Not sure yet?",
     "altContactLink": "Check some projects first",
     "formSuccess": "Message sent. Thanks! I will get back to you as soon as possible.",
     "formError": "There was an error sending your message. Please try again in a few minutes.",
+    "formFixFields": "Please check the highlighted fields.",
+    "formRateLimited": "You have sent several messages in a row. Please wait a few minutes and try again.",
+    "formErrors": {
+      "name_min": "Name must be at least 2 characters long.",
+      "name_max": "Name cannot exceed 80 characters.",
+      "name_invalid": "Please enter a valid name.",
+      "email_invalid": "Please enter a valid email address.",
+      "email_max": "Email cannot exceed 254 characters.",
+      "message_min": "Message must be at least 20 characters long.",
+      "message_max": "Message cannot exceed 5000 characters.",
+      "message_invalid": "Please enter a valid message."
+    },
     "formSubmitting": "Sending..."
   },
 
