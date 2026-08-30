@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useI18n } from "../providers/I18nProvider";
-import { projects } from "../data/projects";
-import { OpenSource } from "../components/OpenSource";
+import { useI18n } from "@/app/providers/I18nProvider";
+import { projects } from "@/app/data/projects";
+import { OpenSource } from "@/app/components/OpenSource";
 
-export default function ProjectsPage() {
+export default function ProjectsClient() {
   const { t } = useI18n();
 
   return (

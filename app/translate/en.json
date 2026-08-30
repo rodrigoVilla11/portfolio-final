@@ -352,6 +352,11 @@
     }
   },
 
+  "notFound": {
+    "title": "Page not found",
+    "back": "Back to projects"
+  },
+
   "footer": {
     "tagline": "A portfolio made of projects that actually shipped.",
     "projects": "View projects",

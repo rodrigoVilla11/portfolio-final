@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useI18n } from "./providers/I18nProvider";
-import { projects } from "./data/projects";
-import { Experience } from "./components/Experience";
-import { OpenSource } from "./components/OpenSource";
+import { useI18n } from "@/app/providers/I18nProvider";
+import { projects } from "@/app/data/projects";
+import { Experience } from "@/app/components/Experience";
+import { OpenSource } from "@/app/components/OpenSource";
 
-export default function HomePage() {
+export default function HomeClient() {
   const { t, lang } = useI18n();
 
   // El CV descargable sigue al idioma activo del sitio.

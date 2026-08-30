@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { useI18n } from "../providers/I18nProvider";
+import { useI18n } from "@/app/providers/I18nProvider";
 import Link from "next/link";
 
 type Field = "name" | "email" | "message";
@@ -22,7 +22,7 @@ const INPUT_CLASS = `
   aria-[invalid=true]:border-red-500 dark:aria-[invalid=true]:border-red-500
 `;
 
-export default function ContactPage() {
+export default function ContactClient() {
   const { t } = useI18n();
 
   const [name, setName] = useState("");

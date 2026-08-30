@@ -352,6 +352,11 @@
     }
   },
 
+  "notFound": {
+    "title": "Página no encontrada",
+    "back": "Volver a proyectos"
+  },
+
   "footer": {
     "tagline": "Portfolio hecho de proyectos que salieron a producción.",
     "projects": "Ver proyectos",

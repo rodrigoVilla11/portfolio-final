@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import { Providers } from "./providers/Providers";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { notFound } from "next/navigation";
+import "@/app/globals.css";
+import { Providers } from "@/app/providers/Providers";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+import { LOCALES, isLocale } from "@/lib/i18n";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,14 +15,15 @@ const inter = Inter({
 
 const BASE_URL = "https://villarrealrodrigo.com";
 
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
+
 export const metadata: Metadata = {
   title: "Rodrigo Villarreal | Fullstack Developer",
   description:
     "Fullstack developer specializing in ERPs, admin panels, and custom business systems. Building production-grade software for real businesses.",
   metadataBase: new URL(BASE_URL),
-  alternates: {
-    canonical: "./",
-  },
   openGraph: {
     title: "Rodrigo Villarreal | Fullstack Developer",
     description:
@@ -42,13 +45,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  // Con los rewrites de next.config.ts nunca llega otro valor; guarda defensiva.
+  if (!isLocale(locale)) notFound();
+
   return (
-    <html lang="es" className={inter.variable} suppressHydrationWarning>
+    <html lang={locale} className={inter.variable} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -75,7 +84,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-slate-50 text-slate-900 dark:bg-[#020617] dark:text-slate-50 antialiased">
-        <Providers>
+        <Providers lang={locale}>
           <Navbar />
           {children}
           <Footer />

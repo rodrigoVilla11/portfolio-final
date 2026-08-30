@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useI18n } from "@/app/providers/I18nProvider";
 import { useTheme } from "@/app/providers/ThemeProvider";
 import { useUI } from "@/app/providers/UIProvider";
+import { LOCALES, localePath, stripLocale } from "@/lib/i18n";
 
 const NAV_LINKS = [
   { href: "/", key: "nav.home" },
@@ -14,9 +15,13 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { t, lang, setLang } = useI18n();
+  const { t, lang, localeHref } = useI18n();
   const { theme, setTheme } = useTheme();
   const { isMobileMenuOpen, toggleMobileMenu } = useUI();
+
+  // Ruta sin prefijo de idioma: sirve para marcar el link activo y para que el
+  // switch de idioma lleve a la misma página en el otro idioma.
+  const { path: currentPath } = stripLocale(pathname);
 
   const cycleTheme = () => {
     if (theme === "light") setTheme("dark");
@@ -25,8 +30,8 @@ export default function Navbar() {
   };
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    if (href === "/") return currentPath === "/";
+    return currentPath.startsWith(href);
   };
 
   return (
@@ -45,7 +50,7 @@ export default function Navbar() {
         <nav className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
           {/* LEFT - LOGO / NAME */}
           <Link
-            href="/"
+            href={localeHref("/")}
             className="font-semibold tracking-tight text-lg hover:opacity-90 transition-opacity"
           >
             Rodrigo Villarreal
@@ -58,7 +63,7 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={localeHref(link.href)}
                   className={`
                     transition-colors
                     ${
@@ -73,30 +78,24 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* LANGUAGE SWITCH */}
+            {/* LANGUAGE SWITCH: enlaces a la misma ruta en el otro idioma */}
             <div className="flex items-center gap-1 text-xs">
-              <button
-                onClick={() => setLang("es")}
-                aria-pressed={lang === "es"}
-                className={`px-2 py-1 rounded transition-all ${
-                  lang === "es"
-                    ? "bg-indigo-600 text-white dark:bg-indigo-500"
-                    : "border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100/70 dark:hover:bg-slate-800/70"
-                }`}
-              >
-                ES
-              </button>
-              <button
-                onClick={() => setLang("en")}
-                aria-pressed={lang === "en"}
-                className={`px-2 py-1 rounded transition-all ${
-                  lang === "en"
-                    ? "bg-indigo-600 text-white dark:bg-indigo-500"
-                    : "border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100/70 dark:hover:bg-slate-800/70"
-                }`}
-              >
-                EN
-              </button>
+              {LOCALES.map((locale) => (
+                <Link
+                  key={locale}
+                  href={localePath(locale, currentPath)}
+                  hrefLang={locale}
+                  lang={locale}
+                  aria-current={lang === locale ? "true" : undefined}
+                  className={`px-2 py-1 rounded transition-all ${
+                    lang === locale
+                      ? "bg-indigo-600 text-white dark:bg-indigo-500"
+                      : "border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100/70 dark:hover:bg-slate-800/70"
+                  }`}
+                >
+                  {locale.toUpperCase()}
+                </Link>
+              ))}
             </div>
 
             {/* THEME TOGGLE */}
@@ -167,7 +166,7 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={localeHref(link.href)}
                   onClick={toggleMobileMenu}
                   className={`
                     ${
