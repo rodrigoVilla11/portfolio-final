@@ -87,6 +87,18 @@ scripts/check-locale-links.mjs # postbuild: enlaces, lang, canonical, hreflang, 
 next.config.ts             # rewrites "/" -> "/en" y redirects 308 de /en/* a la raíz
 ```
 
+## Accesibilidad
+
+- Skip link al `<main id="main">`, foco visible consistente (`:focus-visible`
+  en `globals.css`), `prefers-reduced-motion` anula animaciones y transiciones.
+- Visor de imágenes sobre `<dialog>` nativo (`showModal()`): foco atrapado,
+  Escape, devolución del foco al botón que lo abrió. Menú móvil con Escape,
+  focus trap y devolución del foco.
+- Auditoría: `scripts/a11y/axe-audit.mjs` (axe-core sobre las 12 páginas en
+  tema claro/oscuro, visor y menú abiertos) y `scripts/a11y/keyboard.mjs`
+  (recorrido real por teclado). Corren con Playwright sobre el Edge instalado;
+  las instrucciones están en la cabecera de cada script.
+
 ## Limitación conocida: rate limit
 
 El límite de envíos del formulario (`lib/rate-limit.ts`) vive en memoria de la

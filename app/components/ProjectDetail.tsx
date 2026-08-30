@@ -153,12 +153,36 @@ function Lightbox({
 
   const close = () => ref.current?.close();
 
+  // showModal() hace inerte el resto de la página, pero Chrome deja que Tab
+  // salga del documento hacia la UI del navegador; con esto el foco cicla
+  // dentro del visor.
+  const trapFocus = (e: React.KeyboardEvent<HTMLDialogElement>) => {
+    if (e.key !== "Tab" || !ref.current) return;
+    const focusables = ref.current.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (focusables.length === 1) {
+      e.preventDefault();
+      first.focus();
+    } else if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <dialog
       ref={ref}
       aria-modal="true"
       aria-label={t("projectDetail.lightbox")}
       onClose={onClose}
+      onKeyDown={trapFocus}
       className="
         fixed inset-0 z-50 m-0 h-full w-full max-h-none max-w-none
         border-0 bg-transparent p-0 text-white
