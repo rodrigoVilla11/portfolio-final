@@ -142,9 +142,10 @@ export default function HomeClient() {
                 <div className="p-0.75 rounded-full bg-white dark:bg-slate-950">
                   <div className="relative w-52 h-52 sm:w-52 sm:h-52 rounded-full overflow-hidden">
                     <Image
-                      src="https://gourmetify.pro/api/img/facturas/1789204769309-f4cd6e4b-5831-4d6b-96bd-19cb00e242fa.png"
+                      src="/me.png"
                       alt="Rodrigo Villarreal"
                       fill
+                      sizes="208px"
                       className="object-cover object-[center_30%]"
                       priority
                     />
