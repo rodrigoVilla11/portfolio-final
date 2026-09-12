@@ -142,7 +142,7 @@ export default function HomeClient() {
                 <div className="p-0.75 rounded-full bg-white dark:bg-slate-950">
                   <div className="relative w-52 h-52 sm:w-52 sm:h-52 rounded-full overflow-hidden">
                     <Image
-                      src="https://res.cloudinary.com/db7kbwl5n/image/upload/v1774464913/WhatsApp_Image_2026-01-27_at_6.59.26_PM_iiarn8.jpg"
+                      src="https://gourmetify.pro/api/img/facturas/1789204769309-f4cd6e4b-5831-4d6b-96bd-19cb00e242fa.png"
                       alt="Rodrigo Villarreal"
                       fill
                       className="object-cover object-[center_30%]"
