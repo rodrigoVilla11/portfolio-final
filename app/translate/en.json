@@ -7,13 +7,12 @@
     "ctaPrimary": "View projects",
     "ctaSecondary": "Get in touch",
     "cvDownload": "Download CV",
-    "available": "Based in Valencia · Available full-time for remote roles across Europe",
+    "available": "Based in Valencia · Open to full-time roles, remote or on-site in Valencia",
     "highlightTitle": "What I build",
     "highlight1": "ERPs and B2B systems in production — catalog, orders, collections.",
     "highlight2": "Multi-tenant SaaS with billing and payments (Stripe, MercadoPago).",
     "highlight3": "POS, internal panels, and dashboards to run day-to-day ops."
   },
-
   "nav": {
     "home": "Home",
     "projects": "Projects",
@@ -27,12 +26,10 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
-
   "about": {
     "title": "About me",
     "text": "I work on the same kind of thing almost every time: systems a business runs on every day. I built the payment-allocation engine for a wholesale distributor —post-dated checks, discounts, refinancing plans—, a POS that keeps selling when the internet drops, and multi-tenant setups serving several clients from a single codebase. Before I write a line, I take the time to understand how the business works; for me that's half the job."
   },
-
   "lookingFor": {
     "title": "What I'm looking for",
     "text": "I'm looking for a full-time role. I do my best work in systems with dense business logic — the ones with odd rules, states, and money on the line.",
@@ -41,7 +38,6 @@
     "item2label": "Stack & deployment",
     "item2text": "TypeScript end to end (Next.js, NestJS, PostgreSQL/MongoDB), payments with Stripe and MercadoPago, and self-managed VPS deployments (Nginx, Docker, PM2, SSL)."
   },
-
   "projectDetail": {
     "stack": "Technology stack",
     "highlights": "Key highlights",
@@ -63,13 +59,11 @@
       "status": "Status"
     }
   },
-
   "contact": {
     "title": "Ready to build something together?",
     "text": "If your team builds SaaS, internal tools, or business software and is looking for a full-stack engineer, drop me a line.",
     "cta": "Send email"
   },
-
   "projectsPage": {
     "badge": "PROJECTS",
     "title": "Selected Projects",
@@ -79,7 +73,6 @@
     "ctaText": "If the way I work fits what you need, get in touch.",
     "ctaButton": "Contact me"
   },
-
   "projects": {
     "title": "Projects",
     "tagline": "PRODUCTION SYSTEMS",
@@ -88,23 +81,19 @@
       "gastro": "Gastronomy",
       "saas": "SaaS / POS"
     },
-
     "dma": {
       "title": "Distribuidora DMA",
       "short": "A production B2B platform for a wholesale automotive parts distributor in Argentina — full commercial lifecycle from catalog and orders through payment processing, collections, and CRM.",
-
       "facts": {
-        "role": "Full-Stack Software Developer (Next.js 15 + NestJS + MongoDB)",
-        "period": "2024 – Present",
+        "role": "Full-Stack Developer, Freelance (Next.js 15 + NestJS + MongoDB)",
+        "period": "May 2024 – Sep 2026",
         "status": "In production"
       },
-
       "highlights": [
         "Payment allocation engine: sequential document settlement (oldest-first), DCR-based discount rates, check interest amortization, and multi-installment refinancing plan generation",
         "43 RTK Query API slices for server state, React Context for session state, and a multi-tenant config system enabling white-label deployment per distributor",
         "50+ NestJS modules with JWT RBAC (Admin/Seller/Customer roles), ERP sync via multisoft_id, GPS customer visit tracking, and PDF/Excel export"
       ],
-
       "media": {
         "coverAlt": "DMA B2B distribution platform — main dashboard",
         "gallery": [
@@ -115,7 +104,6 @@
         "contextAlt": "Argentine wholesale distribution business context",
         "loginAlt": "Platform sign-in screen"
       },
-
       "sections": {
         "context": {
           "title": "Project context",
@@ -136,23 +124,19 @@
         }
       }
     },
-
     "nova": {
       "title": "Nõva Sushi",
-      "short": "A marketing and franchise-acquisition landing for Nõva Sushi, my own business — a digital sales funnel for consumers and franchise investors.",
-
+      "short": "Marketing site and franchise-acquisition funnel for Nõva Sushi, the 3-location restaurant group I co-founded — a digital sales tool for consumers and franchise investors.",
       "facts": {
-        "role": "Owner & Developer (Next.js 15 + Framer Motion)",
-        "period": "2025",
+        "role": "Co-founder & Head of Technology (Next.js 15 + Framer Motion)",
+        "period": "Sep 2023 – Present",
         "status": "In production"
       },
-
       "highlights": [
-        "Conversion-focused landing with a franchise funnel (ROI modeling, real operational KPIs, WhatsApp-powered lead capture) — +32% orders and 30% faster load after performance optimization",
+        "Conversion-focused site with a franchise funnel (ROI modeling, real operational KPIs, WhatsApp-powered lead capture), handling 3,000 online orders per month",
         "Interactive menu showcase with 100+ items, real-time search, and keyboard-accessible modals",
         "Scroll-driven animation system using Framer Motion (useScroll, useTransform, AnimatePresence)"
       ],
-
       "media": {
         "coverAlt": "Nõva Sushi marketing site homepage",
         "gallery": [
@@ -163,7 +147,6 @@
         "problemAlt": "Homepage and brand experience overview",
         "solutionAlt": "Franchise investor funnel and lead capture"
       },
-
       "sections": {
         "problem": {
           "title": "The project",
@@ -184,23 +167,19 @@
         }
       }
     },
-
     "gourmetify": {
       "title": "Gourmetify",
       "short": "A production-grade multi-tenant SaaS platform that replaces the entire operational stack of a restaurant — inventory, POS, orders, procurement, HR, and financial reporting in a single application.",
-
       "facts": {
         "role": "Founder & Lead Engineer (Next.js 16 + Prisma + PostgreSQL)",
-        "period": "2025 – Present",
+        "period": "Jan 2025 – Present",
         "status": "In production"
       },
-
       "highlights": [
         "Offline-first POS with IndexedDB mutation queuing, UUID-based server idempotency, and automatic sync with exponential backoff",
         "Dual payment-provider integration (Stripe + MercadoPago): SaaS subscription billing (B2B) and in-restaurant customer payments (B2C), both with atomic webhook idempotency",
         "Bill-of-materials costing engine with wastage factors, 40+ model multi-tenant schema, and 3-tier plan feature gating across 140+ API routes"
       ],
-
       "media": {
         "coverAlt": "Gourmetify SaaS platform — main dashboard",
         "gallery": [
@@ -212,7 +191,6 @@
         ],
         "problemAlt": "Restaurant operational chaos in Latin America"
       },
-
       "sections": {
         "problem": {
           "title": "The problem",
@@ -229,12 +207,11 @@
             "Offline-first POS using IndexedDB for mutation queuing, server-side UUID deduplication for idempotent sale submission, and automatic retry with exponential backoff — sales are never lost during outages",
             "Dual payment-provider integration: Stripe for SaaS subscription billing (with automated grace-period and downgrade flows) and MercadoPago for in-restaurant customer payments — both with atomic webhook idempotency via a claimed-event table"
           ],
-          "note": "In production with 5 active venues, processing 1,000+ tickets/month per venue. The platform spans 30+ operational modules: inventory with BOM recipe costing, Kanban order management with kitchen display, supplier procurement, employee attendance with PIN time clock, and automated financial reporting via email."
+          "note": "In production with 5 active venues (including Nõva Sushi's 3 locations), processing 1,000+ tickets/month per venue. The platform spans 30+ operational modules: inventory with BOM recipe costing, Kanban order management with kitchen display, supplier procurement, employee attendance with PIN time clock, and automated financial reporting via email."
         }
       }
     }
   },
-
   "contactPage": {
     "badge": "CONTACT",
     "title": "Let's build something together.",
@@ -269,15 +246,14 @@
     },
     "formSubmitting": "Sending..."
   },
-
   "openSource": {
     "title": "Open source",
     "subtitle": "Public repos on GitHub",
     "viewRepo": "View on GitHub",
     "mise": "Recipe costing, supermarket price tracking and weekly meal planning for a household that shops at more than one store.",
-    "novaSushi": "Marketing site and franchise-lead funnel for Nõva Sushi, a two-location sushi brand in Córdoba, Argentina."
+    "novaSushi": "Marketing site and franchise-lead funnel for Nõva Sushi, a 3-location sushi group in Argentina.",
+    "whatsappInbox": "Custom WhatsApp inbox on the Meta Cloud API for a 3-location restaurant group: NestJS, Next.js, Prisma, PostgreSQL, BullMQ + Redis queues and Cloudflare R2."
   },
-
   "experience": {
     "title": "Experience & education",
     "workTitle": "Experience",
@@ -287,37 +263,41 @@
       "gourmetify": {
         "org": "Gourmetify",
         "role": "Founder & Lead Engineer",
-        "period": "2025 – Present",
+        "period": "Jan 2025 – Present",
         "summary": "B2B SaaS point-of-sale (POS) and management platform for the food service industry.",
         "b": [
-          "Offline-first POS using IndexedDB for local persistence and seamless background sync upon reconnection.",
-          "Full-stack architecture with Next.js 16, TypeScript and PostgreSQL, with multi-tenant data isolation.",
-          "Dual payment gateways (MercadoPago and Stripe) for B2B SaaS subscriptions and B2C restaurant payments, with a resilient webhook architecture handling payment states, grace periods and automated billing cycles.",
-          "Entire infrastructure deployed from scratch on a VPS: Nginx reverse proxy, Docker containers, SSL with Let's Encrypt, domains and DNS.",
-          "Live in production across 5 active venues, processing 1,000+ monthly tickets per venue."
+          "Live in production across 5 venues (including Nõva Sushi's 3 locations), processing 1,000+ monthly tickets per venue.",
+          "Offline-first POS using IndexedDB for local persistence and background sync upon reconnection.",
+          "Multi-tenant architecture with Next.js 16, TypeScript and PostgreSQL, with per-tenant data isolation.",
+          "Stripe and MercadoPago for SaaS subscriptions and in-venue payments, with webhooks handling payment states, grace periods and recurring billing with no manual intervention.",
+          "Electronic invoicing with Argentina's tax authority (AFIP/ARCA WSFE), including batch issuance and authentication token reuse.",
+          "Security and code audit: purged secrets from git history, fixed dependency vulnerabilities and resolved race conditions with PostgreSQL advisory locks.",
+          "Entire infrastructure deployed from scratch on a VPS: Nginx reverse proxy, Docker containers, Let's Encrypt SSL, domains and DNS."
         ]
       },
       "dma": {
         "org": "DMA (Distribuidora Mayorista Autopiezas) · En Directo",
-        "role": "Full-Stack Software Developer",
-        "period": "2024 – Present",
+        "role": "Full-Stack Developer (Freelance)",
+        "period": "May 2024 – Sep 2026",
         "summary": "B2B SaaS platform for wholesale auto-parts distribution, deployed white-label for two corporate clients: DMA and En Directo.",
         "b": [
           "Catalog, orders and complex billing workflows for 520+ clients per distributor and an 11,000+ product catalog (Next.js 15, NestJS, MongoDB).",
-          "Payment allocation engine modeling Argentine financial conventions: sequential document settlement, check interest amortization and refinancing plan generation.",
+          "Payment allocation engine: sequential document settlement, check interest amortization and refinancing plan generation.",
           "Multi-tenant architecture with feature flags and environment-based configuration for white-label deployments.",
           "Server-state caching across 43 RTK Query API slices for resilient, real-time sync for field sales representatives.",
-          "Entire infrastructure deployed from scratch on a VPS: Nginx, PM2, SSL with Let's Encrypt (Certbot), domains and DNS."
+          "Deployment and operations on a VPS (Nginx, PM2, SSL, DNS)."
         ]
       },
       "nova": {
         "org": "Nõva Sushi",
-        "role": "Owner & Developer",
-        "period": "2025",
-        "summary": "Marketing landing and franchise-lead funnel for Nõva Sushi, my own business.",
+        "role": "Co-founder & Head of Technology",
+        "period": "Sep 2023 – Present",
+        "summary": "Sushi restaurant group in Argentina (3 locations).",
         "b": [
-          "Full project lifecycle: requirements gathering, design, development, deployment and performance optimization.",
-          "30% improvement in load speed and a 32% increase in orders."
+          "Custom WhatsApp inbox on the Meta Cloud API (NestJS, Next.js, Prisma, PostgreSQL) that centralizes customer service and orders for 3 locations, used daily by 7 team members.",
+          "Asynchronous Meta webhook processing with BullMQ and Redis queues, with media files stored on Cloudflare R2.",
+          "Multi-tenant-ready architecture, designed for integration as a Gourmetify module.",
+          "The group's ordering website, handling 3,000 online orders per month."
         ]
       },
       "calm": {
@@ -326,7 +306,7 @@
         "period": "Dec 2023 – Feb 2024",
         "summary": "",
         "b": [
-          "Refactored the frontend architecture by applying Atomic Design principles, improving component reusability and maintainability by ~40%.",
+          "Refactored the frontend architecture applying Atomic Design principles, improving component reusability and maintainability.",
           "UI improvements and component modularization to optimize the user experience and reduce technical debt."
         ]
       }
@@ -335,7 +315,7 @@
       "uned": {
         "org": "UNED",
         "title": "Bachelor's Degree in Computer Engineering",
-        "period": "Starting October 2026",
+        "period": "In progress (since Oct 2026)",
         "detail": ""
       },
       "henryBootcamp": {
@@ -353,10 +333,9 @@
     },
     "languages": {
       "es": "Spanish — native",
-      "en": "English — C2 (EF SET 76/100, 2023)"
+      "en": "English — C1 Advanced (Cambridge, results pending) · EF SET C2 (2023)"
     }
   },
-
   "meta": {
     "site": {
       "title": "Rodrigo Villarreal | Full-Stack Developer",
@@ -392,16 +371,13 @@
       }
     }
   },
-
   "a11y": {
     "skipToContent": "Skip to main content"
   },
-
   "notFound": {
     "title": "Page not found",
     "back": "Back to projects"
   },
-
   "footer": {
     "tagline": "A portfolio made of projects that actually shipped.",
     "projects": "View projects",

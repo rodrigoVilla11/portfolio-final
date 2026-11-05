@@ -2,18 +2,17 @@
   "hero": {
     "badge": "DESARROLLADOR FULL-STACK · VALENCIA, ESPAÑA",
     "title": "Construyo software que sostiene la operación de un negocio.",
-    "subtitle": "Desarrollador Full-Stack (TypeScript · Next.js · NestJS · PostgreSQL/MongoDB), basado en Valencia. Construyo ERPs y plataformas SaaS en producción — con clientes reales usándolas a diario.",
+    "subtitle": "Desarrollador Full-Stack (TypeScript · Next.js · NestJS · PostgreSQL/MongoDB), con base en Valencia. Construyo ERPs y plataformas SaaS en producción, con clientes reales usándolas a diario.",
     "description": "Me meto en el problema operativo de verdad y lo dejo funcionando en producción, no en una demo.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Contactar",
     "cvDownload": "Descargar CV",
-    "available": "Con base en Valencia · Disponible full-time para trabajo remoto en toda Europa",
+    "available": "Con base en Valencia · Disponible a jornada completa, en remoto o presencial en Valencia",
     "highlightTitle": "Qué construyo",
     "highlight1": "ERPs y sistemas B2B en producción — catálogo, pedidos y cobranzas.",
     "highlight2": "SaaS multi-tenant con facturación y pagos (Stripe, MercadoPago).",
     "highlight3": "POS, paneles internos y dashboards para operar el día a día."
   },
-
   "nav": {
     "home": "Inicio",
     "projects": "Proyectos",
@@ -27,21 +26,18 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú"
   },
-
   "about": {
     "title": "Sobre mí",
     "text": "Programo desde 2023 y casi siempre sobre lo mismo: sistemas que un negocio usa para operar todos los días. Construí el motor de imputación de pagos de una distribuidora —con cheques diferidos, descuentos y refinanciaciones—, un POS que sigue vendiendo aunque se corte internet y arquitecturas multi-tenant que sirven a varios clientes con una sola base de código. Antes de escribir una línea me tomo el tiempo de entender cómo funciona el negocio; para mí ahí está la mitad del trabajo."
   },
-
   "lookingFor": {
     "title": "Qué estoy buscando",
-    "text": "Busco un puesto full-time. Donde mejor rindo es en sistemas con lógica de negocio densa: los que tienen reglas raras, estados y plata de por medio.",
-    "item1label": "Full-time",
+    "text": "Busco un puesto a jornada completa. Donde mejor rindo es en sistemas con lógica de negocio densa: los que tienen reglas raras, estados y dinero de por medio.",
+    "item1label": "Jornada completa",
     "item1text": "Product engineer o full-stack en un equipo que construya SaaS, herramientas internas o software de negocio que la gente usa para trabajar.",
     "item2label": "Stack y despliegue",
     "item2text": "TypeScript de punta a punta (Next.js, NestJS, PostgreSQL/MongoDB), pagos con Stripe y MercadoPago, y despliegue propio en VPS (Nginx, Docker, PM2, SSL)."
   },
-
   "projectDetail": {
     "stack": "Stack tecnológico",
     "highlights": "Puntos destacados",
@@ -63,23 +59,20 @@
       "status": "Estado"
     }
   },
-
   "contact": {
     "title": "¿Construimos algo juntos?",
-    "text": "Si tu equipo construye SaaS, herramientas internas o software de negocio y busca un full-stack, escribime y lo hablamos.",
+    "text": "Si tu equipo construye SaaS, herramientas internas o software de negocio y busca un full-stack, escríbeme y lo hablamos.",
     "cta": "Enviar email"
   },
-
   "projectsPage": {
     "badge": "PROYECTOS",
     "title": "Proyectos seleccionados",
     "subtitle": "Dos sistemas que construí de punta a punta y que hoy están en uso: un ERP para una distribuidora y un SaaS de gestión gastronómica.",
     "viewDetail": "Ver detalle",
-    "ctaTitle": "¿Querés ver cómo trabajo?",
-    "ctaText": "Si te interesó cómo encaro las cosas, escribime y charlamos.",
-    "ctaButton": "Contactame"
+    "ctaTitle": "¿Quieres ver cómo trabajo?",
+    "ctaText": "Si te interesa cómo enfoco las cosas, escríbeme y hablamos.",
+    "ctaButton": "Contáctame"
   },
-
   "projects": {
     "title": "Proyectos",
     "tagline": "SISTEMAS EN PRODUCCIÓN",
@@ -88,23 +81,19 @@
       "gastro": "Gastronomía",
       "saas": "SaaS / POS"
     },
-
     "dma": {
       "title": "Distribuidora DMA",
       "short": "Una plataforma B2B de producción para un distribuidor mayorista de autopartes en Argentina — ciclo comercial completo desde el catálogo y pedidos hasta pagos, cobranzas y CRM.",
-
       "facts": {
-        "role": "Desarrollador de Software Full-Stack (Next.js 15 + NestJS + MongoDB)",
-        "period": "2024 – Actualidad",
+        "role": "Desarrollador Full-Stack, freelance (Next.js 15 + NestJS + MongoDB)",
+        "period": "may. 2024 – sep. 2026",
         "status": "En producción"
       },
-
       "highlights": [
         "Motor de imputación de pagos: liquidación secuencial de documentos (más antiguo primero), tasas de descuento por DCR, amortización de interés por cheques diferidos y generación de planes de refinanciación en cuotas",
         "43 API slices de RTK Query para estado del servidor, React Context para estado de sesión y sistema de configuración multi-tenant para despliegue white-label por distribuidor",
         "50+ módulos NestJS con RBAC por JWT (roles Admin/Vendedor/Cliente), sincronización con ERP vía multisoft_id, seguimiento GPS de visitas y exportación a PDF/Excel"
       ],
-
       "media": {
         "coverAlt": "Plataforma B2B de DMA — dashboard principal",
         "gallery": [
@@ -115,7 +104,6 @@
         "contextAlt": "Contexto del negocio de distribución mayorista argentina",
         "loginAlt": "Pantalla de inicio de sesión de la plataforma"
       },
-
       "sections": {
         "context": {
           "title": "Contexto del proyecto",
@@ -136,23 +124,19 @@
         }
       }
     },
-
     "nova": {
       "title": "Nõva Sushi",
-      "short": "Landing de marketing y captación de franquicias de Nõva Sushi, negocio propio — un embudo de ventas digital para clientes y potenciales inversores.",
-
+      "short": "Sitio de marketing y captación de franquicias de Nõva Sushi, el grupo de 3 restaurantes que cofundé: una herramienta de ventas digital para clientes y potenciales inversores.",
       "facts": {
-        "role": "Propietario y desarrollador (Next.js 15 + Framer Motion)",
-        "period": "2025",
+        "role": "Cofundador y responsable de tecnología (Next.js 15 + Framer Motion)",
+        "period": "sep. 2023 – actualidad",
         "status": "En producción"
       },
-
       "highlights": [
-        "Landing de conversión con embudo de franquicias (modelado de ROI, KPIs reales y captura de leads vía WhatsApp) — +32% de pedidos y 30% más rápida tras optimización de rendimiento",
+        "Sitio orientado a conversión con embudo de franquicias (modelado de ROI, KPIs reales y captación de leads por WhatsApp), con 3.000 pedidos online al mes",
         "Catálogo interactivo con más de 100 productos, búsqueda en tiempo real y modales con accesibilidad por teclado",
         "Sistema de animaciones scroll-driven con Framer Motion (useScroll, useTransform, AnimatePresence)"
       ],
-
       "media": {
         "coverAlt": "Sitio de marketing de Nõva Sushi — homepage",
         "gallery": [
@@ -163,7 +147,6 @@
         "problemAlt": "Homepage y experiencia de marca",
         "solutionAlt": "Embudo de inversores y captura de leads"
       },
-
       "sections": {
         "problem": {
           "title": "El proyecto",
@@ -180,27 +163,23 @@
             "Catálogo interactivo con filtrado por categoría y búsqueda en tiempo real sobre 100+ productos, integrado con AWS S3 como CDN de imágenes",
             "Sistema de animaciones scroll-driven con los hooks useScroll y useTransform de Framer Motion, con AnimatePresence para transiciones de modales"
           ],
-          "note": "Deployado en Vercel con SEO de producción: structured data JSON-LD (esquemas Restaurant, Breadcrumb y FAQ), generación dinámica de sitemap/robots y cobertura completa de Open Graph."
+          "note": "Desplegado en Vercel con SEO de producción: structured data JSON-LD (esquemas Restaurant, Breadcrumb y FAQ), generación dinámica de sitemap/robots y cobertura completa de Open Graph."
         }
       }
     },
-
     "gourmetify": {
       "title": "Gourmetify",
       "short": "Una plataforma SaaS multi-tenant de nivel productivo que reemplaza el stack operativo completo de un restaurante — inventario, POS, pedidos, compras, RRHH y reportes financieros en una sola aplicación.",
-
       "facts": {
         "role": "Founder y Lead Engineer (Next.js 16 + Prisma + PostgreSQL)",
-        "period": "2025 – Actualidad",
+        "period": "ene. 2025 – actualidad",
         "status": "En producción"
       },
-
       "highlights": [
         "POS offline-first con cola de mutaciones en IndexedDB, idempotencia por UUID en el servidor y sincronización automática con backoff exponencial",
         "Integración de pagos con doble proveedor (Stripe + MercadoPago): facturación SaaS por suscripción (B2B) y pagos de clientes en el restaurante (B2C), ambos con idempotencia atómica de webhooks",
         "Motor de costeo por receta con factores de desperdicio, esquema multi-tenant en 40+ modelos y feature flags por plan en 140+ rutas de API"
       ],
-
       "media": {
         "coverAlt": "Plataforma SaaS Gourmetify — dashboard principal",
         "gallery": [
@@ -212,13 +191,12 @@
         ],
         "problemAlt": "Caos operativo en restaurantes latinoamericanos"
       },
-
       "sections": {
         "problem": {
           "title": "El problema",
-          "callout": "El restaurante promedio en Latinoamérica funciona con grupos de WhatsApp, libretas y planillas — sin visibilidad real del costo de food, el flujo de caja ni la rentabilidad.",
+          "callout": "El restaurante medio en Latinoamérica funciona con grupos de WhatsApp, libretas y hojas de cálculo, sin visibilidad real del coste de materia prima, el flujo de caja ni la rentabilidad.",
           "p": [
-            "Los dueños no conocen su costo de food real, no pueden rastrear el desperdicio de ingredientes, no tienen visibilidad del P&L diario y gestionan al personal con planillas de papel. Cada dolor operativo es un proceso manual.",
+            "Los dueños no conocen su coste real de materia prima, no pueden controlar el desperdicio de ingredientes, no tienen visibilidad del P&L diario y gestionan al personal con hojas en papel. Cada problema operativo es un proceso manual.",
             "Las soluciones existentes son o demasiado caras y complejas, o herramientas de un solo propósito que no se integran entre sí. Gourmetify reemplaza todo el stack con una única plataforma SaaS accesible, diseñada para la realidad del food service latinoamericano."
           ]
         },
@@ -229,55 +207,53 @@
             "POS offline-first con IndexedDB para cola de mutaciones, deduplicación por UUID en el servidor para envío idempotente de ventas, y reintento automático con backoff exponencial — las ventas nunca se pierden ante cortes de internet",
             "Integración de pagos con doble proveedor: Stripe para la facturación SaaS por suscripción (con flujo automatizado de período de gracia y degradación) y MercadoPago para pagos de clientes en el local — ambos con idempotencia atómica de webhooks mediante tabla de eventos reclamados"
           ],
-          "note": "En producción con 5 locales activos, procesando +1.000 tickets/mes por local. La plataforma abarca 30+ módulos operativos: inventario con costeo por receta (BOM), gestión de pedidos tipo Kanban con pantalla de cocina, compras a proveedores, asistencia de empleados con fichador PIN y reportes financieros automáticos por email."
+          "note": "En producción con 5 locales activos (incluidos los 3 de Nõva Sushi), procesando +1.000 tickets/mes por local. La plataforma abarca 30+ módulos operativos: inventario con costeo por receta (BOM), gestión de pedidos tipo Kanban con pantalla de cocina, compras a proveedores, asistencia de empleados con fichador PIN y reportes financieros automáticos por email."
         }
       }
     }
   },
-
   "contactPage": {
     "badge": "CONTACTO",
     "title": "Construyamos algo juntos.",
-    "subtitle": "Si buscás un full-stack para tu equipo o querés charlar sobre alguno de mis proyectos, escribime y lo hablamos.",
+    "subtitle": "Si buscas un full-stack para tu equipo o quieres hablar sobre alguno de mis proyectos, escríbeme y lo hablamos.",
     "intro": "Lo mío son los sistemas con complejidad de verdad: ERPs, SaaS multi-tenant, herramientas internas. Si es lo que estás construyendo, hablemos.",
     "emailCta": "Enviarme un email",
     "responseHint": "Suelo responder dentro de las 24/48 horas, según la carga de trabajo.",
-    "formTitle": "Contame un poco más",
-    "formText": "No hace falta un mensaje largo. Contame del puesto o del equipo y te respondo.",
+    "formTitle": "Cuéntame un poco más",
+    "formText": "No hace falta un mensaje largo. Cuéntame sobre el puesto o el equipo y te respondo.",
     "formNameLabel": "Nombre",
     "formNamePlaceholder": "Tu nombre",
     "formEmailLabel": "Email",
     "formEmailPlaceholder": "tu@email.com",
     "formMessageLabel": "Mensaje",
-    "formMessagePlaceholder": "Contame sobre el puesto, el equipo o lo que quieras charlar...",
+    "formMessagePlaceholder": "Cuéntame sobre el puesto, el equipo o lo que quieras comentar...",
     "formSubmit": "Enviar mensaje",
-    "altContact": "¿Todavía no estás seguro?",
-    "altContactLink": "Mirá algunos proyectos primero",
+    "altContact": "¿Todavía no lo tienes claro?",
+    "altContactLink": "Mira algunos proyectos primero",
     "formSuccess": "Mensaje enviado. ¡Gracias! Te responderé a la brevedad.",
-    "formError": "Hubo un error al enviar tu mensaje. Por favor, intentá nuevamente en unos minutos.",
-    "formFixFields": "Revisá los campos marcados.",
-    "formRateLimited": "Enviaste varios mensajes seguidos. Esperá unos minutos y volvé a intentar.",
+    "formError": "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo en unos minutos.",
+    "formFixFields": "Revisa los campos marcados.",
+    "formRateLimited": "Has enviado varios mensajes seguidos. Espera unos minutos y vuelve a intentarlo.",
     "formErrors": {
       "name_min": "El nombre debe tener al menos 2 caracteres.",
       "name_max": "El nombre no puede superar los 80 caracteres.",
-      "name_invalid": "Ingresá un nombre válido.",
-      "email_invalid": "Ingresá un email válido.",
+      "name_invalid": "Introduce un nombre válido.",
+      "email_invalid": "Introduce un email válido.",
       "email_max": "El email no puede superar los 254 caracteres.",
       "message_min": "El mensaje debe tener al menos 20 caracteres.",
       "message_max": "El mensaje no puede superar los 5000 caracteres.",
-      "message_invalid": "Ingresá un mensaje válido."
+      "message_invalid": "Introduce un mensaje válido."
     },
     "formSubmitting": "Enviando..."
   },
-
   "openSource": {
     "title": "Código abierto",
     "subtitle": "Repos públicos en GitHub",
     "viewRepo": "Ver en GitHub",
     "mise": "Costeo de recetas, seguimiento de precios de supermercado y planificación semanal de comidas para un hogar que compra en más de una tienda.",
-    "novaSushi": "Sitio de marketing y embudo de captación de franquicias de Nõva Sushi, marca de sushi con dos locales en Córdoba, Argentina."
+    "novaSushi": "Sitio de marketing y embudo de captación de franquicias de Nõva Sushi, grupo de sushi con 3 locales en Argentina.",
+    "whatsappInbox": "Bandeja de entrada de WhatsApp a medida sobre la Meta Cloud API para un grupo de 3 restaurantes: NestJS, Next.js, Prisma, PostgreSQL, colas con BullMQ + Redis y Cloudflare R2."
   },
-
   "experience": {
     "title": "Experiencia y formación",
     "workTitle": "Experiencia",
@@ -286,47 +262,51 @@
     "items": {
       "gourmetify": {
         "org": "Gourmetify",
-        "role": "Founder y Lead Engineer",
-        "period": "2025 – Actualidad",
+        "role": "Fundador y Lead Engineer",
+        "period": "ene. 2025 – actualidad",
         "summary": "Plataforma SaaS B2B de punto de venta (POS) y gestión para el sector gastronómico.",
         "b": [
+          "En producción en 5 locales (incluidos los 3 de Nõva Sushi), con más de 1.000 tickets mensuales por local.",
           "POS offline-first con IndexedDB para persistencia local y sincronización en segundo plano al recuperar la conexión.",
-          "Arquitectura full-stack con Next.js 16, TypeScript y PostgreSQL, con aislamiento de datos multi-tenant.",
-          "Pasarelas de pago duales (MercadoPago y Stripe) para suscripciones SaaS B2B y cobros B2C, con webhooks resilientes que gestionan estados de pago, períodos de gracia y facturación automática.",
-          "Infraestructura desplegada desde cero en un VPS: Nginx como reverse proxy, contenedores Docker, SSL con Let's Encrypt, dominios y DNS.",
-          "En producción con 5 locales activos, procesando +1.000 tickets mensuales por local."
+          "Arquitectura multi-tenant con Next.js 16, TypeScript y PostgreSQL, con aislamiento de datos por cliente.",
+          "Stripe y MercadoPago para suscripciones SaaS y cobros en el local, con webhooks que gestionan estados de pago, períodos de gracia y facturación recurrente sin intervención manual.",
+          "Facturación electrónica con AFIP/ARCA (WSFE), incluyendo emisión por lotes y reutilización de tokens de autenticación.",
+          "Auditoría de seguridad y código: eliminación de secretos del historial de git, corrección de vulnerabilidades de dependencias y resolución de condiciones de carrera con advisory locks de PostgreSQL.",
+          "Infraestructura desplegada desde cero en un VPS: Nginx como reverse proxy, contenedores Docker, SSL con Let's Encrypt, dominios y DNS."
         ]
       },
       "dma": {
         "org": "DMA (Distribuidora Mayorista Autopiezas) · En Directo",
-        "role": "Desarrollador de Software Full-Stack",
-        "period": "2024 – Actualidad",
+        "role": "Desarrollador Full-Stack (freelance)",
+        "period": "may. 2024 – sep. 2026",
         "summary": "Plataforma SaaS B2B de distribución mayorista de autopartes, desplegada en marca blanca para dos clientes corporativos: DMA y En Directo.",
         "b": [
           "Catálogo, pedidos y flujos complejos de facturación para +520 clientes por distribuidora y un catálogo de +11.000 productos (Next.js 15, NestJS, MongoDB).",
-          "Motor de imputación de pagos que modela convenciones financieras argentinas: liquidación secuencial de documentos, amortización de intereses de cheques y planes de refinanciación.",
+          "Motor de imputación de pagos: liquidación secuencial de documentos, amortización de intereses de cheques y planes de refinanciación.",
           "Arquitectura multi-tenant con feature flags y configuración por entorno para despliegues white-label.",
           "Caché de estado de servidor en 43 slices de RTK Query para una sincronización resiliente y en tiempo real de los vendedores en campo.",
-          "Infraestructura desplegada desde cero en un VPS: Nginx, PM2, SSL con Let's Encrypt (Certbot), dominios y DNS."
+          "Despliegue y operación en VPS (Nginx, PM2, SSL, DNS)."
         ]
       },
       "nova": {
         "org": "Nõva Sushi",
-        "role": "Propietario y desarrollador",
-        "period": "2025",
-        "summary": "Landing de marketing y embudo de captación de franquicias de Nõva Sushi, negocio propio.",
+        "role": "Cofundador y responsable de tecnología",
+        "period": "sep. 2023 – actualidad",
+        "summary": "Grupo de restaurantes de sushi en Argentina (3 locales).",
         "b": [
-          "Ciclo completo del proyecto: relevamiento de requerimientos, diseño, desarrollo, despliegue y optimización de rendimiento.",
-          "+30% de mejora en velocidad de carga y +32% de aumento en pedidos."
+          "Bandeja de entrada de WhatsApp a medida sobre la Meta Cloud API (NestJS, Next.js, Prisma, PostgreSQL) que centraliza la atención y los pedidos de 3 locales y usan a diario 7 personas del equipo.",
+          "Procesamiento asíncrono de los webhooks de Meta con colas en BullMQ y Redis, y archivos multimedia en Cloudflare R2.",
+          "Arquitectura preparada para multi-tenant, para integrarla como módulo de Gourmetify.",
+          "Web de pedidos del grupo, con 3.000 pedidos online al mes."
         ]
       },
       "calm": {
         "org": "Calm es Simple",
-        "role": "Desarrollador Front End (pasantía)",
-        "period": "Dic 2023 – Feb 2024",
+        "role": "Desarrollador Front-End (prácticas)",
+        "period": "dic. 2023 – feb. 2024",
         "summary": "",
         "b": [
-          "Refactor de la arquitectura del frontend aplicando Atomic Design: ~40% más reutilización de componentes y mejor mantenibilidad.",
+          "Refactor de la arquitectura del frontend aplicando Atomic Design, mejorando la reutilización de componentes y la mantenibilidad.",
           "Mejoras de UI y modularización de componentes para optimizar la experiencia de usuario y reducir deuda técnica."
         ]
       }
@@ -335,7 +315,7 @@
       "uned": {
         "org": "UNED",
         "title": "Grado en Ingeniería Informática",
-        "period": "Inicio octubre 2026",
+        "period": "En curso (desde oct. 2026)",
         "detail": ""
       },
       "henryBootcamp": {
@@ -353,10 +333,9 @@
     },
     "languages": {
       "es": "Español — nativo",
-      "en": "Inglés — C2 (EF SET 76/100, 2023)"
+      "en": "Inglés — C1 Advanced (Cambridge, resultados pendientes) · EF SET C2 (2023)"
     }
   },
-
   "meta": {
     "site": {
       "title": "Rodrigo Villarreal | Desarrollador Full-Stack",
@@ -374,7 +353,7 @@
       },
       "contact": {
         "title": "Contacto",
-        "description": "Si buscás un full-stack para tu equipo o querés charlar sobre alguno de mis proyectos, escribime y lo hablamos."
+        "description": "Si buscas un full-stack para tu equipo o quieres hablar sobre alguno de mis proyectos, escríbeme y lo hablamos."
       }
     },
     "projects": {
@@ -392,16 +371,13 @@
       }
     }
   },
-
   "a11y": {
     "skipToContent": "Saltar al contenido principal"
   },
-
   "notFound": {
     "title": "Página no encontrada",
     "back": "Volver a proyectos"
   },
-
   "footer": {
     "tagline": "Portfolio hecho de proyectos que salieron a producción.",
     "projects": "Ver proyectos",
